@@ -1,0 +1,19 @@
+[
+  { "season": 2003, "team": "USC", "note": "Carson Palmer Heisman, Matt Leinart" },
+  { "season": 2004, "team": "USC", "note": "Matt Leinart, Reggie Bush" },
+  { "season": 2005, "team": "Texas", "note": "Vince Young championship" },
+  { "season": 2005, "team": "USC", "note": "Reggie Bush, LenDale White" },
+  { "season": 2006, "team": "Ohio State", "note": "Troy Smith Heisman" },
+  { "season": 2006, "team": "Florida", "note": "BCS Champions, Chris Leak" },
+  { "season": 2007, "team": "Florida", "note": "Tim Tebow Heisman" },
+  { "season": 2008, "team": "Florida", "note": "Tim Tebow BCS champ" },
+  { "season": 2008, "team": "Oklahoma", "note": "Sam Bradford Heisman" },
+  { "season": 2009, "team": "Alabama", "note": "Mark Ingram Heisman, BCS champ" },
+  { "season": 2010, "team": "Auburn", "note": "Cam Newton Heisman/champ" },
+  { "season": 2011, "team": "Alabama", "note": "BCS champ, Trent Richardson" },
+  { "season": 2011, "team": "Baylor", "note": "RG3 Heisman" },
+  { "season": 2012, "team": "Texas A&M", "note": "Johnny Manziel Heisman" },
+  { "season": 2012, "team": "Alabama", "note": "BCS champ, AJ McCarron" },
+  { "season": 2013, "team": "Texas A&M", "note": "Johnny Manziel" },
+  { "season": 2013, "team": "Florida State", "note": "Jameis Winston Heisman/champ" }
+]
