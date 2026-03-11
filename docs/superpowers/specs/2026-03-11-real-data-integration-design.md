@@ -68,57 +68,153 @@ Each play has structured columns plus a natural-language `playText` field:
 - Structured: `offense`, `defense`, `yardsGained`, `ppa`, `down`, `distance`, `scoring`, `playType`, `gameId`, `season`
 - Text: `playText` — e.g., "Nick Romano 45 Yd pass from Hayden Hatten (Logan Prescott Kick)"
 
-### Regex Parsing Patterns by Play Type
+### Parsing Strategy: Discovery-First
 
-| playType | Pattern | Extracted Fields |
-|----------|---------|-----------------|
-| `Rush` | `{name} run for {yards} yds` | rusher, rush_yards |
-| `Rushing Touchdown` | `{name} {yards} Yd Run` | rusher, rush_yards, rush_td=1 |
-| `Pass Reception` | `{passer} pass complete to {receiver}` | passer, receiver, (yards if present) |
-| `Passing Touchdown` | `{receiver} {yards} Yd pass from {passer}` | passer, receiver, pass_yards, pass_td=1 |
-| `Pass Incompletion` | `{passer} pass incomplete to {target}` | passer, incompletion=1 |
-| `Sack` | `{qb} sacked by {defender} for loss of {yards}` | qb, defender, sack=1, sack_yards |
-| `Interception` | `{passer} pass intercepted` | passer, int=1 |
-| `Interception Return TD` | `intercepted by {defender}...return...touchdown` | passer, defender, int=1, def_td=1 |
-| `Field Goal Good/Missed` | `{kicker} {distance} yd FG GOOD/MISSED` | kicker, fg_made/fg_missed, distance |
-| `Fumble Recovery (Opponent)` | `{player} fumbled, recovered by {defender}` | fumbler, recoverer, fumble_lost=1 |
-| `Kickoff Return` | `{returner} return for {yards} yds` | returner, return_yards |
-| `Punt Return Touchdown` | `{returner} return for {yards} yds...touchdown` | returner, return_yards, return_td=1 |
+The `playText` column has multiple format variants per play type that vary across seasons. Rather than hardcoding regex patterns upfront, the parser uses a **discovery-first approach**:
+
+1. **Phase 0 (one-time):** Run a discovery script that samples 20+ `playText` values per `playType` across multiple seasons, documenting all observed format variants
+2. **Phase 1:** Build regex patterns from discovered formats
+3. **Phase 2:** Validate patterns against full dataset, log unparseable plays for review
+
+### Data Extraction Rules
+
+**Primary principle:** Use structured CSV columns (`yardsGained`, `ppa`, `scoring`, `playType`) for stats. Use `playText` regex ONLY for player name extraction.
+
+| Data Point | Source |
+|------------|--------|
+| Yardage (rush, receiving, sack, return) | `yardsGained` column (structured, reliable) |
+| Player names (rusher, passer, receiver, etc.) | `playText` regex parsing |
+| Touchdowns | `scoring` column + `playType` |
+| Team association | `offense` / `defense` column |
+| PPA (predicted points added) | `ppa` column (structured) |
+| Game linkage | `gameId` column → links to `games.csv` |
+
+### Known `playText` Format Variants
+
+Multiple formats exist per play type. Examples from actual data:
+
+**Rush / Rushing Touchdown:**
+- `"Anthony Woods run for 2 yds to the LAM 45"`
+- `"Jack Layne run for 4 yds for a TD (Cameron Pope KICK)"`
+- Regex target: `^(.+?) run for` → extracts rusher name
+
+**Pass Reception / Passing Touchdown (TWO formats):**
+- Format A: `"Jack Layne pass complete to Mark Hamper"` (+ optional "for a 1ST down")
+- Format B: `"Jake Cox 36 Yd pass from Hayden Hatten (Cameron Pope Kick)"` (TD variant)
+- Format C: `"Rocco Becht pass complete to Jayden Higgins for 21 yds for a TD"` (TD via complete)
+- Regex targets: `^(.+?) pass complete to (.+?)(?:\s+(?:for|to the)|$)` and `^(.+?) \d+ Yd pass from (.+?)(?:\s*\(|$)`
+
+**Pass Incompletion:**
+- `"Jack Layne pass incomplete"` (no target — common)
+- `"pass incomplete to Terez Traynor"` (no passer — common)
+- `"Jack Layne pass incomplete to Terez Traynor"` (both named)
+
+**Sack:**
+- `"Spencer Rattler sacked by Tomari Fox for a loss of 3 yards to the UNC 8"`
+- Note: "for **a** loss" not "for loss"
+
+**Field Goal (TWO formats):**
+- `"Mitch Jeter 26 yd FG GOOD"`
+- `"Logan Ward 52 Yd Field Goal"`
+
+**Interception:**
+- `"Gevani McCoy pass intercepted"` (defender not always named)
+
+**Fumble:**
+- Player name sometimes absent at start of play
+- Recovery text includes team abbreviation: `"recovered by PSU Jaylen Reed"`
+
+### Complete `playType` Enumeration
+
+Parsed (extract player names + use structured columns for stats):
+- `Rush`, `Rushing Touchdown`
+- `Pass Reception`, `Passing Touchdown`
+- `Pass Incompletion`
+- `Sack`
+- `Interception`, `Interception Return Touchdown`, `Pass Interception Return`
+- `Fumble Recovery (Opponent)`, `Fumble Recovery (Own)`, `Fumble Return Touchdown`
+- `Field Goal Good`, `Field Goal Missed`
+- `Kickoff Return (Offense)`, `Kickoff Return Touchdown`
+- `Punt Return Touchdown`
+
+Skipped (no useful player stats):
+- `Kickoff`, `Punt` (kicker/punter names extractable but low priority)
+- `Penalty` (may contain negated play data — skip to avoid false stats)
+- `Timeout`, `End Period`, `End of Half`, `End of Game`, `End of Regulation`
+- `Blocked Field Goal`, `Blocked Punt`, `Blocked Field Goal Touchdown`, `Blocked Punt Touchdown`
+- `Safety`, `Uncategorized`, `placeholder`
+
+### Pass Attempt Counting (NCAA Rules)
+
+- `Pass Reception` / `Passing Touchdown` → +1 completion, +1 attempt
+- `Pass Incompletion` → +1 attempt
+- `Interception` → +1 attempt, +1 interception
+- `Sack` → NOT a pass attempt (NCAA rules differ from NFL; sacks are rushing plays in college stats)
 
 ### Aggregation Pipeline
 
-1. **Parse** — For each play, extract player name(s) and stat contributions via regex
+1. **Parse** — For each play, extract player name(s) from `playText`; pull stats from structured columns (`yardsGained`, `ppa`, `scoring`)
 2. **Associate** — Link player to team using the `offense`/`defense` column (no ambiguity)
-3. **Accumulate** — Sum stats per player per season per team (handles transfers)
-4. **Derive** — Calculate completion %, yards/attempt, yards/carry, etc.
-5. **Output players.json** — Unique player entries with id, name, team (most recent), position (inferred from play types)
-6. **Output player-stats.json** — Per-player-per-season stat objects
+3. **Count games** — Track unique `gameId` values per player per season for accurate games played
+4. **Accumulate** — Sum stats per player per season per team (handles transfers — different team = different player-season)
+5. **Derive** — Calculate completion %, yards/attempt, yards/carry, etc.
+6. **Output players.json** — Unique player entries with id, name, team (most recent), position (inferred from play types)
+7. **Output player-stats.json** — Per-player-per-season stat objects
 
 ### Position Inference
 
 Players don't have explicit positions in play-by-play. Infer from usage:
-- QBs: Players who appear as `passer` in pass plays
-- RBs: Players who appear primarily as `rusher` (and not as passer)
-- WRs/TEs: Players who appear as `receiver` (distinguish by volume/team context)
-- Kickers: Players in FG/kickoff plays
-- Defensive players: Players who appear as sack/INT/fumble recovery credit
+- **QBs:** Players who appear as `passer` in 5+ pass plays in a season
+- **RBs:** Players who appear primarily as `rusher` (and not as passer)
+- **WRs/TEs:** Players who appear as `receiver` (distinguish by volume/team context)
+- **K:** Players in FG plays
+- **DEF:** Players who appear as sack/INT/fumble recovery credit (position not further differentiated)
+
+### Player Identity & Interface
+
+**ID generation:** Hash of normalized `name + team + season` for player-season uniqueness. Player entity ID is hash of `name + first_team_seen`.
+
+**Name normalization:** Strip suffixes (Jr., II, III), normalize whitespace, handle "TEAM" placeholder plays.
+
+**CachedPlayer interface adaptation:** PBP-derived players cannot provide `jersey`, `height`, `weight`, `year`, or `hometown`. These fields will be set to defaults (`jersey: 0`, `height: 0`, `weight: 0`, `year: ''`, `hometown: ''`). The interface is preserved for compatibility — game engines only use `name`, `team`, `position` for gameplay logic.
 
 ### Edge Cases
-- **Transfers:** Same player name on different teams across seasons — treat as separate player-seasons, same player entity
+- **Transfers:** Same player name on different teams across seasons — same player entity, separate player-seasons
 - **Common names:** Disambiguate by team (the `offense`/`defense` column)
 - **Unnamed plays:** Some `playText` entries lack player names (penalties, timeouts) — skip these
 - **Partial parses:** If regex doesn't match, log the play for review but don't crash
-- **PAT/2PT:** Extract from parenthetical in TD plays when present
+- **PAT/2PT:** Extract kicker name from parenthetical in TD plays when present
+
+### Validation & Quality Report
+
+After parsing, the script outputs a quality report:
+- Total plays processed vs. total plays in source files
+- Parse success rate by `playType`
+- Top 20 unparseable `playText` samples for manual review
+- Stat sanity checks: top 5 QBs by passing yards per season, top 5 RBs by rushing yards — spot-check against known leaders
+- Cross-validation: compare per-team aggregated rushing/passing yards against `game_stats` CSV totals
 
 ### Expected Output Scale
-- ~5,000-10,000 unique players per season (all FBS rosters)
+- ~5,000-10,000 unique players per season (all FBS rosters touching a play)
 - ~50,000-100,000 total player-seasons across 2014-2024
-- Per-player stats: games, rush_att, rush_yds, rush_td, pass_comp, pass_att, pass_yds, pass_td, pass_int, receptions, rec_yds, rec_td, sacks, tackles_for_loss, interceptions, fumbles_forced, fumbles_recovered, fg_made, fg_att, kick_return_yds, punt_return_yds, return_tds, ppa_total
+- Per-player stats: games, rush_att, rush_yds, rush_td, pass_comp, pass_att, pass_yds, pass_td, pass_int, receptions, rec_yds, rec_td, sacks_recorded (defensive), interceptions_recorded (defensive), fumbles_lost, fumbles_recovered, fg_made, fg_att, kick_return_yds, punt_return_yds, return_tds, ppa_total
+- **Not derivable from PBP:** tackles, tackles_for_loss (except sacks), passes defended, forced fumbles (attribution unclear in text)
 
 ### Legends Extension
-For pre-2014 iconic players, parse plays from 2003-2013 selectively:
-- Specific seasons: Cam Newton 2010, Tim Tebow 2007-2008, Vince Young 2005, Reggie Bush 2005, Johnny Manziel 2012-2013, etc.
-- Full year parses for championship-caliber seasons
+For pre-2014 iconic players, parse plays from 2003-2013 selectively. Controlled by a config list (`scripts/legends-config.json`):
+```json
+[
+  { "season": 2005, "team": "Texas", "note": "Vince Young" },
+  { "season": 2005, "team": "USC", "note": "Reggie Bush" },
+  { "season": 2007, "team": "Florida", "note": "Tim Tebow" },
+  { "season": 2008, "team": "Florida", "note": "Tim Tebow" },
+  { "season": 2010, "team": "Auburn", "note": "Cam Newton" },
+  { "season": 2012, "team": "Texas A&M", "note": "Johnny Manziel" },
+  { "season": 2013, "team": "Texas A&M", "note": "Johnny Manziel" },
+  { "season": 2013, "team": "Florida State", "note": "Jameis Winston" }
+]
+```
+These team-seasons are fully parsed. All players from those teams in those years are included, not just the named legends — this gives Dynasty Builder full rosters for iconic teams.
 
 ## Section 2: ML Model Integration
 
