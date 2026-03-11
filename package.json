@@ -12,7 +12,8 @@
     "build": "expo export",
     "lint": "eslint src/",
     "test": "jest --passWithNoTests",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:data": "python scripts/build-player-stats.py --legends && npx tsx scripts/build-data.ts"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
