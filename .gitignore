@@ -49,6 +49,13 @@ next-env.d.ts
 expo-env.d.ts
 # @end expo-cli
 
+# CFBD data packs (large, local development only)
+starter_pack/
+model_pack/
+
 # ML models and training data (large files)
 server/ml/models/
 server/data/training_data.csv
+
+# PBP discovery output
+docs/play-format-discovery.txt
