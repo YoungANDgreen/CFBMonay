@@ -2,6 +2,8 @@
 // GridIron IQ — CFB Data Cache (Local JSON Seed Data)
 // ============================================================
 
+import { CachedAdvancedStats, CachedDriveEfficiency } from '../../types';
+
 // Cached data types
 export interface CachedTeam {
   id: number;
@@ -156,6 +158,8 @@ let draftPicks: CachedDraftPick[] = [];
 let rankings: CachedRanking[] = [];
 let records: CachedTeamRecord[] = [];
 let recruits: CachedRecruit[] = [];
+let advancedStats: CachedAdvancedStats[] = [];
+let driveStats: CachedDriveEfficiency[] = [];
 
 let initialized = false;
 
@@ -199,8 +203,16 @@ export function initializeDataCache(): void {
     recruits = require('../../data/recruits.json') as CachedRecruit[];
   } catch { recruits = []; }
 
+  try {
+    advancedStats = require('../../data/advanced-stats.json') as CachedAdvancedStats[];
+  } catch { advancedStats = []; }
+
+  try {
+    driveStats = require('../../data/drive-stats.json') as CachedDriveEfficiency[];
+  } catch { driveStats = []; }
+
   initialized = true;
-  console.log(`[DataCache] Loaded: ${teams.length} teams, ${players.length} players, ${playerStats.length} stat lines, ${games.length} games, ${draftPicks.length} draft picks`);
+  console.log(`[DataCache] Loaded: ${teams.length} teams, ${players.length} players, ${playerStats.length} stat lines, ${games.length} games, ${draftPicks.length} draft picks, ${advancedStats.length} advanced stats, ${driveStats.length} drive stats`);
 }
 
 // --- Team Getters ---
@@ -368,6 +380,37 @@ export function getFiveStarRecruits(): CachedRecruit[] {
   return recruits.filter(r => r.stars === 5);
 }
 
+// --- Advanced Stats Getters ---
+export function getAdvancedStats(): CachedAdvancedStats[] {
+  return advancedStats;
+}
+
+export function getAdvancedStatsByTeam(team: string, season?: number): CachedAdvancedStats[] {
+  return advancedStats.filter(s =>
+    s.team.toLowerCase() === team.toLowerCase() &&
+    (season === undefined || s.season === season)
+  );
+}
+
+export function getAdvancedStatsByConference(conference: string, season: number): CachedAdvancedStats[] {
+  return advancedStats.filter(s =>
+    s.conference.toLowerCase() === conference.toLowerCase() &&
+    s.season === season
+  );
+}
+
+// --- Drive Efficiency Getters ---
+export function getDriveEfficiency(): CachedDriveEfficiency[] {
+  return driveStats;
+}
+
+export function getDriveEfficiencyByTeam(team: string, season?: number): CachedDriveEfficiency[] {
+  return driveStats.filter(s =>
+    s.team.toLowerCase() === team.toLowerCase() &&
+    (season === undefined || s.season === season)
+  );
+}
+
 // --- Utility ---
 export function isCacheReady(): boolean { return initialized; }
 
@@ -383,5 +426,7 @@ export function getCacheStats() {
     rankings: rankings.length,
     records: records.length,
     recruits: recruits.length,
+    advancedStats: advancedStats.length,
+    driveStats: driveStats.length,
   };
 }
