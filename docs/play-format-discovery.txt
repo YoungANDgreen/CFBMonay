@@ -1,0 +1,1585 @@
+================================================================================
+PLAY-BY-PLAY FORMAT DISCOVERY REPORT
+================================================================================
+
+------------------------------------------------------------
+playType: Rush  (sampled count: 34053)
+------------------------------------------------------------
+  [2014] yards=32 scoring=False
+         Jordan Canzeri run for 32 yds to the Tenn 14 for a 1ST down
+  [2014] yards=3 scoring=False
+         Jordan Canzeri run for 3 yds to the Tenn 11
+  [2014] yards=10 scoring=False
+         Jake Rudock run for 10 yds to the Tenn 1 for a 1ST down
+  [2014] yards=28 scoring=False
+         Jordan Canzeri run for 28 yds to the Tenn 48 for a 1ST down
+  [2014] yards=8 scoring=False
+         Jordan Canzeri run for 8 yds to the Iowa 24
+  [2014] yards=7 scoring=False
+         LeShun Daniels Jr. run for 7 yds to the Iowa 27
+  [2014] yards=5 scoring=False
+         C.J. Beathard run for 5 yds to the Tenn 39
+  [2014] yards=11 scoring=False
+         Jordan Canzeri run for 11 yds to the Iowa 36 for a 1ST down
+  [2014] yards=17 scoring=False
+         C.J. Beathard run for 17 yds to the Tenn 47 for a 1ST down
+  [2014] yards=2 scoring=False
+         Jordan Canzeri run for 2 yds to the Iowa 37
+  [2014] yards=-1 scoring=False
+         Akrum Wadley run for a loss of 1 yard to the Iowa 24
+  [2014] yards=1 scoring=False
+         Macon Plewa run for 1 yd to the Tenn 33
+  [2014] yards=4 scoring=False
+         C.J. Beathard run for 4 yds to the Tenn 38
+  [2014] yards=0 scoring=False
+         Mark Weisman run for no gain to the Tenn 33
+  [2014] yards=2 scoring=False
+         Jordan Canzeri run for 2 yds to the Iowa 46
+  [2014] yards=4 scoring=False
+         Mark Weisman run for 4 yds to the Tenn 34
+  [2014] yards=2 scoring=False
+         Mark Weisman run for 2 yds to the Iowa 18
+  [2014] yards=3 scoring=False
+         Jalen Hurd run for 3 yds to the Tenn 31
+  [2014] yards=3 scoring=False
+         Jalen Hurd run for 3 yds to the Iowa 48
+  [2014] yards=19 scoring=False
+         Joshua Dobbs run for 19 yds to the Iowa 35 for a 1ST down
+  [2014] yards=5 scoring=False
+         Devrin Young run for 5 yds to the Iowa 30
+  [2014] yards=8 scoring=False
+         Joshua Dobbs run for 8 yds to the Tenn 44
+  [2014] yards=6 scoring=False
+         Von Pearson run for 6 yds to the Tenn 31
+  [2014] yards=1 scoring=False
+         Marlin Lane run for 1 yd to the Tenn 32
+  [2014] yards=20 scoring=False
+         Joshua Dobbs run for 20 yds to the Iowa 30 for a 1ST down
+
+
+------------------------------------------------------------
+playType: Pass Reception  (sampled count: 17778)
+------------------------------------------------------------
+  [2014] yards=-4 scoring=False
+         C.J. Beathard pass complete to Damond Powell for a loss of 4 yards to the Iowa 48
+  [2014] yards=8 scoring=False
+         C.J. Beathard pass complete to Kevonte Martin-Manley for 8 yds to the Tenn 31 for a 1ST down
+  [2014] yards=23 scoring=False
+         C.J. Beathard pass complete to Jacob Hillyer for 8 yds to the Tenn 41 for a 1ST down TENNESSEE Penalty, Personal Foul (L
+  [2014] yards=6 scoring=False
+         C.J. Beathard pass complete to Tevaun Smith for 6 yds to the Iowa 33 for a 1ST down
+  [2014] yards=1 scoring=False
+         Jake Rudock pass complete to Jordan Canzeri for 1 yd to the Iowa 16
+  [2014] yards=12 scoring=False
+         C.J. Beathard pass complete to Jordan Canzeri for 12 yds to the Tenn 42 for a 1ST down
+  [2014] yards=11 scoring=False
+         C.J. Beathard pass complete to Ray Hamilton for 11 yds to the Iowa 29 for a 1ST down
+  [2014] yards=18 scoring=False
+         Joshua Dobbs pass complete to Pig Howard for 18 yds to the Tenn 49 for a 1ST down
+  [2014] yards=11 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 11 yds to the Iowa 19 for a 1ST down
+  [2014] yards=4 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 4 yds to the Tenn 36 for a 1ST down
+  [2014] yards=2 scoring=False
+         Joshua Dobbs pass complete to Johnathon Johnson for 2 yds to the Tenn 46 for a 1ST down
+  [2014] yards=5 scoring=False
+         Joshua Dobbs pass complete to Ethan Wolf for 5 yds to the Iowa 14
+  [2014] yards=4 scoring=False
+         Joshua Dobbs pass complete to Ethan Wolf for 4 yds to the Iowa 19 for a 1ST down
+  [2014] yards=16 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 16 yds to the Tenn 41 for a 1ST down
+  [2014] yards=31 scoring=False
+         Jake Rudock pass complete to Tevaun Smith for 31 yds to the 50 yard line for a 1ST down
+  [2014] yards=6 scoring=False
+         C.J. Beathard pass complete to Kevonte Martin-Manley for 6 yds to the Iowa 46
+  [2014] yards=16 scoring=False
+         C.J. Beathard pass complete to Matt VandeBerg for 16 yds to the Tenn 28 for a 1ST down
+  [2014] yards=9 scoring=False
+         C.J. Beathard pass complete to Kevonte Martin-Manley for 9 yds to the Iowa 40 for a 1ST down
+  [2014] yards=13 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 13 yds to the Iowa 31 for a 1ST down
+  [2014] yards=9 scoring=False
+         C.J. Beathard pass complete to Ray Hamilton for 9 yds to the Iowa 34
+  [2014] yards=15 scoring=False
+         C.J. Beathard pass complete to Andrew Stone for 15 yds to the Iowa 49 for a 1ST down
+  [2014] yards=5 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 5 yds to the Iowa 8
+  [2014] yards=11 scoring=False
+         Joshua Dobbs pass complete to Pig Howard for 11 yds to the Tenn 49 for a 1ST down
+  [2014] yards=4 scoring=False
+         Joshua Dobbs pass complete to Josh Malone for 4 yds to the Iowa 47
+  [2014] yards=7 scoring=False
+         Joshua Dobbs pass complete to Von Pearson for 7 yds to the Iowa 33
+
+
+------------------------------------------------------------
+playType: Pass Incompletion  (sampled count: 12302)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Jake Duzey
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Matt VandeBerg
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete to Kevonte Martin-Manley
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Tevaun Smith
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Akrum Wadley
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Matt VandeBerg
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Damond Powell
+  [2014] yards=0 scoring=False
+         Joshua Dobbs pass incomplete to Josh Malone
+  [2014] yards=0 scoring=False
+         Joshua Dobbs pass incomplete
+  [2014] yards=0 scoring=False
+         Joshua Dobbs pass incomplete to Von Pearson
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete to Jacob Hillyer
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete to Kevonte Martin-Manley
+  [2014] yards=0 scoring=False
+         Jake Rudock pass incomplete to Kevonte Martin-Manley
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Ray Hamilton
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Ray Hamilton
+  [2014] yards=0 scoring=False
+         Joshua Dobbs pass incomplete to Pig Howard
+  [2014] yards=0 scoring=False
+         C.J. Beathard pass incomplete to Tevaun Smith
+  [2014] yards=0 scoring=False
+         Greg Ward Jr. pass incomplete to Demarcus Ayers
+  [2014] yards=0 scoring=False
+         Chad Voytik pass incomplete to Jester Weah
+  [2014] yards=0 scoring=False
+         Chad Voytik pass incomplete
+  [2014] yards=0 scoring=False
+         Chad Voytik pass incomplete to Dontez Ford
+  [2014] yards=0 scoring=False
+         TEAM pass incomplete
+  [2014] yards=0 scoring=False
+         Chad Voytik pass incomplete to Kevin Weatherspoon
+
+
+------------------------------------------------------------
+playType: Punt  (sampled count: 4710)
+------------------------------------------------------------
+  [2014] yards=12 scoring=False
+         Connor Kornbrath punt for 39 yds , Cameron Sutton returns for 12 yds to the Tenn 25
+  [2014] yards=22 scoring=False
+         Dillon Kidd punt for 37 yds, downed at the TENNESSEE 47 IOWA Penalty, Kick Catching Interference (-15 Yards) to the Iowa
+  [2014] yards=0 scoring=False
+         Dillon Kidd punt for 38 yds, punt out-of-bounds at the Tenn 38
+  [2014] yards=0 scoring=False
+         Matt Darr punt for 32 yds, fair catch by Matt VandeBerg at the Iowa 16
+  [2014] yards=0 scoring=False
+         Matt Darr punt for 36 yds for a touchback
+  [2014] yards=0 scoring=False
+         Matt Darr punt for 35 yds, fair catch by Riley McCarron at the Iowa 29
+  [2014] yards=0 scoring=False
+         Dillon Kidd punt for 25 yds, fair catch by Cameron Sutton at the Iowa 49
+  [2014] yards=0 scoring=False
+         Connor Kornbrath punt for 48 yds for a touchback
+  [2014] yards=5 scoring=False
+         Matt Darr punt for 46 yds , Matt VandeBerg returns for 5 yds to the Tenn 46
+  [2014] yards=0 scoring=False
+         Dillon Kidd punt for 28 yds, fair catch by Cameron Sutton at the Tenn 34
+  [2014] yards=0 scoring=False
+         Logan Piper punt for 60 yds , Tyler Boyd returns for no gain to the Pitt 9
+  [2014] yards=0 scoring=False
+         Ryan Winslow punt for 43 yds, fair catch by Demarcus Ayers at the Houst 24
+  [2014] yards=0 scoring=False
+         Logan Piper punt for 42 yds, fair catch by Tyler Boyd at the Pitt 38
+  [2014] yards=0 scoring=False
+         Logan Piper punt for 33 yds, fair catch by Tyler Boyd at the Pitt 37
+  [2014] yards=0 scoring=False
+         Logan Piper punt for 27 yds, fair catch by Tyler Boyd at the Pitt 8
+  [2014] yards=0 scoring=False
+         Logan Piper punt for 42 yds, downed at the Pitt 26
+  [2014] yards=0 scoring=False
+         Ryan Winslow punt for 44 yds, fair catch by Demarcus Ayers at the Houst 14
+  [2014] yards=9 scoring=False
+         Nick Walsh punt for 51 yds , Ishmael Adams returns for 9 yds to the UCLA 41
+  [2014] yards=0 scoring=False
+         Matt Mengel punt for 52 yds , Tyler Lockett returns for no gain to the KanSt 22 KANSAS ST Penalty, Offensive Holding (Ra
+  [2014] yards=0 scoring=False
+         Nick Walsh punt for 48 yds , Ishmael Adams returns for no gain to the UCLA 19
+  [2014] yards=41 scoring=False
+         Matt Mengel punt for 39 yds , Tyler Lockett returns for 41 yds to the UCLA 15
+  [2014] yards=0 scoring=False
+         Nick Walsh punt for 54 yds for a touchback
+  [2014] yards=0 scoring=False
+         Matt Mengel punt for 42 yds, fair catch by Tyler Lockett at the KanSt 42
+  [2014] yards=54 scoring=False
+         Nick Walsh punt for 44 yds, fair catch by Devin Fuller at the UCLA 39 UCLA Penalty, Offensive Holding (Devin Lucien) to 
+  [2014] yards=0 scoring=False
+         Matt Mengel punt for 53 yds, downed at the KanSt 9
+
+
+------------------------------------------------------------
+playType: Kickoff  (sampled count: 4422)
+------------------------------------------------------------
+  [2014] yards=15 scoring=False
+         Aaron Medley kickoff for 65 yds , Jordan Canzeri return for 15 yds to the Iowa 15
+  [2014] yards=0 scoring=False
+         Aaron Medley kickoff for 65 yds for a touchback
+  [2014] yards=5 scoring=False
+         Aaron Medley kickoff for 35 yds , Macon Plewa return for 5 yds to the Iowa 35
+  [2014] yards=0 scoring=False
+         Aaron Medley kickoff for 65 yds for a touchback
+  [2014] yards=16 scoring=False
+         Aaron Medley kickoff for 65 yds , Jonathan Parker return for 16 yds to the Iowa 16
+  [2014] yards=18 scoring=False
+         Marshall Koehn kickoff for 55 yds , Malik Foreman return for 18 yds to the Tenn 28
+  [2014] yards=0 scoring=False
+         Marshall Koehn kickoff for 65 yds for a touchback
+  [2014] yards=19 scoring=False
+         Aaron Medley kickoff for 61 yds , Jonathan Parker return for 19 yds to the Iowa 23
+  [2014] yards=19 scoring=False
+         Aaron Medley kickoff for 65 yds , Jonathan Parker return for 19 yds to the Iowa 19
+  [2014] yards=2 scoring=False
+         Aaron Medley kickoff for 64 yds , Jonathan Parker return for 2 yds to the Iowa 37 IOWA Penalty, Illegal Forward Pass (Jo
+  [2014] yards=0 scoring=False
+         Marshall Koehn on-side kick recovered by TENNESSEE at the Iowa 45
+  [2014] yards=9 scoring=False
+         Marshall Koehn on-side kick recovered by TENNESSEE at the Iowa 34 Todd Kelly Jr.
+  [2014] yards=0 scoring=False
+         Marshall Koehn on-side kick recovered by TENNESSEE at the Iowa 45
+  [2014] yards=16 scoring=False
+         Chris Blewitt kickoff for 64 yds , Demarcus Ayers return for 16 yds to the Houst 17
+  [2014] yards=10 scoring=False
+         Chris Blewitt kickoff for 61 yds , Demarcus Ayers return for 10 yds to the Houst 14
+  [2014] yards=13 scoring=False
+         Chris Blewitt kickoff for 61 yds , Markeith Ambles return for 13 yds to the Houst 17
+  [2014] yards=28 scoring=False
+         Ty Cummings kickoff for 64 yds , Tyler Boyd return for 28 yds to the Pitt 29
+  [2014] yards=10 scoring=False
+         Chris Blewitt kickoff for 65 yds , Demarcus Ayers return for 10 yds to the Houst 10
+  [2014] yards=14 scoring=False
+         Chris Blewitt kickoff for 64 yds , Demarcus Ayers return for 14 yds to the Houst 15
+  [2014] yards=18 scoring=False
+         Ty Cummings kickoff for 56 yds , Chris Wuestner return for 18 yds to the Pitt 27
+  [2014] yards=0 scoring=False
+         Ty Cummings on-side kick recovered by HOUSTON at the Houst 48
+  [2014] yards=21 scoring=False
+         Ty Cummings kickoff for 56 yds , Tyler Boyd return for 21 yds to the Pitt 30
+  [2014] yards=0 scoring=False
+         Ty Cummings on-side kick recovered by HOUSTON at the Houst 43
+  [2014] yards=0 scoring=False
+         Chris Blewitt kickoff for 65 yds for a touchback
+  [2014] yards=20 scoring=False
+         Ty Cummings kickoff for 63 yds , Tyler Boyd return for 20 yds to the Pitt 22
+
+
+------------------------------------------------------------
+playType: Penalty  (sampled count: 4388)
+------------------------------------------------------------
+  [2014] yards=15 scoring=False
+         Beathard, C.J. pass incomplete to Smith, Tevaun, PENALTY TENNESSEE pass interference (Coleman, Justin) 15 yards to the I
+  [2014] yards=10 scoring=False
+         Beathard, C.J. pass pass intercepted by Sutton, Cameron at the TENNESSEE45, Sutton, Cameron return 15 yards to the IOWA4
+  [2014] yards=-15 scoring=False
+         PITTSBURGH Penalty, Unnecessary Roughness (-15 Yards) to the Houst 32
+  [2014] yards=-15 scoring=False
+         HOUSTON Penalty, Personal Foul (-15 Yards) to the Houst 17
+  [2014] yards=-15 scoring=False
+         PITTSBURGH Penalty, Personal Foul (-15 Yards) to the Houst 34
+  [2014] yards=-5 scoring=False
+         PITTSBURGH Penalty, False Start (-5 Yards) to the Pitt 21
+  [2014] yards=-5 scoring=False
+         PITTSBURGH Penalty, False Start (-5 Yards) to the Houst 16
+  [2014] yards=15 scoring=False
+         Voytik, Chad pass incomplete, PENALTY HOUSTON pass interference 15 yards to the 50 yardline, NO PLAY, 1ST DOWN PITTSBURG
+  [2014] yards=-5 scoring=False
+         HOUSTON Penalty, False Start (-5 Yards) to the Pitt 35
+  [2014] yards=-15 scoring=False
+         HOUSTON Penalty, Unsportsmanlike Conduct (-15 Yards) to the Houst 35
+  [2014] yards=-10 scoring=False
+         HOUSTON Penalty, Offensive Holding (-10 Yards) to the Houst 38
+  [2014] yards=15 scoring=False
+         Voytik, Chad pass incomplete to Ford, Dontez, PENALTY HOUSTON pass interference 15 yards to the PITTSBURGH46, NO PLAY, 1
+  [2014] yards=-5 scoring=False
+         HOUSTON Penalty, False Start (-5 Yards) to the Houst 36
+  [2014] yards=-5 scoring=False
+         HOUSTON Penalty, False Start (-5 Yards) to the Pitt 24
+  [2014] yards=-10 scoring=False
+         Hundley, Brett pass complete to James, Jordon for no gain to the KANSASST35, PENALTY UCLA illegal block (Redmond, Alex) 
+  [2014] yards=5 scoring=False
+         UCLA Penalty, Substitution Infraction (5 Yards) to the UCLA 42
+  [2014] yards=5 scoring=False
+         Waters, Jake pass incomplete to Sexton, Curry, PENALTY UCLA offside (Hollins, Deon) 5 yards to the UCLA41, NO PLAY.
+  [2014] yards=15 scoring=False
+         Waters, Jake pass incomplete to Lockett, Tyler, PENALTY UCLA pass interference (Jefferson, Anthony) 15 yards to the UCLA
+  [2014] yards=-5 scoring=False
+         Waters, Jake rush for 11 yards to the KANSASST45, PENALTY KANSASST illegal formation 5 yards to the KANSASST29, NO PLAY.
+  [2014] yards=-5 scoring=False
+         UCLA Penalty, False Start (Conor McDermott) to the UCLA 33
+  [2014] yards=-5 scoring=False
+         KANSAS ST Penalty, False Start (Drew Liddle) to the UCLA 46
+  [2014] yards=-5 scoring=False
+         KANSAS ST Penalty, False Start (Boston Stiverson) to the UCLA 19
+  [2014] yards=5 scoring=False
+         UCLA Penalty, Defensive Offside (Owamagbe Odighizuwa) to the UCLA 14
+  [2014] yards=15 scoring=False
+         Waters, Jake pass pass intercepted by Willis, Priest at the KANSASST29, Willis, Priest return 26 yards to the KANSASST3,
+  [2014] yards=-15 scoring=False
+         UCLA Penalty, Unsportsmanlike Conduct (Caleb Benenoch) to the UCLA 17
+
+
+------------------------------------------------------------
+playType: Timeout  (sampled count: 3501)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         Timeout IOWA, clock 05:19
+  [2014] yards=0 scoring=False
+         Timeout TENNESSEE, clock 04:05
+  [2014] yards=0 scoring=False
+         Timeout IOWA, clock 03:58
+  [2014] yards=0 scoring=False
+         Timeout IOWA, clock 04:05
+  [2014] yards=0 scoring=False
+         Timeout IOWA, clock 02:25
+  [2014] yards=0 scoring=False
+         Timeout PITTSBURGH, clock 04:19
+  [2014] yards=0 scoring=False
+         Timeout PITTSBURGH, clock 05:17
+  [2014] yards=0 scoring=False
+         Timeout PITTSBURGH, clock 00:32
+  [2014] yards=0 scoring=False
+         Timeout PITTSBURGH, clock 00:28
+  [2014] yards=0 scoring=False
+         Timeout HOUSTON, clock 01:17
+  [2014] yards=0 scoring=False
+         Timeout HOUSTON, clock 01:06
+  [2014] yards=0 scoring=False
+         Timeout KANSAS ST, clock 09:08
+  [2014] yards=0 scoring=False
+         Timeout KANSAS ST, clock 04:20
+  [2014] yards=0 scoring=False
+         Timeout UCLA, clock 01:28
+  [2014] yards=0 scoring=False
+         Timeout KANSAS ST, clock 01:28
+  [2014] yards=0 scoring=False
+         Timeout KANSAS ST, clock 00:39
+  [2014] yards=0 scoring=False
+         Timeout AUBURN, clock 08:09
+  [2014] yards=0 scoring=False
+         Timeout WISCONSIN, clock 00:56
+  [2014] yards=0 scoring=False
+         Timeout AUBURN, clock 00:11
+  [2014] yards=0 scoring=False
+         Timeout WISCONSIN, clock 00:29
+  [2014] yards=0 scoring=False
+         Timeout WISCONSIN, clock 01:11
+  [2014] yards=0 scoring=False
+         Timeout AUBURN, clock 00:56
+  [2014] yards=0 scoring=False
+         Timeout AUBURN, clock 00:19
+  [2014] yards=0 scoring=False
+         Timeout AUBURN, clock 03:45
+  [2014] yards=0 scoring=False
+         Timeout WISCONSIN, clock 00:00
+
+
+------------------------------------------------------------
+playType: Sack  (sampled count: 1997)
+------------------------------------------------------------
+  [2014] yards=-3 scoring=False
+         Joshua Dobbs sacked by Jaleel Johnson and Quinton Alston for a loss of 3 yards to the Tenn 5
+  [2014] yards=-4 scoring=False
+         Greg Ward Jr. sacked by Rori Blair for a loss of 4 yards to the Pitt 22
+  [2014] yards=-7 scoring=False
+         Greg Ward Jr. sacked by Bam Bradley for a loss of 7 yards to the Pitt 30
+  [2014] yards=-2 scoring=False
+         Chad Voytik sacked by Tyus Bowser for a loss of 2 yards to the Houst 36
+  [2014] yards=-6 scoring=False
+         Jake Waters sacked by Deon Hollins for a loss of 6 yards to the UCLA 47
+  [2014] yards=-10 scoring=False
+         Jake Waters sacked by Owamagbe Odighizuwa for a loss of 10 yards to the KanSt 44
+  [2014] yards=-8 scoring=False
+         Jake Waters sacked by Eric Kendricks for a loss of 8 yards to the KanSt 17
+  [2014] yards=-8 scoring=False
+         Jake Waters sacked by Eric Kendricks for a loss of 8 yards to the KanSt 33
+  [2014] yards=-3 scoring=False
+         Jake Waters sacked by Marcus Rios for a loss of 3 yards to the UCLA 49 Jake Waters fumbled, forced by Marcus Rios, recov
+  [2014] yards=-7 scoring=False
+         Jake Waters sacked by Deon Hollins for a loss of 7 yards to the UCLA 46
+  [2014] yards=-7 scoring=False
+         Brett Hundley sacked by Marquel Bryant for a loss of 7 yards to the UCLA 16
+  [2014] yards=-7 scoring=False
+         Brett Hundley sacked by Ryan Mueller for a loss of 7 yards to the UCLA 38
+  [2014] yards=-6 scoring=False
+         Jake Waters sacked by Deon Hollins for a loss of 6 yards to the UCLA 30
+  [2014] yards=-13 scoring=False
+         Joel Stave sacked by Kris Frost for a loss of 13 yards to the Wisc 46
+  [2014] yards=-4 scoring=False
+         Nick Marshall sacked by Michael Caputo for a loss of 4 yards to the Aub 3
+  [2014] yards=-5 scoring=False
+         Mitch Leidner sacked by Markus Golden for a loss of 5 yards to the Misso 44 Mitch Leidner fumbled, forced by Markus Gold
+  [2014] yards=-11 scoring=False
+         Maty Mauk sacked by Theiren Cockran for a loss of 11 yards to the Minn 45
+  [2014] yards=-6 scoring=False
+         Maty Mauk sacked by Michael Amaefula for a loss of 6 yards to the Minn 46
+  [2014] yards=-1 scoring=False
+         Maty Mauk sacked by Jack Lynn for a loss of 1 yard to the Misso 41
+  [2014] yards=-7 scoring=False
+         Mitch Leidner sacked by Markus Golden for a loss of 7 yards to the Misso 48
+  [2014] yards=-6 scoring=False
+         Connor Cook sacked by Shawn Oakman for a loss of 6 yards to the MchSt 19
+  [2014] yards=-8 scoring=False
+         Bryce Petty sacked by Ed Davis for a loss of 8 yards to the MchSt 43
+  [2014] yards=-5 scoring=False
+         Bryce Petty sacked by Shilique Calhoun for a loss of 5 yards to the MchSt 29
+  [2014] yards=-7 scoring=False
+         Bryce Petty sacked by Marcus Rush and Riley Bullough for a loss of 7 yards to the Bayl 12
+  [2014] yards=-6 scoring=False
+         Bryce Petty sacked by Lawrence Thomas for a loss of 6 yards to the Bayl 19
+
+
+------------------------------------------------------------
+playType: Rushing Touchdown  (sampled count: 1697)
+------------------------------------------------------------
+  [2014] yards=1 scoring=True
+         Mark Weisman run for 1 yd for a TD, (Marshall Koehn KICK)
+  [2014] yards=11 scoring=True
+         Joshua Dobbs run for 11 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=3 scoring=True
+         Mark Weisman run for 3 yds for a TD, (Marshall Koehn KICK)
+  [2014] yards=29 scoring=True
+         Jalen Hurd run for 29 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=8 scoring=True
+         Joshua Dobbs run for 8 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=3 scoring=True
+         Jalen Hurd run for 3 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=8 scoring=True
+         Kenneth Farrow 8 Yd Run (Kyle Bullard Kick)
+  [2014] yards=5 scoring=True
+         James Conner 5 Yd Run (Chris Blewitt Kick)
+  [2014] yards=12 scoring=True
+         Isaac Bennett 12 Yd Run (Chris Blewitt Kick)
+  [2014] yards=2 scoring=True
+         Kenneth Farrow 2 Yd Run (Kyle Bullard PAT blocked)
+  [2014] yards=1 scoring=True
+         James Conner 1 Yd Run (Chris Blewitt Kick)
+  [2014] yards=28 scoring=True
+         Brett Hundley run for 28 yds for a TD, (Ka'imi Fairbairn KICK)
+  [2014] yards=32 scoring=True
+         Paul Perkins run for 32 yds for a TD, (Ka'imi Fairbairn KICK)
+  [2014] yards=1 scoring=True
+         Jake Waters run for 1 yd for a TD, (Matthew McCrane KICK)
+  [2014] yards=67 scoring=True
+         Paul Perkins 67 Yd Run (Two-Point Run Conversion Failed)
+  [2014] yards=2 scoring=True
+         DeMarcus Robinson run for 2 yds for a TD, (Matthew McCrane KICK)
+  [2014] yards=10 scoring=True
+         Brett Hundley run for 10 yds for a TD, (Ka'imi Fairbairn KICK)
+  [2014] yards=6 scoring=True
+         Melvin Gordon 6 Yd Run for a TD (Rafael Gaglianone Kick)
+  [2014] yards=2 scoring=True
+         Cameron Artis-Payne 2 Yd Run for a TD (Daniel Carlson Kick)
+  [2014] yards=2 scoring=True
+         Cameron Artis-Payne 2 Yd Run for a TD (Daniel Carlson Kick)
+  [2014] yards=25 scoring=True
+         Melvin Gordon 25 Yd Run for a TD (Rafael Gaglianone Kick)
+  [2014] yards=53 scoring=True
+         Melvin Gordon 53 Yd Run for a TD (Rafael Gaglianone Kick)
+  [2014] yards=78 scoring=True
+         Russell Hansbrough 78 Yd Run (Andrew Baggett Kick)
+  [2014] yards=18 scoring=True
+         Maty Mauk 18 Yd Run (Two-Point Pass Conversion Failed)
+  [2014] yards=20 scoring=True
+         Rodrick Williams Jr. 20 Yd Run (Ryan Santoso Kick)
+
+
+------------------------------------------------------------
+playType: Passing Touchdown  (sampled count: 1694)
+------------------------------------------------------------
+  [2014] yards=31 scoring=True
+         C.J. Beathard pass complete to Ray Hamilton for 31 yds for a TD, (Marshall Koehn KICK)
+  [2014] yards=49 scoring=True
+         Marlin Lane pass complete to Vic Wharton for 49 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=19 scoring=True
+         Joshua Dobbs pass complete to Von Pearson for 19 yds for a TD, (Aaron Medley KICK)
+  [2014] yards=18 scoring=True
+         C.J. Beathard pass complete to Matt VandeBerg for 18 yds for a TD, (Marshall Koehn KICK)
+  [2014] yards=8 scoring=True
+         Deontay Greenberry 8 Yd pass from Greg Ward Jr. (Kyle Bullard Kick)
+  [2014] yards=16 scoring=True
+         J.P. Holtz 16 Yd pass from Chad Voytik (Chris Blewitt Kick)
+  [2014] yards=29 scoring=True
+         Demarcus Ayers 29 Yd pass from Greg Ward Jr. (Kyle Bullard Kick)
+  [2014] yards=25 scoring=True
+         Deontay Greenberry 25 Yd pass from Greg Ward Jr. (Greg Ward Jr. Pass to Deontay Greenberry for Two-Point Conversion)
+  [2014] yards=3 scoring=True
+         Jake Waters pass complete to Tyler Lockett for 3 yds for a TD, (Jake Waters pass  to Tyler Lockett for Two-Point Convers
+  [2014] yards=29 scoring=True
+         Jake Waters pass complete to Tyler Lockett for 29 yds for a TD, (Matthew McCrane KICK)
+  [2014] yards=7 scoring=True
+         Brett Hundley pass complete to Devin Lucien for 7 yds for a TD, (Ka'imi Fairbairn KICK)
+  [2014] yards=66 scoring=True
+         Ricardo Louis 66 Yd pass from Nick Marshall for a TD (Daniel Carlson Kick)
+  [2014] yards=20 scoring=True
+         C.J. Uzomah 20 Yd pass from Nick Marshall for a TD (Daniel Carlson Kick)
+  [2014] yards=7 scoring=True
+         Joel Stave pass complete to Corey Clement for 7 yds for a TD, (Rafael Gaglianone KICK)
+  [2014] yards=7 scoring=True
+         Maty Mauk pass complete to Bud Sasser for 7 yds for a TD, (Andrew Baggett KICK)
+  [2014] yards=54 scoring=True
+         Maxx Williams 54 Yd pass from Mitch Leidner (Ryan Santoso Kick)
+  [2014] yards=25 scoring=True
+         Bud Sasser 25 Yd pass from Maty Mauk (Andrew Baggett Kick)
+  [2014] yards=18 scoring=True
+         LaQuan McGowan 18 Yd pass from Bryce Petty (Chris Callahan Kick)
+  [2014] yards=53 scoring=True
+         Jay Lee pass complete to Corey Coleman for 53 yds for a TD, (Chris Callahan KICK) MICHIGAN ST Penalty, roughing the kick
+  [2014] yards=49 scoring=True
+         Bryce Petty pass complete to KD Cannon for 49 yds for a TD, (Chris Callahan KICK)
+  [2014] yards=8 scoring=True
+         Connor Cook pass complete to Josiah Price for 8 yds for a TD, (Michael Geiger KICK)
+  [2014] yards=10 scoring=True
+         Connor Cook pass complete to Keith Mumphery for 10 yds for a TD, (Michael Geiger KICK)
+  [2014] yards=74 scoring=True
+         Bryce Petty pass complete to KD Cannon for 74 yds for a TD, (Chris Callahan KICK)
+  [2014] yards=18 scoring=True
+         Travis Rudolph 18 Yd pass from Jameis Winston (Roberto Aguayo Kick)
+  [2014] yards=30 scoring=True
+         Darren Carrington 30 Yd pass from Marcus Mariota (Aidan Schneider Kick)
+
+
+------------------------------------------------------------
+playType: Kickoff Return (Offense)  (sampled count: 1296)
+------------------------------------------------------------
+  [2014] yards=13 scoring=False
+         Adam Griffith kickoff for 64 yds , Curtis Samuel return for 13 yds to the OhSt 14 ALABAMA Penalty, Unsportsmanlike Condu
+  [2014] yards=26 scoring=False
+         Nick Hodgson kickoff for 65 yds , T.J. Green return for 26 yds to the Clem 26
+  [2014] yards=14 scoring=False
+         Bradley Pinion kickoff for 65 yds , Alex Ross return for 14 yds to the Okla 14
+  [2014] yards=0 scoring=False
+         Bradley Pinion kickoff for 60 yds , Durron Neal return for no gain to the Okla 5
+  [2014] yards=20 scoring=False
+         Andre Heidari kickoff for 58 yds , De'Mornay Pierson-El return for 20 yds to the Neb 27
+  [2014] yards=11 scoring=False
+         Andre Heidari kickoff for 34 yds , Andy Janovich return for 11 yds to the Neb 42
+  [2014] yards=11 scoring=False
+         Drew Brown kickoff for 50 yds , JuJu Smith return for 11 yds to the USC 26
+  [2014] yards=19 scoring=False
+         Drew Brown kickoff for 49 yds , Adoree' Jackson return for 19 yds to the USC 35
+  [2014] yards=10 scoring=False
+         Andre Heidari kickoff for 39 yds , Andy Janovich return for 10 yds to the Neb 45 NEBRASKA Penalty, Unsportsmanlike Condu
+  [2014] yards=12 scoring=False
+         Drew Brown kickoff for 45 yds , JuJu Smith return for 12 yds to the USC 32
+  [2014] yards=22 scoring=False
+         Drew Brown kickoff for 45 yds , JuJu Smith return for 22 yds to the USC 42
+  [2014] yards=13 scoring=False
+         Andre Heidari kickoff for 46 yds , De'Mornay Pierson-El return for 13 yds to the Neb 32
+  [2014] yards=41 scoring=False
+         Alex Wood kickoff for 59 yds , Ameer Abdullah return for 41 yds to the USC 48
+  [2014] yards=30 scoring=False
+         Alex Wood kickoff for 61 yds , Ameer Abdullah return for 30 yds to the Neb 34
+  [2014] yards=17 scoring=False
+         Alex Wood kickoff for 50 yds , Andy Janovich return for 17 yds to the Neb 47
+  [2014] yards=49 scoring=False
+         Alex Wood kickoff for 64 yds , Ameer Abdullah return for 49 yds to the 50 yard line
+  [2014] yards=14 scoring=False
+         Drew Brown kickoff for 54 yds , Adoree' Jackson return for 14 yds to the USC 25
+  [2014] yards=20 scoring=False
+         Drew Brown kickoff for 51 yds , JuJu Smith return for 20 yds to the USC 34
+  [2014] yards=16 scoring=False
+         Drew Brown kickoff for 63 yds , JuJu Smith return for 16 yds to the USC 18
+  [2014] yards=31 scoring=False
+         Tristan Vizcaino kickoff for 61 yds , Brandon Sheperd return for 31 yds to the OKSt 35
+  [2014] yards=18 scoring=False
+         Kip Smith kickoff for 65 yds , John Ross return for 18 yds to the Wash 18
+  [2014] yards=7 scoring=False
+         Kip Smith kickoff for 39 yds , Deontae Cooper return for 7 yds to the Wash 33
+  [2014] yards=12 scoring=False
+         Kip Smith kickoff for 57 yds , John Ross return for 12 yds to the Wash 20
+  [2014] yards=21 scoring=False
+         Kip Smith kickoff for 64 yds , John Ross return for 21 yds to the Wash 22
+  [2014] yards=0 scoring=False
+         Tristan Vizcaino kickoff for 61 yds , Brandon Sheperd return for no gain to the OKSt 38 Brandon Sheperd fumbled, recover
+
+
+------------------------------------------------------------
+playType: Field Goal Good  (sampled count: 1154)
+------------------------------------------------------------
+  [2014] yards=28 scoring=True
+         Aaron Medley 28 yd FG GOOD
+  [2014] yards=52 scoring=True
+         Chris Blewitt 52 Yd Field Goal 
+  [2014] yards=29 scoring=True
+         Chris Blewitt 29 Yd Field Goal 
+  [2014] yards=27 scoring=True
+         Ka'imi Fairbairn 27 yd FG GOOD
+  [2014] yards=29 scoring=True
+         Matthew McCrane 29 yd FG GOOD
+  [2014] yards=44 scoring=True
+         Ka'imi Fairbairn 44 yd FG GOOD
+  [2014] yards=47 scoring=True
+         Matthew McCrane 47 yd FG GOOD
+  [2014] yards=29 scoring=True
+         Rafael Gaglianone 29 yd FG GOOD
+  [2014] yards=51 scoring=True
+         Daniel Carlson 51 yd FG GOOD
+  [2014] yards=25 scoring=True
+         Rafael Gaglianone 25 yd FG GOOD
+  [2014] yards=21 scoring=True
+         Andrew Baggett 21 yd FG GOOD
+  [2014] yards=33 scoring=True
+         Andrew Baggett 33 yd FG GOOD
+  [2014] yards=38 scoring=True
+         Ryan Santoso 38 yd FG GOOD
+  [2014] yards=25 scoring=True
+         Chris Callahan 25 yd FG GOOD
+  [2014] yards=46 scoring=True
+         Chris Callahan 46 yd FG GOOD
+  [2014] yards=26 scoring=True
+         Roberto Aguayo 26 Yd Field Goal 
+  [2014] yards=28 scoring=True
+         Aidan Schneider 28 Yd Field Goal 
+  [2014] yards=28 scoring=True
+         Roberto Aguayo 28 Yd Field Goal 
+  [2014] yards=21 scoring=True
+         Sean Nuernberger 21 Yd Field Goal 
+  [2014] yards=22 scoring=True
+         Sean Nuernberger 22 Yd Field Goal 
+  [2014] yards=27 scoring=True
+         Gary Wunderlich 27 Yd Field Goal 
+  [2014] yards=29 scoring=True
+         Jordan Williamson 29 Yd Field Goal 
+  [2014] yards=32 scoring=True
+         Kyle Brindza 32 yd FG GOOD
+  [2014] yards=41 scoring=True
+         Marshall Morgan 41 yd FG GOOD
+  [2014] yards=22 scoring=True
+         Marshall Morgan 22 yd FG GOOD
+
+
+------------------------------------------------------------
+playType: End Period  (sampled count: 1071)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 3rd Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+  [2014] yards=0 scoring=False
+         End of 1st Quarter
+
+
+------------------------------------------------------------
+playType: Pass Interception Return  (sampled count: 569)
+------------------------------------------------------------
+  [2014] yards=-37 scoring=False
+         Joshua Dobbs pass intercepted Desmond King return for 37 yds to the Tenn 31
+  [2014] yards=-7 scoring=False
+         C.J. Beathard pass intercepted LaDarrell McNeil return for 7 yds to the Tenn 7
+  [2014] yards=-41 scoring=False
+         Jake Waters pass intercepted Myles Jack return for 41 yds to the KanSt 44
+  [2014] yards=0 scoring=False
+         Joel Stave pass intercepted Jermaine Whitehead return for no gain to the Aub 5
+  [2014] yards=0 scoring=False
+         Joel Stave pass intercepted Jermaine Whitehead return for no gain to the Aub 5
+  [2014] yards=0 scoring=False
+         Joel Stave pass intercepted Trovon Reed return for no gain to the Aub 33
+  [2014] yards=0 scoring=False
+         Maty Mauk pass intercepted, touchback. Briean Boddy-Calhoun return for no gain
+  [2014] yards=3 scoring=False
+         Maty Mauk pass intercepted Derrick Wells return for a loss of 3 yards to the Minn 43
+  [2014] yards=-47 scoring=False
+         Connor Cook pass intercepted Taylor Young return for 37 yds to the Bayl 0 BAYLOR Penalty, illegal block (Andrew Billings
+  [2014] yards=-6 scoring=False
+         Connor Cook pass intercepted Alfred Pullom return for 21 yds to the Bayl 5 MICHIGAN ST Penalty, personal foul (Donavon C
+  [2014] yards=-14 scoring=False
+         Bryce Petty pass intercepted Riley Bullough return for a loss of 1 yard to the Bayl 11 MICHIGAN ST Penalty, unsportsmanl
+  [2014] yards=0 scoring=False
+         Marcus Mariota pass intercepted Nate Andrews return for no gain to the FlaSt 49
+  [2014] yards=0 scoring=False
+         Jameis Winston pass intercepted Erick Dargan return for no gain to the FlaSt 43
+  [2014] yards=-30 scoring=False
+         Blake Sims pass intercepted Tyvis Powell return for 29 yds to the OhSt 29
+  [2014] yards=-7 scoring=False
+         Blake Sims pass intercepted Vonn Bell return for 7 yds to the OhSt 8
+  [2014] yards=-32 scoring=False
+         Cardale Jones pass intercepted Cyrus Jones return for 32 yds to the OhSt 15
+  [2014] yards=0 scoring=False
+         Trevone Boykin pass intercepted Cody Prewitt return for no gain to the Miss 2
+  [2014] yards=-3 scoring=False
+         Trevone Boykin pass intercepted Keith Lewis return for 3 yds to the Miss 30
+  [2014] yards=-36 scoring=False
+         Trevone Boykin pass intercepted Senquez Golson return for 36 yds to the TCU 11
+  [2014] yards=-1 scoring=False
+         Bo Wallace pass intercepted Derrick Kindred return for 1 yd to the TCU 42
+  [2014] yards=0 scoring=False
+         Bo Wallace pass intercepted Chris Hackett return for no gain to the Miss 35
+  [2014] yards=-18 scoring=False
+         C.J. Brown pass intercepted Kyle Olugbode return for 18 yds to the Mary 34
+  [2014] yards=0 scoring=False
+         Brice Ramsey pass intercepted Terell Floyd return for no gain to the Lvile 3
+  [2014] yards=-40 scoring=False
+         Reggie Bonnafon pass intercepted Dominick Sanders return for 40 yds to the Lvile 9
+  [2014] yards=0 scoring=False
+         Kyle Bolin pass intercepted Damian Swann return for no gain to the Geo 33
+
+
+------------------------------------------------------------
+playType: End of Half  (sampled count: 476)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+  [2014] yards=0 scoring=False
+         End of 2nd Quarter
+
+
+------------------------------------------------------------
+playType: End of Game  (sampled count: 449)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         Josh Hicks run for 8 yds to the NCaro 25 for a 1ST down.  End of 4th quarter.
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+  [2014] yards=0 scoring=False
+         End of 4th Quarter
+
+
+------------------------------------------------------------
+playType: Fumble Recovery (Own)  (sampled count: 427)
+------------------------------------------------------------
+  [2014] yards=-7 scoring=False
+         Mitch Leidner run for a loss of 7 yards to the Minn 37 Mitch Leidner fumbled, recovered by Minn KJ Maye
+  [2014] yards=-1 scoring=False
+         David Cobb run for a loss of 1 yard to the Minn 10 David Cobb fumbled, forced by Donavin Newsom, recovered by Minn David
+  [2014] yards=-13 scoring=False
+         Bryce Petty sacked by Shilique Calhoun and Joel Heath for a loss of 13 yards to the Bayl 11 Bryce Petty fumbled, recover
+  [2014] yards=-2 scoring=False
+         Connor Cook run for a loss of 2 yards to the Bayl 33 Connor Cook fumbled, recovered by MchSt
+  [2014] yards=-11 scoring=False
+         Jameis Winston sacked by Tony Washington for a loss of 11 yards to the FlaSt 36 Jameis Winston fumbled, forced by Tony W
+  [2014] yards=-7 scoring=False
+         Jameis Winston sacked by Torrodney Prevot for a loss of 7 yards to the Oregn 19 Jameis Winston fumbled, forced by Torrod
+  [2014] yards=-4 scoring=False
+         Jeff Lockie run for a loss of 4 yards to the Oregn 46 Jeff Lockie fumbled, recovered by Oregn Jeff Lockie
+  [2014] yards=-8 scoring=False
+         Cardale Jones run for a loss of 8 yards to the Alab 9 Cardale Jones fumbled, recovered by OhSt Cardale Jones
+  [2014] yards=-5 scoring=False
+         TEAM run for a loss of 14 yards to the TCU 26 TEAM fumbled, recovered by Miss Bo Wallace  Jordan Wilkins run for a loss 
+  [2014] yards=3 scoring=False
+         Brandon Ross run for 3 yds to the Mary 49 Brandon Ross fumbled, forced by James Vaughters, recovered by Mary Silvano Alt
+  [2014] yards=0 scoring=False
+         Tyrone Swoopes pass complete to John Harris for no gain John Harris fumbled, forced by Brooks Ellis, recovered by Texas 
+  [2014] yards=5 scoring=False
+         Brandon Williams run for 5 yds to the WVirg 40 Brandon Williams fumbled, forced by Karl Joseph, recovered by TexAM Germa
+  [2014] yards=3 scoring=False
+         Nick Schuessler run for a loss of 7 yards to the Clem 33 Nick Schuessler fumbled, recovered by Clem Daniel Rodriguez  Da
+  [2014] yards=0 scoring=False
+         Pharoh Cooper run for no gain to the SCaro 42 Pharoh Cooper fumbled, recovered by SCaro Cody Gibson
+  [2014] yards=0 scoring=False
+         Nelson Agholor run for no gain to the USC 43 Nelson Agholor fumbled, recovered by USC Nelson Agholor
+  [2014] yards=-17 scoring=False
+         Taylor Kelly sacked by DeVon Edwards for a loss of 17 yards to the Duke 21 Taylor Kelly fumbled, forced by DeVon Edwards
+  [2014] yards=-9 scoring=False
+         Taylor Kelly sacked by Jordan DeWalt-Ondijo for a loss of 9 yards to the ArzSt 34 Taylor Kelly fumbled, forced by Jordan
+  [2014] yards=-1 scoring=False
+         Jacoby Brissett sacked by Thomas Niles for a loss of 1 yard to the NCSt 24 Jacoby Brissett fumbled, forced by Thomas Nil
+  [2014] yards=-2 scoring=False
+         Cooper Rush sacked by Tanner Reeves for a loss of 2 yards to the CMich 23 Cooper Rush fumbled, forced by Tanner Reeves, 
+  [2014] yards=-2 scoring=False
+         TEAM run for a loss of 2 yards to the CMich 12 TEAM fumbled, recovered by WKent Anthony Wales
+  [2014] yards=1 scoring=False
+         Chase Price run for 1 yd to the Navy 20 Chase Price fumbled, recovered by SDSt Darrell Greene
+  [2014] yards=18 scoring=False
+         Shane Carden pass complete to Isaiah Jones for 18 yds Isaiah Jones fumbled, recovered by ECaro Jimmy Williams for a 1ST 
+  [2014] yards=4 scoring=False
+         Logan Woodside pass complete to Alonzo Russell for 10 yds Alonzo Russell fumbled, recovered by Toled Kareem Hunt for a 1
+  [2014] yards=12 scoring=False
+         Thomas Tyner run for 12 yds to the OhSt 43 Thomas Tyner fumbled, recovered by Oregn Thomas Tyner for a 1ST down
+  [2014] yards=-5 scoring=False
+         Garrett Grayson sacked by Nate Orchard for a loss of 5 yards to the Utah 27 Garrett Grayson fumbled, forced by Nate Orch
+
+
+------------------------------------------------------------
+playType: Fumble Recovery (Opponent)  (sampled count: 384)
+------------------------------------------------------------
+  [2014] yards=-3 scoring=False
+         C.J. Beathard run for a loss of 3 yards to the 50 yard line C.J. Beathard fumbled, recovered by Tenn Brian Randolph , re
+  [2014] yards=9 scoring=False
+         Paul Perkins run for a loss of 1 yard to the UCLA 21 Paul Perkins fumbled, forced by Ryan Mueller, recovered by KanSt Da
+  [2014] yards=-3 scoring=False
+         Mitch Leidner run for a loss of 3 yards to the Minn 34 Mitch Leidner fumbled, forced by Michael Scherer, recovered by Mi
+  [2014] yards=10 scoring=False
+         Dalvin Cook run for 10 yds to the Oregn 31 Dalvin Cook fumbled, forced by Derrick Malone, recovered by Oregn Derrick Mal
+  [2014] yards=58 scoring=True
+         Jameis Winston run for a loss of 12 yards Jameis Winston fumbled, recovered by Oregn Tony Washington, return for 58 yds 
+  [2014] yards=7 scoring=False
+         Jameis Winston pass complete to Dalvin Cook for 15 yds Dalvin Cook fumbled, forced by Johnny Ragin III, recovered by Ore
+  [2014] yards=14 scoring=False
+         Jameis Winston pass complete to Jesus Wilson for 14 yds Jesus Wilson fumbled, forced by Rodney Hardrick, recovered by Or
+  [2014] yards=-2 scoring=False
+         Jeff Lockie run for a loss of 2 yards to the Oregn 45 Jeff Lockie fumbled, recovered by FlaSt Derrick Nnadi
+  [2014] yards=4 scoring=False
+         Ezekiel Elliott run for 17 yds to the OhSt 37 Ezekiel Elliott fumbled, forced by Eddie Jackson, recovered by Alab Landon
+  [2014] yards=-2 scoring=False
+         Trevone Boykin pass complete to David Porter for a loss of 2 yards David Porter fumbled, recovered by Miss C.J. Johnson
+  [2014] yards=0 scoring=False
+         Bo Wallace run for no gain to the Miss 27 Bo Wallace fumbled, forced by Marcus Mallet, recovered by TCU Marcus Mallet
+  [2014] yards=-4 scoring=False
+         Kevin Hogan run for a loss of 4 yards to the Mary 27 Kevin Hogan fumbled, recovered by Mary Darius Kilgo
+  [2014] yards=-1 scoring=False
+         Anthony Jennings run for a loss of 1 yard to the NDame 45 Anthony Jennings fumbled, recovered by NDame Sheldon Day
+  [2014] yards=-1 scoring=False
+         Sony Michel run for a loss of 1 yard to the Lvile 32 Sony Michel fumbled, forced by Lorenzo Mauldin, recovered by Lvile 
+  [2014] yards=0 scoring=True
+         Johnathan Gray run for a loss of 3 yards, Johnathan Gray fumbled, recovered by Ark Taiwan Johnson for a TD, (Adam McFain
+  [2014] yards=7 scoring=False
+         Skyler Howard pass complete to Kevin White for 7 yds Kevin White fumbled, forced by Floyd Raven Sr., recovered by TexAM 
+  [2014] yards=-7 scoring=False
+         Samaje Perine run for a loss of 7 yards to the Clem 31 Samaje Perine fumbled, forced by Grady Jarrett, recovered by Clem
+  [2014] yards=8 scoring=False
+         Keith Ford run for 8 yds to the Okla 45 Keith Ford fumbled, forced by Josh Watson, recovered by Clem Jayron Kearse  , re
+  [2014] yards=0 scoring=False
+         Duke Johnson run for no gain to the MiaFl 29 Duke Johnson fumbled, recovered by SCaro Gerald Dixon
+  [2014] yards=29 scoring=False
+         Anthony Boone pass complete to Issac Blakeney for 21 yds Issac Blakeney fumbled, forced by Kweishi Brown, recovered by A
+  [2014] yards=-8 scoring=False
+         Jacoby Brissett run for a loss of 8 yards to the NCSt 34 Jacoby Brissett fumbled, recovered by UCF Thomas Niles
+  [2014] yards=8 scoring=False
+         Marquise Williams pass complete to Romar Morris for 8 yds Romar Morris fumbled, forced by Steve Longa, recovered by Rutg
+  [2014] yards=9 scoring=False
+         Marquise Williams pass complete to Quinshad Davis for 9 yds Quinshad Davis fumbled, forced by Anthony Cioffi, recovered 
+  [2014] yards=2 scoring=False
+         Anthony Wales run for 2 yds to the CMich 16 Anthony Wales fumbled, recovered by CMich Justin Cherocci
+  [2014] yards=56 scoring=False
+         Brandon Doughty pass complete to Willie McNeal for 56 yds Willie McNeal fumbled, forced by Joe Ostman, recovered by CMic
+
+
+------------------------------------------------------------
+playType: Field Goal Missed  (sampled count: 372)
+------------------------------------------------------------
+  [2014] yards=44 scoring=False
+         Daniel Carlson 44 yd FG MISSED
+  [2014] yards=45 scoring=False
+         Daniel Carlson 45 yd FG MISSED
+  [2014] yards=46 scoring=False
+         Chris Callahan 46 yd FG MISSED
+  [2014] yards=54 scoring=False
+         Roberto Aguayo 54 yd FG MISSED
+  [2014] yards=41 scoring=False
+         Jaden Oberkrom 41 yd FG MISSED
+  [2014] yards=37 scoring=False
+         Gary Wunderlich 52 yd FG MISSED OLE MISS Penalty, Personal Foul (Justin Bell) to the TCU 49
+  [2014] yards=37 scoring=False
+         Jordan Williamson 37 yd FG MISSED
+  [2014] yards=32 scoring=False
+         Adam McFain 32 yd FG MISSED
+  [2014] yards=51 scoring=False
+         Michael Badgley 51 Yard Field Goal Missed
+  [2014] yards=58 scoring=False
+         Elliott Fry 58 Yard Field Goal Missed
+  [2014] yards=40 scoring=False
+         Elliott Fry 40 Yard Field Goal Missed
+  [2014] yards=51 scoring=False
+         Andrew Gantz 51 yd FG MISSED
+  [2014] yards=47 scoring=False
+         Niklas Sade 47 yd FG MISSED
+  [2014] yards=42 scoring=False
+         Taylor Zalewski 42 yd FG MISSED
+  [2014] yards=46 scoring=False
+         David Reisner 46 yd FG MISSED
+  [2014] yards=45 scoring=False
+         Kyle Fischer 45 yd FG MISSED
+  [2014] yards=36 scoring=False
+         Garrett Schwettman 36 yd FG MISSED
+  [2014] yards=34 scoring=False
+         Donny Hageman 34 yd FG MISSED
+  [2014] yards=32 scoring=False
+         Christian Hagan 32 yd FG MISSED
+  [2014] yards=43 scoring=False
+         Cameron Van Winkle 43 yd FG MISSED
+  [2014] yards=27 scoring=False
+         Ben Grogan 27 yd FG MISSED
+  [2014] yards=42 scoring=False
+         Warren Harvey 42 yd FG MISSED
+  [2014] yards=38 scoring=False
+         Andy Phillips 38 yd FG MISSED
+  [2014] yards=44 scoring=False
+         Jared Roberts 44 yd FG MISSED
+  [2014] yards=36 scoring=False
+         Hunter Stover 36 yd FG MISSED
+
+
+------------------------------------------------------------
+playType: Interception  (sampled count: 210)
+------------------------------------------------------------
+  [2023] yards=0 scoring=False
+         Sam Hartman pass intercepted by Phillip O'Brien Jr., at the PITT9, return for 19 yards to the PITT 28
+  [2023] yards=0 scoring=False
+         Sam Hartman pass intercepted by Brandon George, at the PITT 13, returned for 3 yards to the PITT 21
+  [2023] yards=0 scoring=False
+         Alan Bowman pass intercepted
+  [2023] yards=0 scoring=False
+         Blake Shapen pass intercepted
+  [2023] yards=0 scoring=False
+         Rocco Becht pass intercepted
+  [2023] yards=0 scoring=False
+         Zolten Osborne pass intercepted
+  [2023] yards=0 scoring=False
+         Zolten Osborne pass intercepted
+  [2023] yards=0 scoring=False
+         Tyler Kubat pass intercepted by Tyler Jones, out-of-bounds.
+  [2023] yards=0 scoring=False
+         Maverick McIvor pass intercepted
+  [2023] yards=0 scoring=False
+         Maverick McIvor pass intercepted
+  [2023] yards=0 scoring=False
+         Maverick McIvor pass intercepted
+  [2023] yards=0 scoring=False
+         Parker McKinney pass intercepted
+  [2023] yards=0 scoring=False
+         Zevi Eckhaus pass intercepted
+  [2023] yards=0 scoring=False
+         Anthony Chiccitt pass intercepted
+  [2023] yards=0 scoring=False
+         Tyler Szalkowski pass intercepted
+  [2023] yards=15 scoring=False
+         Anthony Chiccitt pass intercepted for a 1ST down Tennessee Tech Penalty, Defensive pass interference (Nyquan Washington)
+  [2023] yards=0 scoring=False
+         Alex Flinn pass intercepted by Elliott Davison, touchback.
+  [2023] yards=0 scoring=False
+         Michael Pratt pass intercepted
+  [2023] yards=0 scoring=False
+         Austin Reed pass intercepted, touchback.
+  [2023] yards=0 scoring=False
+         Davis Brin pass intercepted
+  [2023] yards=0 scoring=False
+         Joey Aguilar pass intercepted
+  [2023] yards=0 scoring=False
+         Darren Grainger pass intercepted
+  [2023] yards=0 scoring=False
+         TJ Finley pass intercepted, touchback.
+  [2023] yards=0 scoring=False
+         TJ Finley pass intercepted
+  [2023] yards=0 scoring=False
+         Jaylen Raynor pass intercepted
+
+
+------------------------------------------------------------
+playType: Interception Return Touchdown  (sampled count: 89)
+------------------------------------------------------------
+  [2014] yards=-41 scoring=True
+         Steve Miller 41 Yd Interception Return (Sean Nuernberger Kick)
+  [2014] yards=0 scoring=True
+         James McFarland 0 Yd Interception Return (Jaden Oberkrom Kick)
+  [2014] yards=-35 scoring=True
+         KJ Dillon 35 Yd Interception Return (Josh Lambert Kick)
+  [2014] yards=-47 scoring=True
+         Trevor Knight pass intercepted for a TD Ben Boulware return for 47 yds for a TD, (Ammon Lakip KICK)
+  [2014] yards=-69 scoring=True
+         Reilly O'Toole pass intercepted for a TD Xavier Woods return for 69 yds for a TD, (Jonathan Barnes KICK)
+  [2014] yards=-29 scoring=True
+         Brian Poole 29 Yd Interception Return (Austin Hardin Kick)
+  [2014] yards=-94 scoring=True
+         Money Hunter 94 Yd Interception Return (Logan Spry Kick)
+  [2014] yards=-19 scoring=True
+         Paxton Lynch pass intercepted for a TD Zac Stout return for 19 yds for a TD, (Trevor Samson KICK)
+  [2014] yards=-16 scoring=True
+         Donte Deayon 16 Yd Interception Return (Dan Goodale Kick)
+  [2014] yards=-52 scoring=True
+         Daxx Garman pass intercepted for a TD Dravon Henry return for 52 yds for a TD, (Josh Lambert KICK)
+  [2014] yards=-61 scoring=True
+         Armand Perry 61 Yd Interception Return (Zane Gonzalez Kick)
+  [2014] yards=-12 scoring=True
+         Derrius Vick pass intercepted for a TD Trevor Ishmael return for 12 yds for a TD, (Andrew Haldeman KICK)
+  [2014] yards=-63 scoring=True
+         John Timu 63 Yd Interception Return (Cameron Van Winkle Kick)
+  [2014] yards=-60 scoring=True
+         Andrew McNulty pass intercepted for a TD Ryan Pollard return for 60 yds for a TD, (James Farrimond KICK)
+  [2014] yards=-19 scoring=True
+         Austin Robinson pass intercepted for a TD Jimmy Musgrave return for 19 yds for a TD, (Jay Mattox KICK)
+  [2014] yards=-96 scoring=True
+         Taylor Heinicke pass intercepted for a TD Juwan Gardner return for 96 yds for a TD, (Garrett Schwettman KICK)
+  [2014] yards=-20 scoring=True
+         Fred Warner 20 Yd Interception Return (Trevor Samson Kick)
+  [2014] yards=-40 scoring=True
+         J.T. Barrett pass intercepted for a TD Anthony Zettel return for 40 yds for a TD, (Sam Ficken KICK)
+  [2014] yards=-29 scoring=True
+         Devin Gardner pass intercepted for a TD RJ Williamson return for 29 yds for a TD, (Michael Geiger KICK)
+  [2017] yards=-44 scoring=True
+         D'Eriq King pass intercepted by Jaron Bryant return for 44 yds for a TD (Jimmy Camacho KICK)
+  [2017] yards=-100 scoring=True
+         Tyree Robinson 100 Yd Interception Return (Aidan Schneider Kick)
+  [2017] yards=-53 scoring=True
+         Kekaula Kaniho 53 Yd Interception Return (Haden Hoggarth Kick)
+  [2017] yards=-45 scoring=True
+         Ben Hicks pass intercepted for a TD Amik Robertson return for 45 yds for a TD, (Jonathan Barnes KICK)
+  [2017] yards=-23 scoring=True
+         Ben Hicks pass intercepted for a TD Darryl Lewis return for 23 yds for a TD, (Jonathan Barnes KICK)
+  [2017] yards=-18 scoring=True
+         Mack Wilson 18 Yd Interception Return (Andy Pappanastos Kick)
+
+
+------------------------------------------------------------
+playType: Blocked Field Goal  (sampled count: 48)
+------------------------------------------------------------
+  [2014] yards=43 scoring=False
+         Chris Callahan 43 yd FG BLOCKED blocked by  RJ Williamson return for 36 yds to the Bayl 45
+  [2014] yards=40 scoring=False
+         Trent Domingue 40 yd FG BLOCKED blocked by Isaac Rochell  Cole Luke return for 3 yds to the NDame 33
+  [2014] yards=42 scoring=False
+         Ammon Lakip 42 yd FG BLOCKED blocked by Chuka Ndulue
+  [2014] yards=31 scoring=False
+         Thomas Moore 31 yd FG BLOCKED blocked by Lorenzo Waters
+  [2014] yards=44 scoring=False
+         Kody Kroening 44 yd FG BLOCKED blocked by Brian Nordstrom
+  [2014] yards=36 scoring=False
+         Josiah Yazdani 36 yd FG BLOCKED blocked by  N/A return for 1 yd to the WMich 30
+  [2014] yards=32 scoring=False
+         Tyler Wedel 32 yd FG BLOCKED blocked by N/A return for no gain to the EMich 15
+  [2014] yards=24 scoring=False
+         Tyler Wedel 24 yd FG BLOCKED blocked by N/A return for no gain to the EMich 8
+  [2014] yards=52 scoring=False
+         Stuart Williams 47 yd FG BLOCKED blocked by Trent Matthews  COLORADO ST Penalty, Personal Foul (Joe Kawulok) to the ColS
+  [2014] yards=43 scoring=False
+         Jonathan Leiva 43 yd FG BLOCKED blocked by Michael Okonkwo
+  [2014] yards=50 scoring=False
+         Kyle Federico 50 yd FG BLOCKED blocked by Randy Gregory  Josh Mitchell return for 2 yds to the Neb 37 Josh Mitchell fumb
+  [2017] yards=25 scoring=False
+         Matthew Wright 25 yd FG BLOCKED blocked by Derrick Brown
+  [2017] yards=47 scoring=False
+         Nick Vogel 47 yd FG BLOCKED blocked by Kent Berger
+  [2017] yards=43 scoring=False
+         Mike Weaver 43 yd FG BLOCKED blocked by Jayden Peevy
+  [2017] yards=24 scoring=False
+         Ryan Nuss 24 yd FG BLOCKED blocked by Shelton Lewis
+  [2017] yards=36 scoring=False
+         Paul Fricano 36 yd FG BLOCKED blocked by TEAM  TEAM return for no gain to the NoIll 19
+  [2017] yards=37 scoring=False
+         Henry Darmstadter 37 yd FG BLOCKED blocked by Jacob Robinson
+  [2017] yards=27 scoring=False
+         Joshua Rowland 27 yd FG BLOCKED blocked by Greg Roberts
+  [2020] yards=40 scoring=False
+         Christopher Dunn 40 yd FG BLOCKED blocked by TEAM  Tyrell Ajian return for no gain to the Kent 23
+  [2020] yards=49 scoring=False
+         Luke Logan 49 yd FG BLOCKED blocked by Jerome Johnson
+  [2023] yards=46 scoring=False
+         Collin Rogers 46 yd FG BLOCKED blocked by KP Price Rogers, Collin field goal attempt from 46 blocked, recovered by BOSTO
+  [2023] yards=47 scoring=False
+         Ethan Sanchez 47 yd FG BLOCKED blocked by Marshall Jackson Sanchez, Ethan field goal attempt from 47 blocked, recovered 
+  [2023] yards=23 scoring=False
+         Ethan Sanchez 23 yd FG BLOCKED blocked by Talique Allen Sanchez, Ethan field goal attempt from 23 blocked, recovered by 
+  [2023] yards=45 scoring=False
+         Nico Ramos 45 yd FG BLOCKED by Loshiaka Roques, spot at NODAKOTAST35.
+  [2023] yards=51 scoring=False
+         Alex Felkins 51 yd FG BLOCKED blocked by Zxavian Harris Felkins, Alex field goal attempt from 51 blocked, recovered by O
+
+
+------------------------------------------------------------
+playType: Fumble Return Touchdown  (sampled count: 34)
+------------------------------------------------------------
+  [2014] yards=-67 scoring=True
+         Allen Covington 67 Yd Fumble Return (Jeremiah Detmer Kick)
+  [2014] yards=-60 scoring=True
+         Dexter Walker 60 Yd Fumble Return (Kale Pearson Pass to Jalen Robinette for Two-Point Conversion)
+  [2014] yards=-12 scoring=True
+         V'Angelo Bentley 12 Yd Fumble Return TD (David Reisner Kick)
+  [2017] yards=-56 scoring=True
+         Colton McDonald 56 Yd Fumble Return (Two-Point Run Conversion Failed)
+  [2017] yards=-86 scoring=True
+         Troy Dye 86 Yd Fumble Return (Aidan Schneider Kick)
+  [2017] yards=-54 scoring=True
+         D.J. Sanders 54 Yd Fumble Return (Canon Rooker Kick)
+  [2017] yards=-46 scoring=True
+         Steven Parker 46 Yd Fumble Return (Austin Seibert Kick)
+  [2017] yards=-58 scoring=True
+         Carl Granderson 58 Yd Fumble Return (Cooper Rothe Kick)
+  [2017] yards=-29 scoring=True
+         Elijah Riley 29 Yd Fumble Return 
+  [2017] yards=0 scoring=True
+         Ryan Rockensuess 0 Yd Fumble Return (Logan Birchfield PAT blocked)
+  [2023] yards=21 scoring=True
+         Tyler Grubbs 21 Yd Fumble Return (Valentino Ambrosio Kick)
+  [2023] yards=87 scoring=True
+         Gunner Maldonado 87 Yd Fumble Return (Noah Fifita Pass to Montana Lemonious-Craig for Two-Point Conversion)
+  [2023] yards=52 scoring=True
+         Aaron Swafford 52 Yd Fumble Return (Hayden Olsen Kick)
+  [2023] yards=0 scoring=True
+         Devonte Webster 0 Yd Fumble Return (Tanner Rinker Kick)
+  [2023] yards=39 scoring=True
+         Ckelby Givens 39 Yd Fumble Return (Joshua Griffin Kick)
+  [2023] yards=77 scoring=True
+         Omari Hill-Robinson 77 Yd Fumble Return (Cade Hechter Kick)
+  [2023] yards=68 scoring=True
+         Brian Abraham 68 Yd Fumble Return (John Opalko Kick)
+  [2023] yards=90 scoring=True
+         George Steele 90 Yd Fumble Return (Szymon Gawlick Kick)
+  [2023] yards=0 scoring=True
+         Ramon Henderson 0 Yd Fumble Return (Spencer Shrader PAT failed)
+  [2023] yards=43 scoring=True
+         Desman Hearns 43 Yd Fumble Return (Jake Baumgarte Kick)
+  [2023] yards=20 scoring=True
+         Max U'Ren 20 Yd Fumble Return (Adrian Olivo Kick)
+  [2023] yards=55 scoring=True
+         Kydran Jenkins 55 Yd Fumble Return (Hudson Card Pass to Andrew Sowinski for Two-Point Conversion)
+  [2023] yards=55 scoring=True
+         Kendre' Gant 55 Yd Fumble Return (Kenneth Almendares Kick)
+  [2023] yards=3 scoring=True
+         Corey Walker 3 Yd Fumble Return (Palmer Domschke Kick)
+  [2023] yards=13 scoring=True
+         Ahmad Craig 13 Yd Fumble Return (Jake Barnum Kick)
+
+
+------------------------------------------------------------
+playType: Blocked Punt  (sampled count: 31)
+------------------------------------------------------------
+  [2014] yards=0 scoring=False
+         TEAM punt blocked by Dallas Lloyd, recovered by Stanford Francis Owusu at Mary 24
+  [2014] yards=0 scoring=False
+         Kris Albarado punt blocked by Kieron Williams blocked by Kieron Williams
+  [2014] yards=0 scoring=False
+         Kris Albarado punt blocked by TEAM blocked by TEAM
+  [2014] yards=6 scoring=True
+         TEAM punt blocked by blocked by  Samuel Benjamin return for 6 yds for a TD, (Austin Jones KICK)
+  [2014] yards=4 scoring=False
+         TEAM punt blocked by Ricky Ortiz  Caleb Saulo return for 4 yds to the Stanf 24
+  [2014] yards=0 scoring=False
+         Zach Paul punt blocked by Teddy Williamson blocked by Teddy Williamson
+  [2014] yards=0 scoring=False
+         Brandon McKee punt blocked by Drew Thompson 
+  [2017] yards=19 scoring=False
+         Dom Maggio punt blocked by Roshauud Paul, downed at TexAM 45
+  [2017] yards=0 scoring=True
+         Tyler Newsome punt blocked by James Smith-Williams, recovered by Germaine Pratt in the endzone for a TD, (Carson Wise KI
+  [2017] yards=0 scoring=True
+         Zach Sinor punt blocked by O. Kamara, recovered by M. Gross for a TD, (Evan Staley KICK)
+  [2017] yards=20 scoring=False
+         Zachary Block punt blocked by JJ Russell blocked by JJ Russell
+  [2017] yards=11 scoring=False
+         Jake Julien punt blocked by Mitchell Brinkman blocked by Mitchell Brinkman  Jauan Wesley return for 11 yds to the EMich 
+  [2017] yards=40 scoring=True
+         Bailey Cate punt blocked by Taylor Robinson blocked by Taylor Robinson  Evan Johnson return for 40 yds for a TD, (Trevor
+  [2017] yards=0 scoring=False
+         TEAM punt blocked by Jonathan Garvin blocked by Jonathan Garvin
+  [2017] yards=6 scoring=False
+         Blake Gillikin punt blocked by Denzel Ward blocked by Denzel Ward  Dante Booker return for 6 yds to the PnSt 41
+  [2017] yards=16 scoring=True
+         Haydon Whitehead punt blocked by Darnell Savage Jr. blocked by Darnell Savage Jr.  Darnell Savage Jr. return for 16 yds 
+  [2020] yards=0 scoring=False
+         Ivan Mora punt blocked by Jaylan Franklin blocked by Jaylan Franklin  Jaylan Franklin return for no gain to the WFrst 9
+  [2020] yards=0 scoring=False
+         TEAM punt blocked by Nic Jones for a 1ST down blocked by Nic Jones for a 1ST down for a 1ST down
+  [2023] yards=29 scoring=False
+         Ryan Bujcevski punt blocked by TEAM blocked by TEAM Bujcevski, Ryan punt 29 yards to the SMU44, recovered by BOSTONCOLL 
+  [2023] yards=0 scoring=True
+         T. Ward recovers blocked punt in end zone for TD. Dylan Joyce punt blocked by Trevor Yeboah-Kodie for (Jai Patel KICK)
+  [2023] yards=0 scoring=False
+         Hodges,Brady punt 0 yards to the LOU31 blocked by Hudson,Kyron, out of bounds at LOU18.
+  [2023] yards=0 scoring=False
+         punt blocked by Deamontae Diggs blocked by Deamontae Diggs
+  [2023] yards=0 scoring=False
+         punt blocked by Tykeem Wallace blocked by Tykeem Wallace
+  [2023] yards=0 scoring=True
+         TEAM punt blocked by Joenel Aguero for a SAFETY blocked by Joenel Aguero for a SAFETY
+  [2023] yards=0 scoring=False
+         punt blocked by blocked by
+
+
+------------------------------------------------------------
+playType: Kickoff Return Touchdown  (sampled count: 29)
+------------------------------------------------------------
+  [2014] yards=100 scoring=True
+         Jordan Williamson kick for 65 yds,William Likely return for 100 yds for a TD, (Brad Craddock KICK)
+  [2014] yards=100 scoring=True
+         Kyle Brindza kickoff for 65 yds , Leonard Fournette return for 100 yds for a TD (Trent Domingue KICK)
+  [2014] yards=98 scoring=True
+         Drew Brown kickoff for 63 yds , Adoree' Jackson return for 98 yds for a TD, (Andre Heidari KICK)
+  [2014] yards=93 scoring=True
+         Deandre Reaves 93 Yd Kickoff Return (Justin Haig Kick)
+  [2014] yards=96 scoring=True
+         John Ross 96 Yd Kickoff Return (Cameron Van Winkle Kick)
+  [2014] yards=100 scoring=True
+         James Hairston kickoff for 65 yds , Darvin Kidsy return for 100 yds for a TD, (Trevor Moore KICK)
+  [2014] yards=44 scoring=True
+         Erik Powell on-side kick recovered by ARIZONA at the WshSt 44 returned by Cayleb Jones for a TD (C. Skowron KICK)
+  [2014] yards=100 scoring=True
+         Adoree' Jackson 100 Yd Kickoff Return (Andre Heidari Kick)
+  [2014] yards=100 scoring=True
+         Jamarcus Nelson 100 Yd Kickoff Return (Ty Long Kick)
+  [2014] yards=94 scoring=True
+         Satchel Ziffer kickoff for 59 yds , Kylen Towner return for 94 yds for a TD, (Garrett Schwettman KICK)
+  [2017] yards=78 scoring=True
+         Juwan Washington 78 Yd Kickoff Return (John Baron II Kick)
+  [2017] yards=100 scoring=True
+         Jason Huntley 100 Yd Kickoff Return (Dylan Brown Kick)
+  [2017] yards=96 scoring=True
+         Savon Scarver 96 Yd Kickoff Return (Dominik Eberle Kick)
+  [2017] yards=94 scoring=True
+         Chris Francis kickoff for 59 yds , KaVontae Turpin return for 94 yds for a TD, (Jonathan Song KICK)
+  [2017] yards=99 scoring=True
+         Liam Jones kickoff for 64 yds , D.J. Reed return for 99 yds for a TD, (Matthew McCrane KICK)
+  [2017] yards=98 scoring=True
+         Blake Patterson kickoff for 63 yds , Isaiah Harper return for 98 yds for a TD, (Nick Rice KICK)
+  [2017] yards=97 scoring=True
+         Trevor Moore kickoff for 62 yds , Isaiah Harper return for 97 yds for a TD, (Nick Rice KICK)
+  [2017] yards=91 scoring=True
+         Kyran Moore 91 Yd Kickoff Return (Two-Point Run Conversion Failed)
+  [2017] yards=91 scoring=True
+         Logan Birchfield kickoff for 56 yds , Mike Hughes return for 91 yds for a TD, (Matthew Wright KICK)
+  [2017] yards=97 scoring=True
+         Saquon Barkley 97 Yd Kickoff Return (Tyler Davis Kick)
+  [2023] yards=100 scoring=True
+         Barion Brown 100 Yd Kickoff Return (Alex Raynor Kick)
+  [2024] yards=93 scoring=True
+         Chris Carpenter 93 Yd Kickoff Return (Tate Sandell Kick)
+  [2024] yards=95 scoring=True
+         Chris Freeman kickoff for 60 yds , Chris Culliver return for 95 yds for a TD (Lucas Osada KICK)
+  [2024] yards=93 scoring=True
+         K. Halvorsen kick for 58 yds,T. Keith return for 93 yds for a TD (J. Cannon KICK)
+  [2024] yards=98 scoring=True
+         Jayden Harrison 98 Yd Kickoff Return (Mitch Jeter Kick)
+
+
+------------------------------------------------------------
+playType: Safety  (sampled count: 24)
+------------------------------------------------------------
+  [2014] yards=-10 scoring=True
+         Tyler Jones sacked by Michael Johnson for a loss of 10 yards for a SAFETY
+  [2014] yards=0 scoring=True
+         Logan Taele Safety
+  [2017] yards=-10 scoring=True
+         TEAM run for a loss of 10 yards for a SAFETY
+  [2017] yards=-27 scoring=True
+         TEAM run for -27 yds for a SAFETY
+  [2017] yards=-6 scoring=True
+         Ty Johnson run for a loss of 6 yards for a SAFETY
+  [2023] yards=-1 scoring=True
+         Isaiah Newell run for a loss of 1 yard for a SAFETY
+  [2023] yards=-8 scoring=True
+         Jeremy Moussa sacked by Darrian Brokenburr for a loss of 8 yards for a SAFETY
+  [2023] yards=0 scoring=True
+         Andrew Peasley sacked by Esean Carter for a loss of 9 yards for a SAFETY Andrew Peasley fumbled, recovered by WYO
+  [2023] yards=0 scoring=True
+         Team SAFETY
+  [2023] yards=0 scoring=True
+         Team Safety
+  [2023] yards=-25 scoring=True
+         Brendan Sorsby sacked for a loss of 25 yards for a SAFETY
+  [2023] yards=0 scoring=True
+         Team Safety
+  [2023] yards=0 scoring=True
+         (13:40) No Huddle-Shotgun Smith,Austin pass incomplete short right QB hurried by Walker,Corey. Western Mich. SAFETY, clo
+  [2023] yards=-1 scoring=True
+         Austin Smith sacked by Marshawn Kneeland for a loss of 1 yard for a SAFETY
+  [2023] yards=0 scoring=True
+         Team Safety
+  [2023] yards=-5 scoring=True
+         Team Safety
+  [2024] yards=-7 scoring=True
+         Will Hammond sacked by Anton Juncaj for a loss of 7 yards for a SAFETY
+  [2024] yards=-2 scoring=True
+         Taylen Green sacked by Isaac Smith for a loss of 2 yards for a SAFETY
+  [2024] yards=0 scoring=True
+         Shamari Simmons Safety
+  [2024] yards=-4 scoring=True
+         Deshawn Purdie sacked by William Whitlow Jr. for a loss of 4 yards for a SAFETY
+  [2024] yards=0 scoring=True
+         Max Llewellyn Safety
+  [2024] yards=-1 scoring=True
+         Devin Neal run for a loss of 1 yard for a SAFETY
+  [2024] yards=0 scoring=True
+         Team Safety
+  [2024] yards=-5 scoring=True
+         K. Sixkiller sacked by J. Dalmado for -5 yds for a SAFETY
+
+
+------------------------------------------------------------
+playType: End of Regulation  (sampled count: 17)
+------------------------------------------------------------
+  [2020] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2023] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+  [2024] yards=0 scoring=False
+         End of 4th Quarter
+
+
+------------------------------------------------------------
+playType: Punt Return Touchdown  (sampled count: 10)
+------------------------------------------------------------
+  [2017] yards=76 scoring=True
+         Desmon White 76 Yd Punt Return (Cole Bunce Kick)
+  [2023] yards=47 scoring=True
+         Junior Bergen 47 Yd Punt Return (Nico Ramos PAT failed)
+  [2023] yards=82 scoring=True
+         Chris Tyree 82 Yd Punt Return (Spencer Shrader Kick)
+  [2023] yards=66 scoring=True
+         Jayden Price 66 Yd Punt Return (Griffin Crosa Kick)
+  [2023] yards=48 scoring=True
+         Robert McMinn 48 Yd Punt Return (Jayden John Kick)
+  [2024] yards=12 scoring=True
+         Josh Meredith 12 Yd Punt Return (Dean Janikowski Kick)
+  [2024] yards=46 scoring=True
+         Trashawn Adams 46 Yd Punt Return (Chris Campos Kick)
+  [2024] yards=85 scoring=True
+         Kaden Wetjen 85 Yd Punt Return (Drew Stevens Kick)
+  [2024] yards=43 scoring=True
+         Jamari Gassett 43 Yd Punt Return (Cameron Gillis Kick)
+  [2024] yards=72 scoring=True
+         Drew Wagner 72 Yd Punt Return (Luke Akers Kick)
+
+
+------------------------------------------------------------
+playType: Two Point Pass  (sampled count: 6)
+------------------------------------------------------------
+  [2024] yards=0 scoring=True
+         Julian Dugger Pass to Kenny Johnson for Two-Point Conversion
+  [2024] yards=0 scoring=True
+         Julian Dugger Pass to Gavin Bartholomew for Two-Point Conversion
+  [2024] yards=0 scoring=True
+         Tucker Gleason Pass to Terrell Crosby Jr. for Two-Point Conversion
+  [2024] yards=0 scoring=True
+         Tucker Gleason Pass to Anthony Torres for Two-Point Conversion
+  [2024] yards=0 scoring=True
+         Tucker Gleason Pass to Jerjuan Newton for Two-Point Conversion
+  [2024] yards=0 scoring=True
+         Tucker Gleason Pass to Junior Vandeross III for Two-Point Conversion
+
+
+------------------------------------------------------------
+playType: Missed Field Goal Return  (sampled count: 4)
+------------------------------------------------------------
+  [2017] yards=25 scoring=False
+         Brandon Wright 54 yd FG RETURNED , Xavier Lane return for 25 yds to the WKent 25
+  [2023] yards=0 scoring=False
+         Logan Seibert 40 yd FG MISSED , Gerand Turner return for no gain to the TNST 2
+  [2023] yards=0 scoring=False
+         Brendan Hall 48 yd FG MISSED , Hayden John return for no gain to the IDHO 45
+  [2024] yards=40 scoring=False
+         Blake Craig 59 yd FG RETURNED , Kendrick Law return for 40 yds to the ALA 40
+
+
+------------------------------------------------------------
+playType: Uncategorized  (sampled count: 4)
+------------------------------------------------------------
+  [2017] yards=0 scoring=False
+         Daniel Jones pass incomplete  DUKE Penalty, ineligible downfield on pass ( Yards) declined
+  [2023] yards=0 scoring=False
+         fumbled, recovered by CCU Jarrett Guest rush middle for loss of 11 yards to the MAR43, fumble by TEAM recovered by CCU G
+  [2023] yards=0 scoring=False
+         fumbled, recovered by NICH Collin Guggenheim rush middle for loss of 28 yards to the NIC13, fumble by TEAM recovered by 
+  [2023] yards=0 scoring=False
+         Brady Small fumbled, recovered by MASS Billy Wooden No Huddle pass complete short to Reynolds,Casey for 38 yards to the 
+
+
+------------------------------------------------------------
+playType: Blocked Field Goal Touchdown  (sampled count: 3)
+------------------------------------------------------------
+  [2017] yards=94 scoring=True
+         Alexander Myres 94 Yd Return of Blocked Field Goal (Caden Novikoff Kick)
+  [2023] yards=60 scoring=True
+         James Burgess 60 Yd Return of Blocked Field Goal (Jayden John Kick)
+  [2023] yards=68 scoring=True
+         Quinton Newsome 68 Yd Return of Blocked Field Goal (Tristan Alvano Kick)
+
+
+------------------------------------------------------------
+playType: Blocked Punt Touchdown  (sampled count: 3)
+------------------------------------------------------------
+  [2017] yards=0 scoring=True
+         Dom Maggio punt blocked by Deshawn Capers-Smith, Charles Oliver return for 0 yds for a TD
+  [2017] yards=0 scoring=True
+         Jaron Johnson 0 Yd Return of Blocked Punt (Paul Fricano Kick)
+  [2023] yards=8 scoring=True
+         Ton'Quez Ball 8 Yd Return of Blocked Punt (William Riddle Pass to Xavier Gaillardetz for Two-Point Conversion)
+
+
+------------------------------------------------------------
+playType: placeholder  (sampled count: 2)
+------------------------------------------------------------
+  [2023] yards=0 scoring=False
+         rush middle for loss of 2 yards to the COR23, PRI wins the toss and chooses receive.
+  [2023] yards=0 scoring=False
+         End of game.
+
+
+------------------------------------------------------------
+playType: Defensive 2pt Conversion  (sampled count: 2)
+------------------------------------------------------------
+  [2024] yards=87 scoring=True
+         Ashton McShane Defensive PAT Conversion
+  [2024] yards=0 scoring=True
+         Kyle Louis Defensive PAT Conversion
+
+
+------------------------------------------------------------
+playType: Two Point Rush  (sampled count: 1)
+------------------------------------------------------------
+  [2024] yards=0 scoring=True
+         Julian Dugger Run for Two-Point Conversion
+
