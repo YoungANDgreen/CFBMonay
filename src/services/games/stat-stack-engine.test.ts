@@ -86,6 +86,37 @@ describe('generateStatStackPuzzle', () => {
   });
 });
 
+// ---- generateStatStackPuzzle year-locked constraints ----
+
+describe('generateStatStackPuzzle year-locked constraints', () => {
+  it('produces a mix of locked and open year constraints', () => {
+    const puzzle = generateStatStackPuzzle('2025-03-12');
+    const locked = puzzle.rows.filter((c: any) => c.lockedYear !== undefined);
+    const open = puzzle.rows.filter((c: any) => c.lockedYear === undefined);
+    expect(locked.length).toBeGreaterThanOrEqual(2);
+    expect(locked.length).toBeLessThanOrEqual(3);
+    expect(open.length).toBeGreaterThanOrEqual(2);
+    expect(open.length).toBeLessThanOrEqual(3);
+    expect(locked.length + open.length).toBe(5);
+  });
+
+  it('locked year constraints specify valid season years', () => {
+    const puzzle = generateStatStackPuzzle('2025-03-12');
+    for (const c of puzzle.rows.filter((c: any) => c.lockedYear !== undefined)) {
+      expect(c.lockedYear).toBeGreaterThanOrEqual(2003);
+      expect(c.lockedYear).toBeLessThanOrEqual(2024);
+    }
+  });
+
+  it('different dates produce different constraint mixes', () => {
+    const p1 = generateStatStackPuzzle('2025-03-12');
+    const p2 = generateStatStackPuzzle('2025-03-13');
+    const ids1 = p1.rows.map((c: any) => c.validator).join(',');
+    const ids2 = p2.rows.map((c: any) => c.validator).join(',');
+    expect(ids1).not.toBe(ids2);
+  });
+});
+
 // ---- createStatStackGameState ----
 
 describe('createStatStackGameState', () => {

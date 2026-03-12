@@ -29,8 +29,8 @@ export default function GridScreen() {
     );
   }
 
-  const handlePlayerSelect = (player: Player) => {
-    submitAnswer(player);
+  const handlePlayerSelect = (player: Player, year?: number) => {
+    submitAnswer(player, year);
   };
 
   const totalCells = gameState.puzzle.size * gameState.puzzle.size;
@@ -101,6 +101,7 @@ export default function GridScreen() {
             </Text>
             <PlayerSearch
               onSelectPlayer={handlePlayerSelect}
+              showYearSelector={true}
               placeholder="Search by name, school, or position..."
             />
           </View>

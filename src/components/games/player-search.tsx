@@ -7,18 +7,20 @@ import {
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 import { colors, spacing, typography, borderRadius } from '@/lib/theme';
-import { searchPlayers, getAllTeams } from '@/services/data/cfbd-cache';
+import { searchPlayers, getAllTeams, getPlayerSeasons } from '@/services/data/cfbd-cache';
 import { TeamLogo } from '@/components/ui/team-logo';
 import type { Player } from '@/types';
 
 interface PlayerSearchProps {
-  onSelectPlayer: (player: Player) => void;
+  onSelectPlayer: (player: Player, year?: number) => void;
   placeholder?: string;
+  showYearSelector?: boolean;
 }
 
-// Team → conference lookup (built lazily)
+// Team -> conference lookup (built lazily)
 let _confLookup: Map<string, string> | null = null;
 function getConfLookup(): Map<string, string> {
   if (!_confLookup) {
@@ -30,28 +32,48 @@ function getConfLookup(): Map<string, string> {
   return _confLookup;
 }
 
+// Extended result with year range info for display
+interface PlayerSearchResult extends Player {
+  yearRange: string;
+}
+
 // Search real CFBD cache data
-function searchCachePlayers(query: string): Player[] {
+function searchCachePlayers(query: string): PlayerSearchResult[] {
   if (query.length < 2) return [];
 
   const confLookup = getConfLookup();
   const cached = searchPlayers(query);
 
-  return cached.slice(0, 12).map(p => ({
-    id: String(p.id),
-    name: `${p.firstName} ${p.lastName}`,
-    position: p.position as Player['position'],
-    school: p.team,
-    conference: (confLookup.get(p.team.toLowerCase()) || '') as Player['conference'],
-    seasons: [],
-    awards: [],
-  }));
+  return cached.slice(0, 12).map(p => {
+    const fullName = `${p.firstName} ${p.lastName}`;
+    const seasons = getPlayerSeasons(fullName);
+    const yearRange = seasons.length > 0
+      ? `${seasons[0]}-${seasons[seasons.length - 1]}`
+      : '';
+
+    return {
+      id: String(p.id),
+      name: fullName,
+      position: p.position as Player['position'],
+      school: p.team,
+      conference: (confLookup.get(p.team.toLowerCase()) || '') as Player['conference'],
+      seasons: [],
+      awards: [],
+      yearRange,
+    };
+  });
 }
 
-export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...' }: PlayerSearchProps) {
+export function PlayerSearch({
+  onSelectPlayer,
+  placeholder = 'Search players...',
+  showYearSelector = false,
+}: PlayerSearchProps) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Player[]>([]);
+  const [results, setResults] = useState<PlayerSearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
+  const [playerSeasons, setPlayerSeasons] = useState<number[]>([]);
 
   const handleSearch = useCallback((text: string) => {
     setQuery(text);
@@ -70,9 +92,38 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
   }, []);
 
   const handleSelect = (player: Player) => {
-    onSelectPlayer(player);
-    setQuery('');
-    setResults([]);
+    if (showYearSelector) {
+      const seasons = getPlayerSeasons(player.name);
+      if (seasons.length > 0) {
+        setSelectedPlayer(player);
+        setPlayerSeasons(seasons);
+        setResults([]);
+      } else {
+        // No season data -- fall back to immediate selection
+        onSelectPlayer(player);
+        setQuery('');
+        setResults([]);
+      }
+    } else {
+      onSelectPlayer(player);
+      setQuery('');
+      setResults([]);
+    }
+  };
+
+  const handleYearSelect = (year: number) => {
+    if (selectedPlayer) {
+      onSelectPlayer(selectedPlayer, year);
+      setSelectedPlayer(null);
+      setPlayerSeasons([]);
+      setQuery('');
+      setResults([]);
+    }
+  };
+
+  const handleCancelYearSelect = () => {
+    setSelectedPlayer(null);
+    setPlayerSeasons([]);
   };
 
   return (
@@ -110,6 +161,9 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
                     <Text style={styles.positionBadge}>{item.position}</Text>
                     <Text style={styles.schoolText}>{item.school}</Text>
                     <Text style={styles.confText}>{item.conference}</Text>
+                    {item.yearRange !== '' && (
+                      <Text style={styles.yearRangeText}>({item.yearRange})</Text>
+                    )}
                   </View>
                 </View>
                 {item.awards && item.awards.length > 0 && (
@@ -120,6 +174,30 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
               </TouchableOpacity>
             )}
           />
+        </View>
+      )}
+
+      {selectedPlayer && showYearSelector && (
+        <View style={styles.yearSelector}>
+          <View style={styles.yearHeader}>
+            <Text style={styles.yearLabel}>Select Season for {selectedPlayer.name}:</Text>
+            <TouchableOpacity onPress={handleCancelYearSelect}>
+              <Text style={styles.yearCancelText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {playerSeasons.map(year => (
+              <TouchableOpacity
+                key={year}
+                style={styles.yearChip}
+                onPress={() => handleYearSelect(year)}
+              >
+                <Text style={styles.yearChipText}>
+                  {year}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
         </View>
       )}
     </View>
@@ -205,6 +283,11 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: typography.fontSize.xs,
   },
+  yearRangeText: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontStyle: 'italic',
+  },
   awardBadge: {
     color: colors.accent,
     fontSize: typography.fontSize.xs,
@@ -214,5 +297,42 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderRadius: borderRadius.full,
     overflow: 'hidden',
+  },
+  yearSelector: {
+    backgroundColor: colors.surface,
+    borderRadius: borderRadius.md,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    padding: spacing.md,
+    marginTop: spacing.sm,
+  },
+  yearHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.sm,
+  },
+  yearLabel: {
+    color: colors.textSecondary,
+    fontSize: typography.fontSize.sm,
+  },
+  yearCancelText: {
+    color: colors.accent,
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.semibold,
+  },
+  yearChip: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.full,
+    backgroundColor: colors.surfaceLight,
+    marginRight: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  yearChipText: {
+    color: colors.textSecondary,
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.semibold,
   },
 });

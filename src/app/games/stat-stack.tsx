@@ -38,7 +38,13 @@ export default function StatStackScreen() {
   const categoryInfo = getStatCategoryInfo(gameState.puzzle.statCategory);
   const accentColor = getStatCategoryColor(gameState.puzzle.statCategory);
 
-  const handlePlayerSelect = (player: Player) => {
+  const activeConstraint = gameState.puzzle.rows[activeRow];
+  const hasLockedYear = activeConstraint?.lockedYear != null;
+
+  const handlePlayerSelect = (player: Player, year?: number) => {
+    // Use locked year from constraint, selected year, or fallback to 2023
+    const season = activeConstraint?.lockedYear ?? year ?? 2023;
+
     // In production, we'd look up the player's actual stat value for the season
     // For now, use a mock stat value
     const mockStatValue = Math.floor(Math.random() * 2000) + 500;
@@ -47,7 +53,7 @@ export default function StatStackScreen() {
       rowIndex: activeRow,
       playerId: player.id,
       playerName: player.name,
-      season: 2023,
+      season,
       statValue: mockStatValue,
       isValid: true, // would be validated by backend
     });
@@ -151,6 +157,7 @@ export default function StatStackScreen() {
             </Text>
             <PlayerSearch
               onSelectPlayer={handlePlayerSelect}
+              showYearSelector={!hasLockedYear}
               placeholder="Search players..."
             />
           </View>

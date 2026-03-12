@@ -582,7 +582,8 @@ export function submitGuess(
   state: GridGameState,
   row: number,
   col: number,
-  player: Player
+  player: Player,
+  _year?: number,
 ): GridGameState {
   if (state.isComplete || state.guessesRemaining <= 0) return state;
 

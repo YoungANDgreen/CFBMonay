@@ -22,7 +22,7 @@ interface GridStore {
   // Actions
   loadDailyPuzzle: () => Promise<void>;
   selectCell: (row: number, col: number) => void;
-  submitAnswer: (player: Player) => void;
+  submitAnswer: (player: Player, year?: number) => void;
   setSearchQuery: (query: string) => void;
   setSearchResults: (results: Player[]) => void;
   setIsSearching: (searching: boolean) => void;
@@ -62,12 +62,12 @@ export const useGridStore = create<GridStore>((set, get) => ({
     });
   },
 
-  submitAnswer: (player: Player) => {
+  submitAnswer: (player: Player, year?: number) => {
     const { gameState } = get();
     if (!gameState || !gameState.currentCell) return;
 
     const { row, col } = gameState.currentCell;
-    const newState = submitGuess(gameState, row, col, player);
+    const newState = submitGuess(gameState, row, col, player, year);
 
     set({
       gameState: newState,

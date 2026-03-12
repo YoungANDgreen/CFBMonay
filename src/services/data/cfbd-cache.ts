@@ -300,6 +300,15 @@ export function getStatLeadersByCategory(category: string, limit: number = 50): 
     .slice(0, limit);
 }
 
+// --- Player Seasons Getter ---
+export function getPlayerSeasons(playerName: string): number[] {
+  const name = playerName.toLowerCase();
+  const seasons = playerStats
+    .filter(s => s.player.toLowerCase() === name)
+    .map(s => s.season);
+  return [...new Set(seasons)].sort();
+}
+
 // --- Team Stats Getters ---
 export function getAllTeamStats(): CachedTeamStats[] { return teamStats; }
 

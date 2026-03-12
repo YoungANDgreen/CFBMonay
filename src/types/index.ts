@@ -151,6 +151,7 @@ export interface RowConstraint {
   index: number;
   description: string;
   validator: string; // serialized validation rule
+  lockedYear?: number; // if set, player must be from this specific season
 }
 
 export interface StatStackPuzzle {
@@ -755,10 +756,22 @@ export interface RosterRouletteGameState {
   difficulty: 'easy' | 'medium' | 'hard';
 }
 
+export interface FilmRoomRevealData {
+  homeTeam: string;
+  awayTeam: string;
+  homeScore: number;
+  awayScore: number;
+  broadcastQuote?: string | null;
+  announcer?: string | null;
+  homeLogo?: string | null;
+  awayLogo?: string | null;
+}
+
 export interface FilmRoomRound {
   description: string;
   options: { team: string; opponent: string; year: number; label: string }[];
   correctIndex: number;
+  revealData?: FilmRoomRevealData;
 }
 
 export interface FilmRoomGameState {

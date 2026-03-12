@@ -52,7 +52,7 @@ export function getStatCategoryInfo(category: StatCategory) {
 
 // --- Row Constraint Templates ---
 
-const CONSTRAINT_TEMPLATES: RowConstraint[] = [
+const OPEN_CONSTRAINT_TEMPLATES: RowConstraint[] = [
   { index: 0, description: 'Player from a Group of 5 school', validator: 'group_of_5' },
   { index: 1, description: 'Player who was a freshman or sophomore', validator: 'underclassman' },
   { index: 2, description: 'Player from before 2010', validator: 'pre_2010' },
@@ -68,6 +68,25 @@ const CONSTRAINT_TEMPLATES: RowConstraint[] = [
   { index: 2, description: 'Player with a last name starting A-M', validator: 'name_a_m' },
   { index: 3, description: 'Player from the 2010s decade', validator: 'decade_2010s' },
   { index: 4, description: 'Player who played in a NY6 bowl', validator: 'ny6_bowl' },
+];
+
+const YEAR_LOCKED_CONSTRAINT_TEMPLATES: RowConstraint[] = [
+  { index: 0, description: 'Player from the 2005 season', validator: 'year_2005', lockedYear: 2005 },
+  { index: 0, description: 'Player from the 2008 season', validator: 'year_2008', lockedYear: 2008 },
+  { index: 0, description: 'Player from the 2010 season', validator: 'year_2010', lockedYear: 2010 },
+  { index: 0, description: 'Player from the 2012 season', validator: 'year_2012', lockedYear: 2012 },
+  { index: 0, description: 'Player from the 2014 season', validator: 'year_2014', lockedYear: 2014 },
+  { index: 0, description: 'Player from the 2015 season', validator: 'year_2015', lockedYear: 2015 },
+  { index: 0, description: 'Player from the 2017 season', validator: 'year_2017', lockedYear: 2017 },
+  { index: 0, description: 'Player from the 2019 season', validator: 'year_2019', lockedYear: 2019 },
+  { index: 0, description: 'Player from the 2021 season', validator: 'year_2021', lockedYear: 2021 },
+  { index: 0, description: 'Player from the 2023 season', validator: 'year_2023', lockedYear: 2023 },
+];
+
+// Combined pool for backward compatibility
+const CONSTRAINT_TEMPLATES: RowConstraint[] = [
+  ...OPEN_CONSTRAINT_TEMPLATES,
+  ...YEAR_LOCKED_CONSTRAINT_TEMPLATES,
 ];
 
 // --- Puzzle Generation ---
@@ -96,11 +115,25 @@ export function generateStatStackPuzzle(dateStr: string): StatStackPuzzle {
 
   const rng = seededRandom(dateToSeed(dateStr));
 
-  // Pick 5 unique constraints
-  const shuffled = [...CONSTRAINT_TEMPLATES]
+  // Decide how many year-locked constraints: 2 or 3
+  const numLocked = rng() < 0.5 ? 2 : 3;
+  const numOpen = 5 - numLocked;
+
+  // Pick year-locked constraints
+  const shuffledLocked = [...YEAR_LOCKED_CONSTRAINT_TEMPLATES]
     .sort(() => rng() - 0.5)
-    .slice(0, 5)
-    .map((c, i) => ({ ...c, index: i }));
+    .slice(0, numLocked);
+
+  // Pick open constraints
+  const shuffledOpen = [...OPEN_CONSTRAINT_TEMPLATES]
+    .sort(() => rng() - 0.5)
+    .slice(0, numOpen);
+
+  // Combine and shuffle so locked/open are interspersed
+  const combined = [...shuffledLocked, ...shuffledOpen]
+    .sort(() => rng() - 0.5);
+
+  const shuffled = combined.map((c, i) => ({ ...c, index: i }));
 
   return {
     id: `stat-stack-${dateStr}`,
