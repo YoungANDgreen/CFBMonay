@@ -1,11 +1,20 @@
-import React, { useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import React, { useEffect, useRef, useCallback } from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Animated,
+} from 'react-native';
 import { colors, spacing, typography, borderRadius } from '@/lib/theme';
 import { useGridStore } from '@/stores/grid-store';
 import { GridBoard } from '@/components/games/grid-board';
 import { PlayerSearch } from '@/components/games/player-search';
 import { ScoreDisplay } from '@/components/games/score-display';
 import { Button } from '@/components/ui/button';
+import { celebrationBurst, rollNumber } from '@/lib/animations';
 import type { Player } from '@/types';
 
 export default function GridScreen() {
@@ -17,9 +26,41 @@ export default function GridScreen() {
     resetGame,
   } = useGridStore();
 
+  // Animated values
+  const scoreAnim = useRef(new Animated.Value(0)).current;
+  const celebrationScale = useRef(new Animated.Value(1)).current;
+  const prevScore = useRef(0);
+  const prevComplete = useRef(false);
+
   useEffect(() => {
     loadDailyPuzzle();
   }, [loadDailyPuzzle]);
+
+  // Animate score changes
+  useEffect(() => {
+    if (!gameState) return;
+    if (gameState.score !== prevScore.current) {
+      rollNumber(scoreAnim, gameState.score, 600).start();
+      prevScore.current = gameState.score;
+    }
+  }, [gameState?.score, scoreAnim, gameState]);
+
+  // Celebration animation when game completes
+  useEffect(() => {
+    if (!gameState) return;
+    if (gameState.isComplete && !prevComplete.current) {
+      celebrationScale.setValue(1);
+      celebrationBurst(celebrationScale).start();
+    }
+    prevComplete.current = gameState.isComplete;
+  }, [gameState?.isComplete, celebrationScale, gameState]);
+
+  const handlePlayerSelect = useCallback(
+    (player: Player, year?: number) => {
+      submitAnswer(player, year);
+    },
+    [submitAnswer],
+  );
 
   if (!gameState || !gameState.puzzle) {
     return (
@@ -29,11 +70,13 @@ export default function GridScreen() {
     );
   }
 
-  const handlePlayerSelect = (player: Player, year?: number) => {
-    submitAnswer(player, year);
-  };
-
   const totalCells = gameState.puzzle.size * gameState.puzzle.size;
+
+  // Compute number of filled cells for completion tracking
+  const filledCells = gameState.cells.reduce(
+    (sum, row) => sum + row.filter((c) => c.isLocked).length,
+    0,
+  );
 
   return (
     <KeyboardAvoidingView
@@ -57,16 +100,24 @@ export default function GridScreen() {
               })}
             </Text>
           </View>
+          {/* Progress indicator */}
+          <View style={styles.progressBadge}>
+            <Text style={styles.progressText}>
+              {filledCells}/{totalCells}
+            </Text>
+          </View>
         </View>
 
-        {/* Score Display */}
-        <ScoreDisplay
-          label={gameState.isComplete ? 'Final Score' : 'Current Game'}
-          score={gameState.score}
-          guessesRemaining={gameState.guessesRemaining}
-          maxGuesses={totalCells}
-          compact
-        />
+        {/* Score Display with celebration animation */}
+        <Animated.View style={{ transform: [{ scale: celebrationScale }] }}>
+          <ScoreDisplay
+            label={gameState.isComplete ? 'Final Score' : 'Current Game'}
+            score={gameState.score}
+            guessesRemaining={gameState.guessesRemaining}
+            maxGuesses={totalCells}
+            compact
+          />
+        </Animated.View>
 
         {/* Instructions */}
         {!gameState.isComplete && gameState.currentCell === null && (
@@ -126,7 +177,7 @@ export default function GridScreen() {
                       ]}
                     >
                       <Text style={styles.resultEmoji}>
-                        {cell.isCorrect ? '✅' : '❌'}
+                        {cell.isCorrect ? '\u2705' : '\u274C'}
                       </Text>
                     </View>
                   ))}
@@ -177,6 +228,19 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: typography.fontSize.sm,
     marginTop: 2,
+  },
+  progressBadge: {
+    backgroundColor: colors.surfaceLight,
+    borderRadius: borderRadius.full,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  progressText: {
+    color: colors.textSecondary,
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.bold,
   },
   instructionBanner: {
     backgroundColor: colors.surfaceLight,
