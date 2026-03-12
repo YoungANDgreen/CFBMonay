@@ -590,6 +590,12 @@ export function submitGuess(
   const cell = state.cells[row][col];
   if (cell.isLocked) return state;
 
+  // Reject duplicate player already used in another cell
+  const playerAlreadyUsed = state.cells.some((r) =>
+    r.some((c) => c.answer && c.answer.id === player.id)
+  );
+  if (playerAlreadyUsed) return state;
+
   const isCorrect = state.puzzle
     ? validateAnswer(state.puzzle, row, col, player.id)
     : false;

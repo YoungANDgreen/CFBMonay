@@ -166,12 +166,12 @@ function rollTargeting(rng: () => number): boolean {
 }
 
 function applyTargeting(state: StatStackGameState): StatStackGameState {
-  // Find the highest scoring pick
+  // Find the highest scoring valid pick
   let bestIndex = -1;
   let bestValue = -1;
 
   state.picks.forEach((pick, i) => {
-    if (pick && pick.statValue > bestValue) {
+    if (pick && pick.isValid && pick.statValue > bestValue) {
       bestValue = pick.statValue;
       bestIndex = i;
     }
@@ -209,6 +209,19 @@ export function submitStatStackPick(
 ): StatStackGameState {
   if (state.isComplete || !state.puzzle) return state;
   if (state.picks[pick.rowIndex] !== null) return state;
+
+  // Reject duplicate player across rows
+  const alreadyPicked = state.picks.some(
+    (p) => p !== null && p.playerId === pick.playerId
+  );
+  if (alreadyPicked) return state;
+
+  // Enforce year-locked constraint: if the row has a lockedYear, the pick's season must match
+  const constraint = state.puzzle.rows[pick.rowIndex];
+  if (constraint && constraint.lockedYear && pick.season !== constraint.lockedYear) {
+    // Treat as an invalid pick — zero stat value, may trigger targeting
+    pick = { ...pick, isValid: false, statValue: 0 };
+  }
 
   const newPicks = [...state.picks];
   newPicks[pick.rowIndex] = pick;

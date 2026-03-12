@@ -271,16 +271,20 @@ describe('submitGuess', () => {
 
   it('marks game complete when all cells are filled', () => {
     const puzzle = generateDailyPuzzle('2025-01-01', 3);
-    // Make all cells valid for player-1
+    // Use unique players for each cell to satisfy duplicate prevention
+    const players: any[] = [];
     for (let r = 0; r < 3; r++) {
       for (let c = 0; c < 3; c++) {
-        puzzle.validAnswers[getCellKey(r, c)] = ['player-1'];
+        const id = `player-${r}-${c}`;
+        puzzle.validAnswers[getCellKey(r, c)] = [id];
+        players.push({ id, name: `Player ${r}-${c}` });
       }
     }
     let state = createInitialGameState(puzzle);
+    let idx = 0;
     for (let r = 0; r < 3; r++) {
       for (let c = 0; c < 3; c++) {
-        state = submitGuess(state, r, c, player1);
+        state = submitGuess(state, r, c, players[idx++]);
       }
     }
     expect(state.isComplete).toBe(true);
@@ -373,5 +377,53 @@ describe('areCompatibleCriteria', () => {
       { type: 'position', value: 'K' },
       { type: 'stat_threshold', value: 'some_unknown_stat' }
     )).toBe(true);
+  });
+});
+
+// ---- submitGuess: duplicate player prevention ----
+
+describe('submitGuess duplicate player prevention', () => {
+  function makeState() {
+    const puzzle = generateDailyPuzzle('2025-01-01', 3);
+    puzzle.validAnswers['0-0'] = ['player-1'];
+    puzzle.validAnswers['0-1'] = ['player-1']; // same player valid in both cells
+    puzzle.validAnswers['1-0'] = ['player-2'];
+    return createInitialGameState(puzzle);
+  }
+
+  const player1 = { id: 'player-1', name: 'Test Player 1' } as any;
+  const player2 = { id: 'player-2', name: 'Test Player 2' } as any;
+
+  it('rejects duplicate player in a different cell', () => {
+    const state = makeState();
+    const afterFirst = submitGuess(state, 0, 0, player1);
+    expect(afterFirst.cells[0][0].answer).toEqual(player1);
+    expect(afterFirst.cells[0][0].isLocked).toBe(true);
+
+    // Try to use the same player in cell (0,1)
+    const afterSecond = submitGuess(afterFirst, 0, 1, player1);
+    // Should be rejected — state unchanged
+    expect(afterSecond).toBe(afterFirst);
+    expect(afterSecond.cells[0][1].isLocked).toBe(false);
+    expect(afterSecond.cells[0][1].answer).toBeUndefined();
+  });
+
+  it('allows different players in different cells', () => {
+    const state = makeState();
+    const afterFirst = submitGuess(state, 0, 0, player1);
+    const afterSecond = submitGuess(afterFirst, 1, 0, player2);
+    expect(afterSecond.cells[0][0].answer).toEqual(player1);
+    expect(afterSecond.cells[1][0].answer).toEqual(player2);
+    expect(afterSecond.guessesRemaining).toBe(7);
+  });
+
+  it('does not consume a guess when duplicate is rejected', () => {
+    const state = makeState();
+    const afterFirst = submitGuess(state, 0, 0, player1);
+    expect(afterFirst.guessesRemaining).toBe(8);
+
+    const afterSecond = submitGuess(afterFirst, 0, 1, player1);
+    // Guess count should be unchanged since it was rejected
+    expect(afterSecond.guessesRemaining).toBe(8);
   });
 });

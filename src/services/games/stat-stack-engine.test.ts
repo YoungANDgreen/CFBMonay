@@ -142,6 +142,8 @@ describe('createStatStackGameState', () => {
 describe('submitStatStackPick', () => {
   function makeState() {
     const puzzle = generateStatStackPuzzle('2025-01-06');
+    // Clear lockedYear constraints so generic tests aren't affected by year validation
+    puzzle.rows = puzzle.rows.map((r: any) => ({ ...r, lockedYear: undefined }));
     return createStatStackGameState(puzzle);
   }
 
@@ -309,5 +311,122 @@ describe('calculateStatStackScore', () => {
     state = { ...state, totalStatValue: 0 };
     const result = calculateStatStackScore(state);
     expect(result.finalScore).toBeGreaterThanOrEqual(0);
+  });
+});
+
+// ---- submitStatStackPick: year validation ----
+
+describe('submitStatStackPick year-locked constraint enforcement', () => {
+  function makeLockedYearState(lockedYear: number) {
+    const puzzle = generateStatStackPuzzle('2025-01-06');
+    // Force row 0 to have a lockedYear constraint
+    puzzle.rows[0] = {
+      index: 0,
+      description: `Player from the ${lockedYear} season`,
+      validator: `year_${lockedYear}`,
+      lockedYear,
+    };
+    return createStatStackGameState(puzzle);
+  }
+
+  it('rejects pick when player season does not match locked year', () => {
+    const state = makeLockedYearState(2008);
+    const wrongYearPick: StatStackPick = {
+      rowIndex: 0,
+      playerId: 'p1',
+      playerName: 'Wrong Year Player',
+      season: 2020, // does NOT match locked year 2008
+      statValue: 1500,
+      isValid: true,
+    };
+    const next = submitStatStackPick(state, wrongYearPick);
+    // The pick should be placed but marked invalid with 0 stat value
+    expect(next.picks[0]).not.toBeNull();
+    expect(next.picks[0]!.isValid).toBe(false);
+    expect(next.picks[0]!.statValue).toBe(0);
+    expect(next.totalStatValue).toBe(0);
+  });
+
+  it('accepts pick when player season matches locked year', () => {
+    const state = makeLockedYearState(2008);
+    const correctYearPick: StatStackPick = {
+      rowIndex: 0,
+      playerId: 'p1',
+      playerName: 'Correct Year Player',
+      season: 2008, // matches locked year
+      statValue: 1500,
+      isValid: true,
+    };
+    const next = submitStatStackPick(state, correctYearPick);
+    expect(next.picks[0]).not.toBeNull();
+    expect(next.picks[0]!.isValid).toBe(true);
+    expect(next.picks[0]!.statValue).toBe(1500);
+    expect(next.totalStatValue).toBe(1500);
+  });
+});
+
+// ---- submitStatStackPick: duplicate player prevention ----
+
+describe('submitStatStackPick duplicate player prevention', () => {
+  function makeState() {
+    const puzzle = generateStatStackPuzzle('2025-01-06');
+    return createStatStackGameState(puzzle);
+  }
+
+  it('rejects duplicate player picks across different rows', () => {
+    const state = makeState();
+    const pick1: StatStackPick = {
+      rowIndex: 0,
+      playerId: 'p1',
+      playerName: 'Test Player',
+      season: 2020,
+      statValue: 1000,
+      isValid: true,
+    };
+    const after1 = submitStatStackPick(state, pick1);
+    expect(after1.picks[0]).not.toBeNull();
+
+    const pick2: StatStackPick = {
+      rowIndex: 1,
+      playerId: 'p1', // same player
+      playerName: 'Test Player',
+      season: 2020,
+      statValue: 1000,
+      isValid: true,
+    };
+    const after2 = submitStatStackPick(after1, pick2);
+    // Should be rejected — state unchanged
+    expect(after2).toBe(after1);
+    expect(after2.picks[1]).toBeNull();
+  });
+
+  it('allows different players in different rows', () => {
+    const puzzle = generateStatStackPuzzle('2025-01-06');
+    // Clear any lockedYear constraints so season won't cause rejection
+    puzzle.rows = puzzle.rows.map((r: any) => ({ ...r, lockedYear: undefined }));
+    const state = createStatStackGameState(puzzle);
+
+    const pick1: StatStackPick = {
+      rowIndex: 0,
+      playerId: 'p1',
+      playerName: 'Player 1',
+      season: 2020,
+      statValue: 1000,
+      isValid: true,
+    };
+    const after1 = submitStatStackPick(state, pick1);
+
+    const pick2: StatStackPick = {
+      rowIndex: 1,
+      playerId: 'p2', // different player
+      playerName: 'Player 2',
+      season: 2020,
+      statValue: 800,
+      isValid: true,
+    };
+    const after2 = submitStatStackPick(after1, pick2);
+    expect(after2.picks[0]).not.toBeNull();
+    expect(after2.picks[1]).not.toBeNull();
+    expect(after2.totalStatValue).toBe(1800);
   });
 });
