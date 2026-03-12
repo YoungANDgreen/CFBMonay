@@ -4,9 +4,30 @@
 // Given a play/drive description, identify which game it was from.
 // Multiple choice with 4 options. Seeded RNG for daily consistency.
 
-import type { FilmRoomRound, FilmRoomGameState } from '@/types';
-import { getAllGames, getAllTeams } from '../data/cfbd-cache';
+import type { FilmRoomRound, FilmRoomGameState, FilmRoomRevealData } from '@/types';
+import { getAllGames, getAllTeams, getTeamLogo } from '../data/cfbd-cache';
 import type { CachedGame } from '../data/cfbd-cache';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const legendsData: LegendEntry[] = require('../../data/film-room-legends.json');
+
+// --- Legends Data Shape ---
+
+interface LegendEntry {
+  id: string;
+  season: number;
+  homeTeam: string;
+  awayTeam: string;
+  homeScore: number;
+  awayScore: number;
+  venue: string;
+  gameType: string;
+  description: string;
+  disguiseHints: { home: string; away: string };
+  broadcastQuote: string | null;
+  announcer: string | null;
+  difficulty: string;
+}
 
 // --- Seeded RNG Utilities ---
 
@@ -35,6 +56,48 @@ function shuffleWithRng<T>(array: T[], rng: () => number): T[] {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
+}
+
+// --- Description Disguise ---
+
+export function disguiseDescription(
+  description: string,
+  team1: string,
+  team2: string,
+  hints?: { home: string; away: string },
+  mode: 'partial' | 'full' = 'partial'
+): string {
+  let result = description;
+  if (mode === 'full') {
+    result = result.replace(new RegExp(team1, 'gi'), 'Team A');
+    result = result.replace(new RegExp(team2, 'gi'), 'Team B');
+  } else {
+    const hint1 = hints?.home || 'the home team';
+    const hint2 = hints?.away || 'the visiting team';
+    result = result.replace(new RegExp(team1, 'gi'), hint1);
+    result = result.replace(new RegExp(team2, 'gi'), hint2);
+  }
+  return result;
+}
+
+// --- Dynamic Hint Generation ---
+
+function generateHintForTeam(
+  team: string,
+  conference: string | undefined,
+  elo: number | undefined,
+  isHome: boolean
+): string {
+  if (elo && elo > 1700) {
+    return `a top-5 ranked ${conference || ''} powerhouse`.trim();
+  }
+  if (elo && elo > 1600) {
+    return `a ranked ${conference || ''} team`.trim();
+  }
+  if (conference) {
+    return `an unranked ${conference} team`;
+  }
+  return isHome ? 'the home team' : 'the visiting team';
 }
 
 // --- Film Room Round Data ---
@@ -344,6 +407,141 @@ function findDecoys(
   return decoys;
 }
 
+// --- Legend Round Builder ---
+
+function buildLegendRound(
+  legend: LegendEntry,
+  rng: () => number,
+  mode: 'partial' | 'full'
+): FilmRoomRound {
+  // Disguise the description
+  const disguised = disguiseDescription(
+    legend.description,
+    legend.homeTeam,
+    legend.awayTeam,
+    legend.disguiseHints,
+    mode
+  );
+
+  // Winner is whichever team scored more
+  const homeWon = legend.homeScore >= legend.awayScore;
+  const winner = homeWon ? legend.homeTeam : legend.awayTeam;
+  const loser = homeWon ? legend.awayTeam : legend.homeTeam;
+
+  const answer = {
+    team: winner,
+    opponent: loser,
+    year: legend.season,
+    label: `${winner} vs ${loser} ${legend.season}`,
+  };
+
+  // Build decoys from other legends with similar game types
+  const candidates = legendsData.filter(l => l.id !== legend.id);
+  const shuffledCandidates = shuffleWithRng(candidates, rng);
+  const decoys = shuffledCandidates.slice(0, 3).map(l => {
+    const lHomeWon = l.homeScore >= l.awayScore;
+    const lWinner = lHomeWon ? l.homeTeam : l.awayTeam;
+    const lLoser = lHomeWon ? l.awayTeam : l.homeTeam;
+    return {
+      team: lWinner,
+      opponent: lLoser,
+      year: l.season,
+      label: `${lWinner} vs ${lLoser} ${l.season}`,
+    };
+  });
+
+  const allOptions = [answer, ...decoys];
+  const shuffledOptions = shuffleWithRng(allOptions, rng);
+  const correctIndex = shuffledOptions.findIndex(
+    (opt) => opt.team === answer.team && opt.opponent === answer.opponent && opt.year === answer.year
+  );
+
+  const revealData: FilmRoomRevealData = {
+    homeTeam: legend.homeTeam,
+    awayTeam: legend.awayTeam,
+    homeScore: legend.homeScore,
+    awayScore: legend.awayScore,
+    broadcastQuote: legend.broadcastQuote,
+    announcer: legend.announcer,
+    homeLogo: getTeamLogo(legend.homeTeam) || null,
+    awayLogo: getTeamLogo(legend.awayTeam) || null,
+  };
+
+  return {
+    description: disguised,
+    options: shuffledOptions,
+    correctIndex,
+    revealData,
+  };
+}
+
+// --- Dynamic Round Builder with Disguise ---
+
+function buildDynamicRound(
+  game: CachedGame,
+  type: GameType,
+  completedGames: CachedGame[],
+  rng: () => number,
+  mode: 'partial' | 'full'
+): FilmRoomRound {
+  const { winner, loser } = getWinnerLoser(game);
+  const rawDescription = generateDescription(game, type);
+
+  // Generate hints for dynamic games
+  const homeHint = generateHintForTeam(
+    game.homeTeam,
+    game.homeConference,
+    game.homeElo,
+    true
+  );
+  const awayHint = generateHintForTeam(
+    game.awayTeam,
+    game.awayConference,
+    game.awayElo,
+    false
+  );
+
+  const disguised = disguiseDescription(
+    rawDescription,
+    game.homeTeam,
+    game.awayTeam,
+    { home: homeHint, away: awayHint },
+    mode
+  );
+
+  const answer = {
+    team: winner,
+    opponent: loser,
+    year: game.season,
+    label: `${winner} vs ${loser} ${game.season}`,
+  };
+
+  const decoys = findDecoys(game, type, completedGames, rng);
+  const allOptions = [answer, ...decoys];
+  const shuffledOptions = shuffleWithRng(allOptions, rng);
+  const correctIndex = shuffledOptions.findIndex(
+    (opt) => opt.team === answer.team && opt.opponent === answer.opponent && opt.year === answer.year
+  );
+
+  const revealData: FilmRoomRevealData = {
+    homeTeam: game.homeTeam,
+    awayTeam: game.awayTeam,
+    homeScore: game.homePoints,
+    awayScore: game.awayPoints,
+    broadcastQuote: null,
+    announcer: null,
+    homeLogo: getTeamLogo(game.homeTeam) || null,
+    awayLogo: getTeamLogo(game.awayTeam) || null,
+  };
+
+  return {
+    description: disguised,
+    options: shuffledOptions,
+    correctIndex,
+    revealData,
+  };
+}
+
 export function generateFilmRoomGameWithCache(
   dateStr: string,
   roundCount: number = 5
@@ -354,9 +552,22 @@ export function generateFilmRoomGameWithCache(
     (g) => g.completed && g.homeConference && g.awayConference
   );
 
-  // Classify all completed games
+  // Quality filter for dynamic games
+  const qualityGames = completedGames.filter(g => {
+    if (!g.completed || !g.homeConference || !g.awayConference) return false;
+    const margin = Math.abs(g.homePoints - g.awayPoints);
+    const total = g.homePoints + g.awayPoints;
+    const hasElo = g.homeElo && g.awayElo;
+    const isUpset = hasElo && Math.abs(g.homeElo! - g.awayElo!) > 150;
+    const isClose = margin <= 7;
+    const isShootout = total >= 70;
+    const isRankedMatchup = hasElo && g.homeElo! > 1600 && g.awayElo! > 1600;
+    return isUpset || isClose || isShootout || isRankedMatchup;
+  });
+
+  // Classify quality games
   const interestingGames: ClassifiedGame[] = [];
-  for (const game of completedGames) {
+  for (const game of qualityGames) {
     const type = classifyGame(game);
     if (type) {
       interestingGames.push({ game, type });
@@ -369,33 +580,41 @@ export function generateFilmRoomGameWithCache(
   }
 
   const rng = seededRandom(dateToSeed(dateStr + '-cache'));
-  const shuffled = shuffleWithRng(interestingGames, rng);
-  const selected = shuffled.slice(0, Math.min(roundCount, shuffled.length));
 
-  const entries: FilmRoomEntry[] = selected.map(({ game, type }) => {
-    const { winner, loser } = getWinnerLoser(game);
-    const description = generateDescription(game, type);
-    const decoys = findDecoys(game, type, completedGames, rng);
+  // Determine round mix: 2-3 dynamic rounds + 1-2 legends rounds
+  const clampedCount = Math.min(roundCount, 5);
+  const legendCount = rng() < 0.5 ? 1 : 2;
+  const dynamicCount = clampedCount - legendCount;
 
-    return {
-      description,
-      answer: {
-        team: winner,
-        opponent: loser,
-        year: game.season,
-        label: `${winner} vs ${loser} ${game.season}`,
-      },
-      decoys,
-    };
-  });
+  // Select legends
+  const shuffledLegends = shuffleWithRng(legendsData, rng);
+  const selectedLegends = shuffledLegends.slice(0, legendCount);
 
-  const rounds = entries.map((entry) => buildRound(entry, rng));
+  // Select dynamic games
+  const shuffledDynamic = shuffleWithRng(interestingGames, rng);
+  const selectedDynamic = shuffledDynamic.slice(0, dynamicCount);
+
+  // Build rounds — ~70% partial (hints), ~30% full (Team A/B)
+  const rounds: FilmRoomRound[] = [];
+
+  for (const legend of selectedLegends) {
+    const mode = rng() < 0.7 ? 'partial' : 'full';
+    rounds.push(buildLegendRound(legend, rng, mode));
+  }
+
+  for (const { game, type } of selectedDynamic) {
+    const mode = rng() < 0.7 ? 'partial' : 'full';
+    rounds.push(buildDynamicRound(game, type, completedGames, rng, mode));
+  }
+
+  // Shuffle the combined rounds so legends aren't always first
+  const shuffledRounds = shuffleWithRng(rounds, rng);
 
   return {
-    rounds,
+    rounds: shuffledRounds,
     currentRound: 0,
     score: 0,
-    results: rounds.map(() => 'pending' as const),
+    results: shuffledRounds.map(() => 'pending' as const),
     isComplete: false,
     startTime: Date.now(),
   };
