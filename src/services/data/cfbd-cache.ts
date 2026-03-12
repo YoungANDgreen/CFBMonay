@@ -162,6 +162,15 @@ let recruits: CachedRecruit[] = [];
 let advancedStats: CachedAdvancedStats[] = [];
 let driveStats: CachedDriveEfficiency[] = [];
 
+interface TeamLogoEntry {
+  school: string;
+  espnId: number;
+  logoUrl: string;
+  darkLogoUrl: string;
+}
+let teamLogos: TeamLogoEntry[] = [];
+let _logoMap: Map<string, TeamLogoEntry> | null = null;
+
 let initialized = false;
 
 // --- Initialize ---
@@ -211,6 +220,11 @@ export function initializeDataCache(): void {
   try {
     driveStats = require('../../data/drive-stats.json') as CachedDriveEfficiency[];
   } catch { driveStats = []; }
+
+  try {
+    teamLogos = require('../../data/team-logos.json') as TeamLogoEntry[];
+    _logoMap = null; // Reset lazy map on re-init
+  } catch { teamLogos = []; }
 
   initialized = true;
   console.log(`[DataCache] Loaded: ${teams.length} teams, ${players.length} players, ${playerStats.length} stat lines, ${games.length} games, ${draftPicks.length} draft picks, ${advancedStats.length} advanced stats, ${driveStats.length} drive stats`);
@@ -411,6 +425,26 @@ export function getDriveEfficiencyByTeam(team: string, season?: number): CachedD
   );
 }
 
+// --- Team Logo Getters ---
+function ensureLogoMap(): Map<string, TeamLogoEntry> {
+  if (!_logoMap) {
+    _logoMap = new Map(teamLogos.map(t => [t.school.toLowerCase(), t]));
+  }
+  return _logoMap;
+}
+
+export function getTeamLogo(school: string): string | undefined {
+  return ensureLogoMap().get(school.toLowerCase())?.logoUrl;
+}
+
+export function getTeamLogoDark(school: string): string | undefined {
+  return ensureLogoMap().get(school.toLowerCase())?.darkLogoUrl;
+}
+
+export function getEspnTeamId(school: string): number | undefined {
+  return ensureLogoMap().get(school.toLowerCase())?.espnId;
+}
+
 // --- Utility ---
 export function isCacheReady(): boolean { return initialized; }
 
@@ -428,5 +462,6 @@ export function getCacheStats() {
     recruits: recruits.length,
     advancedStats: advancedStats.length,
     driveStats: driveStats.length,
+    teamLogos: teamLogos.length,
   };
 }

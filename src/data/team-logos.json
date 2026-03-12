@@ -1,0 +1,818 @@
+[
+  {
+    "school": "Air Force",
+    "espnId": 2005,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2005.png"
+  },
+  {
+    "school": "Akron",
+    "espnId": 2006,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2006.png"
+  },
+  {
+    "school": "Alabama",
+    "espnId": 333,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/333.png"
+  },
+  {
+    "school": "App State",
+    "espnId": 2026,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2026.png"
+  },
+  {
+    "school": "Arizona",
+    "espnId": 12,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/12.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/12.png"
+  },
+  {
+    "school": "Arizona State",
+    "espnId": 9,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/9.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/9.png"
+  },
+  {
+    "school": "Arkansas",
+    "espnId": 8,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/8.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/8.png"
+  },
+  {
+    "school": "Arkansas State",
+    "espnId": 2032,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2032.png"
+  },
+  {
+    "school": "Army",
+    "espnId": 349,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/349.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/349.png"
+  },
+  {
+    "school": "Auburn",
+    "espnId": 2,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2.png"
+  },
+  {
+    "school": "Ball State",
+    "espnId": 2050,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2050.png"
+  },
+  {
+    "school": "Baylor",
+    "espnId": 239,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/239.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/239.png"
+  },
+  {
+    "school": "Boise State",
+    "espnId": 68,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/68.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/68.png"
+  },
+  {
+    "school": "Boston College",
+    "espnId": 103,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/103.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/103.png"
+  },
+  {
+    "school": "Bowling Green",
+    "espnId": 189,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/189.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/189.png"
+  },
+  {
+    "school": "Buffalo",
+    "espnId": 2084,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2084.png"
+  },
+  {
+    "school": "BYU",
+    "espnId": 252,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/252.png"
+  },
+  {
+    "school": "California",
+    "espnId": 25,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/25.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/25.png"
+  },
+  {
+    "school": "Central Michigan",
+    "espnId": 2117,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2117.png"
+  },
+  {
+    "school": "Charlotte",
+    "espnId": 2429,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2429.png"
+  },
+  {
+    "school": "Cincinnati",
+    "espnId": 2132,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2132.png"
+  },
+  {
+    "school": "Clemson",
+    "espnId": 228,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/228.png"
+  },
+  {
+    "school": "Coastal Carolina",
+    "espnId": 324,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/324.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/324.png"
+  },
+  {
+    "school": "Colorado",
+    "espnId": 38,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/38.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/38.png"
+  },
+  {
+    "school": "Colorado State",
+    "espnId": 36,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/36.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/36.png"
+  },
+  {
+    "school": "Delaware",
+    "espnId": 48,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/48.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/48.png"
+  },
+  {
+    "school": "Duke",
+    "espnId": 150,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/150.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/150.png"
+  },
+  {
+    "school": "East Carolina",
+    "espnId": 151,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/151.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/151.png"
+  },
+  {
+    "school": "Eastern Michigan",
+    "espnId": 2199,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2199.png"
+  },
+  {
+    "school": "Florida",
+    "espnId": 57,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/57.png"
+  },
+  {
+    "school": "Florida Atlantic",
+    "espnId": 2226,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2226.png"
+  },
+  {
+    "school": "Florida International",
+    "espnId": 2229,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2229.png"
+  },
+  {
+    "school": "Florida State",
+    "espnId": 52,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/52.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/52.png"
+  },
+  {
+    "school": "Fresno State",
+    "espnId": 278,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/278.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/278.png"
+  },
+  {
+    "school": "Georgia",
+    "espnId": 61,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/61.png"
+  },
+  {
+    "school": "Georgia Southern",
+    "espnId": 290,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/290.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/290.png"
+  },
+  {
+    "school": "Georgia State",
+    "espnId": 2247,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2247.png"
+  },
+  {
+    "school": "Georgia Tech",
+    "espnId": 59,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/59.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/59.png"
+  },
+  {
+    "school": "Hawai'i",
+    "espnId": 62,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/62.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/62.png"
+  },
+  {
+    "school": "Houston",
+    "espnId": 248,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/248.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/248.png"
+  },
+  {
+    "school": "Illinois",
+    "espnId": 356,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/356.png"
+  },
+  {
+    "school": "Indiana",
+    "espnId": 84,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/84.png"
+  },
+  {
+    "school": "Iowa",
+    "espnId": 2294,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2294.png"
+  },
+  {
+    "school": "Iowa State",
+    "espnId": 66,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/66.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/66.png"
+  },
+  {
+    "school": "Jacksonville State",
+    "espnId": 55,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/55.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/55.png"
+  },
+  {
+    "school": "James Madison",
+    "espnId": 256,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/256.png"
+  },
+  {
+    "school": "Kansas",
+    "espnId": 2305,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2305.png"
+  },
+  {
+    "school": "Kansas State",
+    "espnId": 2306,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2306.png"
+  },
+  {
+    "school": "Kennesaw State",
+    "espnId": 338,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/338.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/338.png"
+  },
+  {
+    "school": "Kent State",
+    "espnId": 2309,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2309.png"
+  },
+  {
+    "school": "Kentucky",
+    "espnId": 96,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/96.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/96.png"
+  },
+  {
+    "school": "Liberty",
+    "espnId": 2335,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2335.png"
+  },
+  {
+    "school": "Louisiana",
+    "espnId": 309,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/309.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/309.png"
+  },
+  {
+    "school": "Louisiana Tech",
+    "espnId": 2348,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2348.png"
+  },
+  {
+    "school": "Louisville",
+    "espnId": 97,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/97.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/97.png"
+  },
+  {
+    "school": "LSU",
+    "espnId": 99,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/99.png"
+  },
+  {
+    "school": "Marshall",
+    "espnId": 276,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/276.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/276.png"
+  },
+  {
+    "school": "Maryland",
+    "espnId": 120,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/120.png"
+  },
+  {
+    "school": "Massachusetts",
+    "espnId": 113,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/113.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/113.png"
+  },
+  {
+    "school": "Memphis",
+    "espnId": 235,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/235.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/235.png"
+  },
+  {
+    "school": "Miami",
+    "espnId": 2390,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2390.png"
+  },
+  {
+    "school": "Miami (OH)",
+    "espnId": 193,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/193.png"
+  },
+  {
+    "school": "Michigan",
+    "espnId": 130,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/130.png"
+  },
+  {
+    "school": "Michigan State",
+    "espnId": 127,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/127.png"
+  },
+  {
+    "school": "Middle Tennessee",
+    "espnId": 2393,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2393.png"
+  },
+  {
+    "school": "Minnesota",
+    "espnId": 135,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/135.png"
+  },
+  {
+    "school": "Mississippi State",
+    "espnId": 344,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/344.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/344.png"
+  },
+  {
+    "school": "Missouri",
+    "espnId": 142,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/142.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/142.png"
+  },
+  {
+    "school": "Missouri State",
+    "espnId": 2623,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2623.png"
+  },
+  {
+    "school": "Navy",
+    "espnId": 2426,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2426.png"
+  },
+  {
+    "school": "NC State",
+    "espnId": 152,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/152.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/152.png"
+  },
+  {
+    "school": "Nebraska",
+    "espnId": 158,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/158.png"
+  },
+  {
+    "school": "Nevada",
+    "espnId": 2440,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2440.png"
+  },
+  {
+    "school": "New Mexico",
+    "espnId": 167,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/167.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/167.png"
+  },
+  {
+    "school": "New Mexico State",
+    "espnId": 166,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/166.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/166.png"
+  },
+  {
+    "school": "North Carolina",
+    "espnId": 153,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/153.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/153.png"
+  },
+  {
+    "school": "Northern Illinois",
+    "espnId": 2459,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2459.png"
+  },
+  {
+    "school": "North Texas",
+    "espnId": 249,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/249.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/249.png"
+  },
+  {
+    "school": "Northwestern",
+    "espnId": 77,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/77.png"
+  },
+  {
+    "school": "Notre Dame",
+    "espnId": 87,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/87.png"
+  },
+  {
+    "school": "Ohio",
+    "espnId": 195,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/195.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/195.png"
+  },
+  {
+    "school": "Ohio State",
+    "espnId": 194,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/194.png"
+  },
+  {
+    "school": "Oklahoma",
+    "espnId": 201,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/201.png"
+  },
+  {
+    "school": "Oklahoma State",
+    "espnId": 197,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/197.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/197.png"
+  },
+  {
+    "school": "Old Dominion",
+    "espnId": 295,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/295.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/295.png"
+  },
+  {
+    "school": "Ole Miss",
+    "espnId": 145,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/145.png"
+  },
+  {
+    "school": "Oregon",
+    "espnId": 2483,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2483.png"
+  },
+  {
+    "school": "Oregon State",
+    "espnId": 204,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/204.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/204.png"
+  },
+  {
+    "school": "Penn State",
+    "espnId": 213,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/213.png"
+  },
+  {
+    "school": "Pittsburgh",
+    "espnId": 221,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/221.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/221.png"
+  },
+  {
+    "school": "Purdue",
+    "espnId": 2509,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2509.png"
+  },
+  {
+    "school": "Rice",
+    "espnId": 242,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/242.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/242.png"
+  },
+  {
+    "school": "Rutgers",
+    "espnId": 164,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/164.png"
+  },
+  {
+    "school": "Sam Houston",
+    "espnId": 2534,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2534.png"
+  },
+  {
+    "school": "San Diego State",
+    "espnId": 21,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/21.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/21.png"
+  },
+  {
+    "school": "San José State",
+    "espnId": 23,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/23.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/23.png"
+  },
+  {
+    "school": "SMU",
+    "espnId": 2567,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2567.png"
+  },
+  {
+    "school": "South Alabama",
+    "espnId": 6,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/6.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/6.png"
+  },
+  {
+    "school": "South Carolina",
+    "espnId": 2579,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2579.png"
+  },
+  {
+    "school": "Southern Miss",
+    "espnId": 2572,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2572.png"
+  },
+  {
+    "school": "South Florida",
+    "espnId": 58,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/58.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/58.png"
+  },
+  {
+    "school": "Stanford",
+    "espnId": 24,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/24.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/24.png"
+  },
+  {
+    "school": "Syracuse",
+    "espnId": 183,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/183.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/183.png"
+  },
+  {
+    "school": "TCU",
+    "espnId": 2628,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2628.png"
+  },
+  {
+    "school": "Temple",
+    "espnId": 218,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/218.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/218.png"
+  },
+  {
+    "school": "Tennessee",
+    "espnId": 2633,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2633.png"
+  },
+  {
+    "school": "Texas",
+    "espnId": 251,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/251.png"
+  },
+  {
+    "school": "Texas A&M",
+    "espnId": 245,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/245.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/245.png"
+  },
+  {
+    "school": "Texas State",
+    "espnId": 326,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/326.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/326.png"
+  },
+  {
+    "school": "Texas Tech",
+    "espnId": 2641,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2641.png"
+  },
+  {
+    "school": "Toledo",
+    "espnId": 2649,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2649.png"
+  },
+  {
+    "school": "Troy",
+    "espnId": 2653,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2653.png"
+  },
+  {
+    "school": "Tulane",
+    "espnId": 2655,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2655.png"
+  },
+  {
+    "school": "Tulsa",
+    "espnId": 202,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/202.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/202.png"
+  },
+  {
+    "school": "UAB",
+    "espnId": 5,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/5.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/5.png"
+  },
+  {
+    "school": "UCF",
+    "espnId": 2116,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2116.png"
+  },
+  {
+    "school": "UCLA",
+    "espnId": 26,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/26.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/26.png"
+  },
+  {
+    "school": "UConn",
+    "espnId": 41,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/41.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/41.png"
+  },
+  {
+    "school": "UL Monroe",
+    "espnId": 2433,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2433.png"
+  },
+  {
+    "school": "UNLV",
+    "espnId": 2439,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2439.png"
+  },
+  {
+    "school": "USC",
+    "espnId": 30,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/30.png"
+  },
+  {
+    "school": "Utah",
+    "espnId": 254,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/254.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/254.png"
+  },
+  {
+    "school": "Utah State",
+    "espnId": 328,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/328.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/328.png"
+  },
+  {
+    "school": "UTEP",
+    "espnId": 2638,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2638.png"
+  },
+  {
+    "school": "UTSA",
+    "espnId": 2636,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2636.png"
+  },
+  {
+    "school": "Vanderbilt",
+    "espnId": 238,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/238.png"
+  },
+  {
+    "school": "Virginia",
+    "espnId": 258,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/258.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/258.png"
+  },
+  {
+    "school": "Virginia Tech",
+    "espnId": 259,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/259.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/259.png"
+  },
+  {
+    "school": "Wake Forest",
+    "espnId": 154,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/154.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/154.png"
+  },
+  {
+    "school": "Washington",
+    "espnId": 264,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/264.png"
+  },
+  {
+    "school": "Washington State",
+    "espnId": 265,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/265.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/265.png"
+  },
+  {
+    "school": "Western Kentucky",
+    "espnId": 98,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/98.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/98.png"
+  },
+  {
+    "school": "Western Michigan",
+    "espnId": 2711,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2711.png"
+  },
+  {
+    "school": "West Virginia",
+    "espnId": 277,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/277.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/277.png"
+  },
+  {
+    "school": "Wisconsin",
+    "espnId": 275,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/275.png"
+  },
+  {
+    "school": "Wyoming",
+    "espnId": 2751,
+    "logoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png",
+    "darkLogoUrl": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2751.png"
+  }
+]

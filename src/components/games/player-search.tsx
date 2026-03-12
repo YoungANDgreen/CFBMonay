@@ -9,6 +9,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { colors, spacing, typography, borderRadius } from '@/lib/theme';
+import { searchPlayers, getAllTeams } from '@/services/data/cfbd-cache';
+import { TeamLogo } from '@/components/ui/team-logo';
 import type { Player } from '@/types';
 
 interface PlayerSearchProps {
@@ -16,34 +18,34 @@ interface PlayerSearchProps {
   placeholder?: string;
 }
 
-// Mock search function — will be replaced with CFBD API integration
-function mockSearchPlayers(query: string): Player[] {
+// Team → conference lookup (built lazily)
+let _confLookup: Map<string, string> | null = null;
+function getConfLookup(): Map<string, string> {
+  if (!_confLookup) {
+    _confLookup = new Map();
+    for (const t of getAllTeams()) {
+      _confLookup.set(t.school.toLowerCase(), t.conference);
+    }
+  }
+  return _confLookup;
+}
+
+// Search real CFBD cache data
+function searchCachePlayers(query: string): Player[] {
   if (query.length < 2) return [];
 
-  const MOCK_PLAYERS: Player[] = [
-    { id: '1', name: 'Derrick Henry', position: 'RB', school: 'Alabama', conference: 'SEC', seasons: [], awards: ['Heisman'] },
-    { id: '2', name: 'Joe Burrow', position: 'QB', school: 'LSU', conference: 'SEC', seasons: [], awards: ['Heisman'] },
-    { id: '3', name: 'DeVonta Smith', position: 'WR', school: 'Alabama', conference: 'SEC', seasons: [], awards: ['Heisman', 'Biletnikoff'] },
-    { id: '4', name: 'Lamar Jackson', position: 'QB', school: 'Louisville', conference: 'ACC', seasons: [], awards: ['Heisman'] },
-    { id: '5', name: 'Saquon Barkley', position: 'RB', school: 'Penn State', conference: 'Big Ten', seasons: [], awards: [] },
-    { id: '6', name: 'Chase Young', position: 'DL', school: 'Ohio State', conference: 'Big Ten', seasons: [], awards: [] },
-    { id: '7', name: 'Trevor Lawrence', position: 'QB', school: 'Clemson', conference: 'ACC', seasons: [], awards: [] },
-    { id: '8', name: 'Justin Fields', position: 'QB', school: 'Ohio State', conference: 'Big Ten', seasons: [], awards: [] },
-    { id: '9', name: 'CeeDee Lamb', position: 'WR', school: 'Oklahoma', conference: 'Big 12', seasons: [], awards: ['Biletnikoff'] },
-    { id: '10', name: 'Ja\'Marr Chase', position: 'WR', school: 'LSU', conference: 'SEC', seasons: [], awards: ['Biletnikoff'] },
-    { id: '11', name: 'Micah Parsons', position: 'LB', school: 'Penn State', conference: 'Big Ten', seasons: [], awards: ['Butkus'] },
-    { id: '12', name: 'Caleb Williams', position: 'QB', school: 'USC', conference: 'Pac-12', seasons: [], awards: ['Heisman'] },
-    { id: '13', name: 'Brock Bowers', position: 'TE', school: 'Georgia', conference: 'SEC', seasons: [], awards: [] },
-    { id: '14', name: 'Will Anderson Jr.', position: 'DL', school: 'Alabama', conference: 'SEC', seasons: [], awards: ['Nagurski'] },
-    { id: '15', name: 'C.J. Stroud', position: 'QB', school: 'Ohio State', conference: 'Big Ten', seasons: [], awards: [] },
-  ];
+  const confLookup = getConfLookup();
+  const cached = searchPlayers(query);
 
-  const lower = query.toLowerCase();
-  return MOCK_PLAYERS.filter(p =>
-    p.name.toLowerCase().includes(lower) ||
-    p.school.toLowerCase().includes(lower) ||
-    p.position.toLowerCase().includes(lower)
-  ).slice(0, 8);
+  return cached.slice(0, 12).map(p => ({
+    id: String(p.id),
+    name: `${p.firstName} ${p.lastName}`,
+    position: p.position as Player['position'],
+    school: p.team,
+    conference: (confLookup.get(p.team.toLowerCase()) || '') as Player['conference'],
+    seasons: [],
+    awards: [],
+  }));
 }
 
 export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...' }: PlayerSearchProps) {
@@ -59,12 +61,12 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
     }
 
     setIsSearching(true);
-    // Simulate async search — replace with real API call
+    // Small delay for debouncing rapid keystrokes
     setTimeout(() => {
-      const found = mockSearchPlayers(text);
+      const found = searchCachePlayers(text);
       setResults(found);
       setIsSearching(false);
-    }, 150);
+    }, 100);
   }, []);
 
   const handleSelect = (player: Player) => {
@@ -101,6 +103,7 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
                 onPress={() => handleSelect(item)}
                 activeOpacity={0.7}
               >
+                <TeamLogo school={item.school} size={32} style={styles.teamLogo} />
                 <View style={styles.resultContent}>
                   <Text style={styles.playerName}>{item.name}</Text>
                   <View style={styles.playerMeta}>
@@ -109,7 +112,7 @@ export function PlayerSearch({ onSelectPlayer, placeholder = 'Search players...'
                     <Text style={styles.confText}>{item.conference}</Text>
                   </View>
                 </View>
-                {item.awards.length > 0 && (
+                {item.awards && item.awards.length > 0 && (
                   <Text style={styles.awardBadge}>
                     {item.awards[0]}
                   </Text>
@@ -166,6 +169,9 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
+  },
+  teamLogo: {
+    marginRight: spacing.sm,
   },
   resultContent: {
     flex: 1,

@@ -115,13 +115,85 @@ const AWARD_CRITERIA: GridCriteria[] = [
   { type: 'award', value: 'Doak Walker', displayText: 'Doak Walker Award' },
 ];
 
-const STAT_CRITERIA: GridCriteria[] = [
-  { type: 'stat_threshold', value: 'rushing_yards_1000', displayText: '1,000+ Rush Yds (Season)' },
-  { type: 'stat_threshold', value: 'passing_tds_30', displayText: '30+ Pass TDs (Season)' },
-  { type: 'stat_threshold', value: 'receiving_yards_1000', displayText: '1,000+ Rec Yds (Season)' },
-  { type: 'stat_threshold', value: 'passing_yards_3000', displayText: '3,000+ Pass Yds (Season)' },
-  { type: 'stat_threshold', value: 'total_tds_20', displayText: '20+ Total TDs (Season)' },
+// --- Stat Criterion with position compatibility ---
+
+export interface StatCriterion {
+  type: 'stat_threshold';
+  value: string;
+  displayText: string;
+  compatiblePositions: string[];  // which positions can realistically achieve this
+  statField: string;              // field name in CachedPlayerSeasonStats (or 'totalTDs' for computed)
+  threshold: number;              // minimum value
+}
+
+const STAT_CRITERIA_DEFINITIONS: StatCriterion[] = [
+  // --- Passing (mostly QB, except trick plays) ---
+  { type: 'stat_threshold', value: '1+ Passing TD',     displayText: '1+ Passing TD',     compatiblePositions: ['QB', 'WR', 'RB', 'ATH'], statField: 'passingTDs',  threshold: 1 },
+  { type: 'stat_threshold', value: '10+ Passing TDs',   displayText: '10+ Passing TDs',   compatiblePositions: ['QB'],                     statField: 'passingTDs',  threshold: 10 },
+  { type: 'stat_threshold', value: '20+ Passing TDs',   displayText: '20+ Passing TDs',   compatiblePositions: ['QB'],                     statField: 'passingTDs',  threshold: 20 },
+  { type: 'stat_threshold', value: '30+ Passing TDs',   displayText: '30+ Passing TDs',   compatiblePositions: ['QB'],                     statField: 'passingTDs',  threshold: 30 },
+  { type: 'stat_threshold', value: '40+ Passing TDs',   displayText: '40+ Passing TDs',   compatiblePositions: ['QB'],                     statField: 'passingTDs',  threshold: 40 },
+  { type: 'stat_threshold', value: '1000+ Passing Yds', displayText: '1000+ Passing Yds', compatiblePositions: ['QB'],                     statField: 'passingYards', threshold: 1000 },
+  { type: 'stat_threshold', value: '2000+ Passing Yds', displayText: '2000+ Passing Yds', compatiblePositions: ['QB'],                     statField: 'passingYards', threshold: 2000 },
+  { type: 'stat_threshold', value: '3000+ Passing Yds', displayText: '3000+ Passing Yds', compatiblePositions: ['QB'],                     statField: 'passingYards', threshold: 3000 },
+  { type: 'stat_threshold', value: '4000+ Passing Yds', displayText: '4000+ Passing Yds', compatiblePositions: ['QB'],                     statField: 'passingYards', threshold: 4000 },
+  { type: 'stat_threshold', value: '10+ INTs Thrown',   displayText: '10+ INTs Thrown',   compatiblePositions: ['QB'],                     statField: 'interceptions', threshold: 10 },
+
+  // --- Rushing (QB, RB, ATH, some WR) ---
+  { type: 'stat_threshold', value: '100+ Rush Yds',   displayText: '100+ Rush Yds',   compatiblePositions: ['QB', 'RB', 'WR', 'ATH'], statField: 'rushingYards', threshold: 100 },
+  { type: 'stat_threshold', value: '500+ Rush Yds',   displayText: '500+ Rush Yds',   compatiblePositions: ['QB', 'RB', 'ATH'],        statField: 'rushingYards', threshold: 500 },
+  { type: 'stat_threshold', value: '1000+ Rush Yds',  displayText: '1000+ Rush Yds',  compatiblePositions: ['QB', 'RB', 'ATH'],        statField: 'rushingYards', threshold: 1000 },
+  { type: 'stat_threshold', value: '1500+ Rush Yds',  displayText: '1500+ Rush Yds',  compatiblePositions: ['RB', 'ATH'],              statField: 'rushingYards', threshold: 1500 },
+  { type: 'stat_threshold', value: '2000+ Rush Yds',  displayText: '2000+ Rush Yds',  compatiblePositions: ['RB'],                     statField: 'rushingYards', threshold: 2000 },
+  { type: 'stat_threshold', value: '5+ Rush TDs',     displayText: '5+ Rush TDs',     compatiblePositions: ['QB', 'RB', 'WR', 'ATH'], statField: 'rushingTDs',   threshold: 5 },
+  { type: 'stat_threshold', value: '10+ Rush TDs',    displayText: '10+ Rush TDs',    compatiblePositions: ['QB', 'RB', 'ATH'],        statField: 'rushingTDs',   threshold: 10 },
+  { type: 'stat_threshold', value: '15+ Rush TDs',    displayText: '15+ Rush TDs',    compatiblePositions: ['RB', 'ATH'],              statField: 'rushingTDs',   threshold: 15 },
+  { type: 'stat_threshold', value: '20+ Rush TDs',    displayText: '20+ Rush TDs',    compatiblePositions: ['RB'],                     statField: 'rushingTDs',   threshold: 20 },
+
+  // --- Receiving (WR, RB, ATH, rare QB) ---
+  { type: 'stat_threshold', value: '1+ Receiving TD',   displayText: '1+ Receiving TD',   compatiblePositions: ['WR', 'RB', 'QB', 'ATH'], statField: 'receivingTDs',   threshold: 1 },
+  { type: 'stat_threshold', value: '500+ Rec Yds',      displayText: '500+ Rec Yds',      compatiblePositions: ['WR', 'RB', 'ATH'],        statField: 'receivingYards', threshold: 500 },
+  { type: 'stat_threshold', value: '1000+ Rec Yds',     displayText: '1000+ Rec Yds',     compatiblePositions: ['WR', 'ATH'],              statField: 'receivingYards', threshold: 1000 },
+  { type: 'stat_threshold', value: '1500+ Rec Yds',     displayText: '1500+ Rec Yds',     compatiblePositions: ['WR'],                     statField: 'receivingYards', threshold: 1500 },
+  { type: 'stat_threshold', value: '5+ Rec TDs',        displayText: '5+ Rec TDs',        compatiblePositions: ['WR', 'RB', 'ATH'],        statField: 'receivingTDs',   threshold: 5 },
+  { type: 'stat_threshold', value: '10+ Rec TDs',       displayText: '10+ Rec TDs',       compatiblePositions: ['WR', 'ATH'],              statField: 'receivingTDs',   threshold: 10 },
+  { type: 'stat_threshold', value: '15+ Rec TDs',       displayText: '15+ Rec TDs',       compatiblePositions: ['WR'],                     statField: 'receivingTDs',   threshold: 15 },
+
+  // --- Total TDs (computed: passing + rushing + receiving) ---
+  { type: 'stat_threshold', value: '10+ Total TDs', displayText: '10+ Total TDs', compatiblePositions: ['QB', 'RB', 'WR', 'ATH'], statField: 'totalTDs', threshold: 10 },
+  { type: 'stat_threshold', value: '15+ Total TDs', displayText: '15+ Total TDs', compatiblePositions: ['QB', 'RB', 'WR', 'ATH'], statField: 'totalTDs', threshold: 15 },
+  { type: 'stat_threshold', value: '20+ Total TDs', displayText: '20+ Total TDs', compatiblePositions: ['QB', 'RB', 'WR', 'ATH'], statField: 'totalTDs', threshold: 20 },
+  { type: 'stat_threshold', value: '25+ Total TDs', displayText: '25+ Total TDs', compatiblePositions: ['QB', 'RB', 'ATH'],        statField: 'totalTDs', threshold: 25 },
+  { type: 'stat_threshold', value: '30+ Total TDs', displayText: '30+ Total TDs', compatiblePositions: ['QB', 'RB'],               statField: 'totalTDs', threshold: 30 },
+
+  // --- Defensive (DEF only) ---
+  { type: 'stat_threshold', value: '3+ Sacks',            displayText: '3+ Sacks',            compatiblePositions: ['DEF'], statField: 'sacks',                  threshold: 3 },
+  { type: 'stat_threshold', value: '5+ Sacks',            displayText: '5+ Sacks',            compatiblePositions: ['DEF'], statField: 'sacks',                  threshold: 5 },
+  { type: 'stat_threshold', value: '8+ Sacks',            displayText: '8+ Sacks',            compatiblePositions: ['DEF'], statField: 'sacks',                  threshold: 8 },
+  { type: 'stat_threshold', value: '10+ Sacks',           displayText: '10+ Sacks',           compatiblePositions: ['DEF'], statField: 'sacks',                  threshold: 10 },
+  { type: 'stat_threshold', value: '3+ DEF INTs',         displayText: '3+ DEF INTs',         compatiblePositions: ['DEF'], statField: 'defensiveInterceptions', threshold: 3 },
+  { type: 'stat_threshold', value: '5+ DEF INTs',         displayText: '5+ DEF INTs',         compatiblePositions: ['DEF'], statField: 'defensiveInterceptions', threshold: 5 },
+  { type: 'stat_threshold', value: '8+ DEF INTs',         displayText: '8+ DEF INTs',         compatiblePositions: ['DEF'], statField: 'defensiveInterceptions', threshold: 8 },
+  { type: 'stat_threshold', value: '2+ Forced Fumbles',   displayText: '2+ Forced Fumbles',   compatiblePositions: ['DEF'], statField: 'forcedFumbles',          threshold: 2 },
+  { type: 'stat_threshold', value: '3+ Forced Fumbles',   displayText: '3+ Forced Fumbles',   compatiblePositions: ['DEF'], statField: 'forcedFumbles',          threshold: 3 },
+  { type: 'stat_threshold', value: '5+ Passes Defended',  displayText: '5+ Passes Defended',  compatiblePositions: ['DEF'], statField: 'passesDefended',         threshold: 5 },
+  { type: 'stat_threshold', value: '10+ Passes Defended', displayText: '10+ Passes Defended', compatiblePositions: ['DEF'], statField: 'passesDefended',         threshold: 10 },
+
+  // --- Cross-position rare ---
+  { type: 'stat_threshold', value: 'WR w/ 100+ Rush Yds', displayText: 'WR w/ 100+ Rush Yds', compatiblePositions: ['WR'], statField: 'rushingYards', threshold: 100 },
 ];
+
+// Build the GridCriteria-compatible array used by ALL_CRITERIA_POOLS
+const STAT_CRITERIA: GridCriteria[] = STAT_CRITERIA_DEFINITIONS.map(s => ({
+  type: s.type,
+  value: s.value,
+  displayText: s.displayText,
+}));
+
+// Quick lookup by value
+const STAT_CRITERIA_BY_VALUE = new Map<string, StatCriterion>(
+  STAT_CRITERIA_DEFINITIONS.map(s => [s.value, s])
+);
 
 const DRAFT_CRITERIA: GridCriteria[] = [
   { type: 'draft_round', value: '1', displayText: '1st Round Pick' },
@@ -160,6 +232,26 @@ const ALL_CRITERIA_POOLS: GridCriteria[][] = [
   POSITION_CRITERIA,
   SCHOOL_CRITERIA,
 ];
+
+// --- Position + Stat Compatibility Check ---
+
+/**
+ * Checks whether two criteria are compatible on the same grid cell.
+ * Only relevant when one is a position and the other is a stat_threshold.
+ * Non position+stat combos are always considered compatible.
+ */
+export function areCompatibleCriteria(
+  criteria1: { type: string; value: string },
+  criteria2: { type: string; value: string }
+): boolean {
+  const pos = criteria1.type === 'position' ? criteria1 : criteria2.type === 'position' ? criteria2 : null;
+  const stat = criteria1.type === 'stat_threshold' ? criteria1 : criteria2.type === 'stat_threshold' ? criteria2 : null;
+  if (!pos || !stat) return true; // non position+stat combos always OK
+
+  const statDef = STAT_CRITERIA_BY_VALUE.get(stat.value);
+  if (!statDef) return true;
+  return statDef.compatiblePositions.includes(pos.value);
+}
 
 // --- Puzzle Generation ---
 
@@ -226,12 +318,33 @@ function pickCriteria(rng: () => number, count: number, exclude: CriteriaType[])
   return selected;
 }
 
+/**
+ * Check that every (row, col) pair in a grid is compatible.
+ * This prevents impossible cells like (Kicker, 30+ Passing TDs).
+ */
+function allCellsCompatible(rows: GridCriteria[], columns: GridCriteria[]): boolean {
+  for (const row of rows) {
+    for (const col of columns) {
+      if (!areCompatibleCriteria(row, col)) return false;
+    }
+  }
+  return true;
+}
+
 export function generateDailyPuzzle(dateStr: string, size: 3 | 4 = 3): GridPuzzle {
   const rng = seededRandom(dateToSeed(dateStr));
 
-  const rows = pickCriteria(rng, size, []);
-  const usedRowTypes = rows.map(r => r.type);
-  const columns = pickCriteria(rng, size, usedRowTypes);
+  const MAX_ATTEMPTS = 50;
+  let rows: GridCriteria[] = [];
+  let columns: GridCriteria[] = [];
+
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+    rows = pickCriteria(rng, size, []);
+    const usedRowTypes = rows.map(r => r.type);
+    columns = pickCriteria(rng, size, usedRowTypes);
+
+    if (allCellsCompatible(rows, columns)) break;
+  }
 
   return {
     id: `grid-${dateStr}`,
@@ -272,27 +385,24 @@ function buildStatThresholdIndex(): Map<string, Set<string>> {
     set.add(threshold);
   }
 
-  // Scan all stat categories efficiently
-  const allPassers = getStatLeadersByCategory('passing', 50000);
-  for (const s of allPassers) {
-    const name = s.player;
-    if ((s.passingTDs ?? 0) >= 30) addThreshold(name, 'passing_tds_30');
-    if ((s.passingYards ?? 0) >= 3000) addThreshold(name, 'passing_yards_3000');
-    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
+  function getStatValue(s: CachedPlayerSeasonStats, field: string): number {
+    if (field === 'totalTDs') {
+      return (s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0);
+    }
+    return (s[field as keyof CachedPlayerSeasonStats] as number) ?? 0;
   }
 
-  const allRushers = getStatLeadersByCategory('rushing', 50000);
-  for (const s of allRushers) {
-    const name = s.player;
-    if ((s.rushingYards ?? 0) >= 1000) addThreshold(name, 'rushing_yards_1000');
-    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
-  }
-
-  const allReceivers = getStatLeadersByCategory('receiving', 50000);
-  for (const s of allReceivers) {
-    const name = s.player;
-    if ((s.receivingYards ?? 0) >= 1000) addThreshold(name, 'receiving_yards_1000');
-    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
+  // Scan all stat categories
+  const categories = ['passing', 'rushing', 'receiving', 'defensive'];
+  for (const cat of categories) {
+    const records = getStatLeadersByCategory(cat, 50000);
+    for (const s of records) {
+      for (const criterion of STAT_CRITERIA_DEFINITIONS) {
+        if (getStatValue(s, criterion.statField) >= criterion.threshold) {
+          addThreshold(s.player, criterion.value);
+        }
+      }
+    }
   }
 
   return index;

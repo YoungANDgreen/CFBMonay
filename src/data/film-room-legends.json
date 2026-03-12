@@ -1,0 +1,722 @@
+[
+  {
+    "id": "legend-001",
+    "season": 2013,
+    "homeTeam": "Auburn",
+    "awayTeam": "Alabama",
+    "homeScore": 34,
+    "awayScore": 28,
+    "venue": "Jordan-Hare Stadium",
+    "gameType": "rivalry",
+    "description": "With the score tied at 28, the visiting squad's 57-yard field goal attempt fell short. The home team's defensive back caught it at the back of the end zone and returned it 109 yards for the game-winning touchdown as time expired, clinching a spot in the SEC Championship.",
+    "disguiseHints": {
+      "home": "a surging SEC West team with 11 wins on the season",
+      "away": "the #1 ranked team in the country, a dynasty in the making"
+    },
+    "broadcastQuote": "There goes Davis! Davis is gonna run it all the way back! Auburn's gonna win the football game!",
+    "announcer": "Rod Bramblett",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-002",
+    "season": 2005,
+    "homeTeam": "USC",
+    "awayTeam": "Texas",
+    "homeScore": 38,
+    "awayScore": 41,
+    "venue": "Rose Bowl",
+    "gameType": "championship",
+    "description": "In the BCS National Championship, the visiting team trailed 38-26 with under seven minutes left. Their dual-threat quarterback orchestrated an epic comeback, scoring the winning touchdown himself on a 4th-and-5 scramble with 19 seconds remaining to complete a 41-38 victory and claim the national title.",
+    "disguiseHints": {
+      "home": "the defending national champion, #1 ranked, winners of 34 straight",
+      "away": "the #2 ranked team from the Big 12 led by a dynamic sophomore quarterback"
+    },
+    "broadcastQuote": "Vince Young scores! Vince Young scores!",
+    "announcer": "Keith Jackson",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-003",
+    "season": 2006,
+    "homeTeam": "Arizona",
+    "awayTeam": "Boise State",
+    "homeScore": 42,
+    "awayScore": 43,
+    "venue": "University of Phoenix Stadium",
+    "gameType": "upset",
+    "description": "In the Fiesta Bowl, the underdog from a mid-major conference trailed by 18 in the third quarter. They forced overtime with a hook-and-lateral on 4th down. In OT, after a trick play halfback pass for a touchdown, they went for the win with a Statue of Liberty play on the two-point conversion. The running back proposed to his cheerleader girlfriend on the field after the game.",
+    "disguiseHints": {
+      "home": "a traditional Big 12 powerhouse with a Heisman-winning quarterback",
+      "away": "an undefeated mid-major from the WAC playing on the blue turf at home"
+    },
+    "broadcastQuote": "Boise State has won the Tostitos Fiesta Bowl! Can you believe it?!",
+    "announcer": "Chris Fowler",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-004",
+    "season": 2007,
+    "homeTeam": "Michigan",
+    "awayTeam": "Appalachian State",
+    "homeScore": 32,
+    "awayScore": 34,
+    "venue": "Michigan Stadium",
+    "gameType": "upset",
+    "description": "In the greatest upset in college football history, a FCS (I-AA) team traveled to the Big House and beat the #5 ranked team in the country 34-32. The visiting team blocked a potential game-winning field goal as time expired in front of over 100,000 stunned fans on the season's opening weekend.",
+    "disguiseHints": {
+      "home": "a top-5 Big Ten team playing in the nation's largest stadium",
+      "away": "a FCS (Division I-AA) team from the Southern Conference"
+    },
+    "broadcastQuote": "Blocked! It's blocked! Appalachian State has stunned the college football world!",
+    "announcer": "ESPN Radio",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-005",
+    "season": 1984,
+    "homeTeam": "Miami",
+    "awayTeam": "Boston College",
+    "homeScore": 45,
+    "awayScore": 47,
+    "venue": "Orange Bowl",
+    "gameType": "classic",
+    "description": "On the day after Thanksgiving in a regular-season classic, the visiting team's diminutive 5'10\" quarterback heaved a 48-yard Hail Mary into the end zone as time expired. The ball was deflected and caught by a receiver for the game-winning touchdown, capping a wild 47-45 shootout and launching the QB to the Heisman Trophy.",
+    "disguiseHints": {
+      "home": "the defending national champion, a powerhouse from South Florida",
+      "away": "an eastern independent led by a short, scrambling Heisman candidate"
+    },
+    "broadcastQuote": "He did it! Flutie did it!",
+    "announcer": "Brent Musburger",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-006",
+    "season": 2017,
+    "homeTeam": "Georgia",
+    "awayTeam": "Alabama",
+    "homeScore": 23,
+    "awayScore": 26,
+    "venue": "Mercedes-Benz Stadium",
+    "gameType": "championship",
+    "description": "In the CFP National Championship, the visiting team trailed 13-0 at halftime. Their head coach made the bold decision to bench his starting quarterback for a talented true freshman in the second half. The newcomer threw a 41-yard game-winning touchdown pass on 2nd-and-26 in overtime to complete one of the great comebacks in title game history.",
+    "disguiseHints": {
+      "home": "a SEC East champion making their first title game appearance in decades",
+      "away": "a perennial SEC West powerhouse seeking another national title"
+    },
+    "broadcastQuote": "A freshman! Throws a strike to DeVonta Smith! And Alabama has won the national championship!",
+    "announcer": "Chris Fowler",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-007",
+    "season": 2018,
+    "homeTeam": "Alabama",
+    "awayTeam": "Clemson",
+    "homeScore": 16,
+    "awayScore": 44,
+    "venue": "Levi's Stadium",
+    "gameType": "championship",
+    "description": "In the CFP National Championship, the visiting team absolutely dismantled their rival in a 44-16 rout. Their true freshman quarterback threw for 347 yards and 3 touchdowns while their defense forced turnovers and dominated from start to finish, ending a dynasty's hopes for a repeat title in emphatic fashion.",
+    "disguiseHints": {
+      "home": "the defending national champion and top-ranked team in the country",
+      "away": "an ACC powerhouse led by a sensational true freshman quarterback"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-008",
+    "season": 2019,
+    "homeTeam": "Alabama",
+    "awayTeam": "LSU",
+    "homeScore": 41,
+    "awayScore": 46,
+    "venue": "Bryant-Denny Stadium",
+    "gameType": "rivalry",
+    "description": "In a regular-season showdown between #1 and #2, the visiting team's star quarterback threw for 393 yards and 3 touchdowns in a 46-41 victory. It was a landmark moment in the signal-caller's Heisman campaign and ended the home team's decade-long dominance in the series.",
+    "disguiseHints": {
+      "home": "the top-ranked team in the country, dominant in this rivalry for a decade",
+      "away": "the #2 ranked SEC West rival led by a senior quarterback having a historic season"
+    },
+    "broadcastQuote": "Joe Burrow making his case for the Heisman Trophy right here in Tuscaloosa!",
+    "announcer": "Brad Nessler",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-009",
+    "season": 2016,
+    "homeTeam": "Tampa",
+    "awayTeam": "Clemson",
+    "homeScore": 31,
+    "awayScore": 35,
+    "venue": "Raymond James Stadium",
+    "gameType": "championship",
+    "description": "In the CFP National Championship, the visiting team's junior quarterback threw a 2-yard touchdown pass to a walk-on wide receiver with one second remaining to cap a 35-31 victory. The QB threw for 420 yards in a back-and-forth classic that finally ended the opposing dynasty's run of titles.",
+    "disguiseHints": {
+      "home": "a SEC powerhouse seeking their second straight national title",
+      "away": "an ACC contender led by a dynamic dual-threat quarterback"
+    },
+    "broadcastQuote": "Clemson has done it! Watson to Renfrow! Clemson has won the national championship!",
+    "announcer": "Chris Fowler",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-010",
+    "season": 2006,
+    "homeTeam": "Ohio State",
+    "awayTeam": "Michigan",
+    "homeScore": 42,
+    "awayScore": 39,
+    "venue": "Ohio Stadium",
+    "gameType": "rivalry",
+    "description": "Billed as #1 vs #2, this late-November rivalry showdown lived up to the hype. The home team led by their Heisman-candidate quarterback prevailed 42-39 in a shootout to clinch a spot in the BCS Championship Game. The visiting team's legendary coach was in his final season, adding to the emotional stakes.",
+    "disguiseHints": {
+      "home": "the #1 ranked Big Ten team and Heisman front-runner",
+      "away": "the #2 ranked Big Ten rival whose coach was in his last year"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-011",
+    "season": 2014,
+    "homeTeam": "New Orleans",
+    "awayTeam": "Ohio State",
+    "homeScore": 35,
+    "awayScore": 42,
+    "venue": "Mercedes-Benz Superdome",
+    "gameType": "championship",
+    "description": "In the first-ever College Football Playoff semifinal (Sugar Bowl), the underdog visiting team shocked the #1 seed 42-35. Playing with their third-string quarterback — a redshirt freshman who only got the job due to injuries — they rushed for 281 yards and dominated on the ground in one of the biggest upsets in playoff history.",
+    "disguiseHints": {
+      "home": "the #1 overall seed, an SEC dynasty seeking another title",
+      "away": "a Big Ten champion starting their third-string QB, a #4 seed"
+    },
+    "broadcastQuote": "Ezekiel Elliott, 85 yards, and Ohio State is going to the national championship!",
+    "announcer": "Chris Fowler",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-012",
+    "season": 2022,
+    "homeTeam": "Arizona",
+    "awayTeam": "TCU",
+    "homeScore": 45,
+    "awayScore": 51,
+    "venue": "State Farm Stadium",
+    "gameType": "upset",
+    "description": "In the CFP Semifinal (Fiesta Bowl), the Cinderella team from a power conference rallied from a 15-point halftime deficit to win 51-45 in a thriller. Their dual-threat quarterback accounted for over 500 total yards, and a late-game interception sealed the miraculous comeback against the Big Ten champion.",
+    "disguiseHints": {
+      "home": "the Big Ten champion and #2 seed in the playoff",
+      "away": "an undefeated Big 12 team, a surprise #3 seed in their Cinderella run"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-013",
+    "season": 2022,
+    "homeTeam": "Georgia",
+    "awayTeam": "TCU",
+    "homeScore": 65,
+    "awayScore": 7,
+    "venue": "SoFi Stadium",
+    "gameType": "championship",
+    "description": "The defending national champion annihilated the Cinderella story in the CFP Championship, 65-7. The home team's defense forced turnovers and their offense scored at will in the most lopsided national title game in modern history. The Cinderella team's magical run ended in devastating fashion.",
+    "disguiseHints": {
+      "home": "the defending national champion and #1 seed from the SEC",
+      "away": "the Cinderella #3 seed who had stunned the Big Ten champ in the semifinal"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-014",
+    "season": 1971,
+    "homeTeam": "Oklahoma",
+    "awayTeam": "Nebraska",
+    "homeScore": 31,
+    "awayScore": 35,
+    "venue": "Owen Field",
+    "gameType": "classic",
+    "description": "Dubbed 'The Game of the Century,' this Thanksgiving Day showdown between the #1 and #2 teams produced a 35-31 thriller. The visiting team, trailing 31-28 in the fourth quarter, drove 74 yards for the winning touchdown. Both teams had been averaging over 40 points per game, and the contest lived up to every ounce of hype.",
+    "disguiseHints": {
+      "home": "the #2 ranked Big Eight team with a prolific wishbone offense",
+      "away": "the #1 ranked team in the nation, the defending national champion"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-015",
+    "season": 1982,
+    "homeTeam": "California",
+    "awayTeam": "Stanford",
+    "homeScore": 25,
+    "awayScore": 20,
+    "venue": "Memorial Stadium",
+    "gameType": "classic",
+    "description": "On the final kickoff, trailing by one, the home team executed five lateral passes across the field while the opposing team's marching band had already rushed onto the field thinking the game was over. The ball carrier plowed through trombone players to score the winning touchdown in the most chaotic finish in college football history.",
+    "disguiseHints": {
+      "home": "a Pac-10 team from the Bay Area needing a miracle to win",
+      "away": "their Bay Area rival, featuring a future NFL Hall of Fame quarterback"
+    },
+    "broadcastQuote": "The band is out on the field! He's gonna score! Oh my God! The most amazing, sensational, dramatic, heart-rending, exciting, thrilling finish in the history of college football!",
+    "announcer": "Joe Starkey",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-016",
+    "season": 2002,
+    "homeTeam": "Ohio State",
+    "awayTeam": "Miami",
+    "homeScore": 31,
+    "awayScore": 24,
+    "venue": "Sun Devil Stadium",
+    "gameType": "championship",
+    "description": "In a double-overtime BCS Championship (Fiesta Bowl), the underdog home team stunned the heavily favored dynasty. A controversial pass interference call in overtime gave the Big Ten team new life when it appeared the game was over. They scored on the next play and won 31-24 in 2OT to end the opponent's 34-game winning streak.",
+    "disguiseHints": {
+      "home": "a Big Ten champion and surprise #2 team in the BCS",
+      "away": "the #1 team and dominant dynasty riding a 34-game winning streak"
+    },
+    "broadcastQuote": "Pass interference! There is a flag! And Ohio State will have first and goal!",
+    "announcer": "Brent Musburger",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-017",
+    "season": 2005,
+    "homeTeam": "USC",
+    "awayTeam": "Notre Dame",
+    "homeScore": 34,
+    "awayScore": 31,
+    "venue": "Notre Dame Stadium",
+    "gameType": "classic",
+    "description": "The #1 team in the country trailed by 3 with under a minute left. Their Heisman-winning running back pushed his quarterback into the end zone from behind on a controversial 4th-down sneak — the infamous 'Bush Push' — to escape with a 34-31 victory and extend their winning streak.",
+    "disguiseHints": {
+      "home": "a proud independent program in a storied rivalry matchup",
+      "away": "the #1 ranked team in the country, riding a massive winning streak"
+    },
+    "broadcastQuote": "He's in! Leinart! Touchdown! Did he get a push from Reggie Bush?",
+    "announcer": "Dan Fouts",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-018",
+    "season": 1998,
+    "homeTeam": "Tennessee",
+    "awayTeam": "Florida State",
+    "homeScore": 23,
+    "awayScore": 16,
+    "venue": "Sun Devil Stadium",
+    "gameType": "championship",
+    "description": "In the first BCS National Championship Game (Fiesta Bowl), the SEC champion upset the heavily favored #1 seed 23-16. The winning team's suffocating defense intercepted the opposing Heisman-candidate quarterback and held the explosive offense to its lowest point total of the season, claiming the school's first national title since 1951.",
+    "disguiseHints": {
+      "home": "the undefeated SEC champion, a #2 seed seeking a long-awaited title",
+      "away": "the #1 ranked team, an ACC powerhouse led by a Heisman-candidate QB"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-019",
+    "season": 2009,
+    "homeTeam": "Texas",
+    "awayTeam": "Nebraska",
+    "homeScore": 13,
+    "awayScore": 12,
+    "venue": "AT&T Stadium",
+    "gameType": "classic",
+    "description": "In the Big 12 Championship, the home team survived a 13-12 nail-biter in one of the most controversial endings in conference title game history. Officials put one second back on the clock after a review, allowing the winning team to kick a last-second field goal. The losing team's fans were furious, and debate about the clock management raged for years.",
+    "disguiseHints": {
+      "home": "the #2 ranked Big 12 South team needing a win to reach the BCS title game",
+      "away": "the Big 12 North champion, a storied program in their final Big 12 season"
+    },
+    "broadcastQuote": "One second is put back on the clock!",
+    "announcer": "Colt Brennan",
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-020",
+    "season": 2018,
+    "homeTeam": "LSU",
+    "awayTeam": "Texas A&M",
+    "homeScore": 72,
+    "awayScore": 74,
+    "venue": "Tiger Stadium",
+    "gameType": "classic",
+    "description": "In the longest game in FBS history, the visiting team outlasted their SEC West rival 74-72 in seven overtimes. The combined 146 points set an FBS record. After NCAA rules changed two-point conversions to be required starting in the third OT, both teams traded scores in a surreal marathon that lasted well past midnight.",
+    "disguiseHints": {
+      "home": "an SEC West team playing in one of college football's most intimidating stadiums",
+      "away": "an SEC West rival who refused to go quietly"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-021",
+    "season": 2011,
+    "homeTeam": "Iowa State",
+    "awayTeam": "Oklahoma State",
+    "homeScore": 37,
+    "awayScore": 31,
+    "venue": "Jack Trice Stadium",
+    "gameType": "upset",
+    "description": "In one of the most devastating upsets in BCS history, an unranked Big 12 team knocked off the #2 team in the country in double overtime, 37-31. The loss cost the visiting team a spot in the BCS National Championship Game against their in-state rival, altering the entire national title picture and sparking renewed calls for a playoff.",
+    "disguiseHints": {
+      "home": "an unranked Big 12 team with a history of pulling off shocking upsets",
+      "away": "the #2 ranked team in the nation, one win away from the BCS title game"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-022",
+    "season": 2017,
+    "homeTeam": "Rose Bowl",
+    "awayTeam": "Georgia",
+    "homeScore": 48,
+    "awayScore": 54,
+    "venue": "Rose Bowl",
+    "gameType": "championship",
+    "description": "In the CFP Semifinal (Rose Bowl), the SEC team rallied from a 31-17 halftime deficit to win 54-48 in double overtime. The Big 12 team's Heisman-winning quarterback threw for 287 yards and rushed for 2 touchdowns, but the SEC team's freshman running back scored the winning TD in overtime to cap an epic comeback.",
+    "disguiseHints": {
+      "home": "a Big 12 powerhouse led by the Heisman Trophy-winning quarterback",
+      "away": "an SEC champion with a dominant rushing attack and a stifling defense"
+    },
+    "broadcastQuote": "Sony Michel! The walk-off touchdown! Georgia is going to the national championship!",
+    "announcer": "Sean McDonough",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-023",
+    "season": 2014,
+    "homeTeam": "Ohio State",
+    "awayTeam": "Oregon",
+    "homeScore": 42,
+    "awayScore": 20,
+    "venue": "AT&T Stadium",
+    "gameType": "championship",
+    "description": "In the first-ever College Football Playoff National Championship, the team that had entered the playoff as the #4 seed dominated the high-flying Pac-12 champion 42-20. Their third-string quarterback threw for 242 yards and their star running back rushed for 246 yards and 4 touchdowns in a dominant performance.",
+    "disguiseHints": {
+      "home": "the surprise #4 seed, Big Ten champion, starting their third-string QB",
+      "away": "the #2 seed Pac-12 champion with a Heisman-winning quarterback"
+    },
+    "broadcastQuote": "Ezekiel Elliott will not be denied!",
+    "announcer": "Chris Fowler",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-024",
+    "season": 2008,
+    "homeTeam": "Florida",
+    "awayTeam": "Oklahoma",
+    "homeScore": 24,
+    "awayScore": 14,
+    "venue": "Dolphin Stadium",
+    "gameType": "championship",
+    "description": "In the BCS Championship, the SEC champion's dynamic sophomore quarterback outdueled the Heisman Trophy winner, leading his team to a 24-14 victory. The winning QB threw for a touchdown and ran for another while the defense stifled the Big 12 champion's historically explosive offense.",
+    "disguiseHints": {
+      "home": "the SEC champion led by a sophomore dual-threat QB who would win the Heisman the next year",
+      "away": "the Big 12 champion whose quarterback had just won the Heisman Trophy"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-025",
+    "season": 2011,
+    "homeTeam": "Alabama",
+    "awayTeam": "LSU",
+    "homeScore": 21,
+    "awayScore": 0,
+    "venue": "Mercedes-Benz Superdome",
+    "gameType": "championship",
+    "description": "In a highly controversial BCS Championship rematch, the team that lost the regular-season matchup 9-6 dominated the rematch 21-0. Five field goals and a suffocating defense shut out the #1 team in what many considered the most dominant defensive performance in title game history. The rematch itself was controversial — many felt a team that didn't win its own division shouldn't play for the title.",
+    "disguiseHints": {
+      "home": "the SEC West team that lost the regular-season 'Game of the Century' 9-6",
+      "away": "the #1 ranked team, undefeated SEC champion seeking validation after the regular-season classic"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-026",
+    "season": 2004,
+    "homeTeam": "USC",
+    "awayTeam": "Oklahoma",
+    "homeScore": 55,
+    "awayScore": 19,
+    "venue": "Pro Player Stadium",
+    "gameType": "championship",
+    "description": "In the BCS Championship (Orange Bowl), the #1 team demolished the #2 team 55-19 in one of the most lopsided title games ever. The winning team's freshman running back returned the opening kickoff for a touchdown and their Heisman-winning quarterback threw for 3 scores in a dominant first half that put the game away early.",
+    "disguiseHints": {
+      "home": "the #1 ranked Pac-10 powerhouse with a Heisman-winning quarterback",
+      "away": "the #2 ranked Big 12 champion who had dominated all season"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-027",
+    "season": 2009,
+    "homeTeam": "Alabama",
+    "awayTeam": "Texas",
+    "homeScore": 37,
+    "awayScore": 21,
+    "venue": "Rose Bowl",
+    "gameType": "championship",
+    "description": "In the BCS Championship, the #2 team's star quarterback was injured on the game's opening drive and never returned. Without their leader, the Big 12 champion crumbled 37-21 as the SEC team's Heisman-winning running back rushed for 116 yards and 3 touchdowns. The 'what if' of the quarterback injury hangs over this game to this day.",
+    "disguiseHints": {
+      "home": "the #1 ranked SEC champion led by a Heisman-winning running back",
+      "away": "the #2 ranked Big 12 champion whose star QB was injured on the first drive"
+    },
+    "broadcastQuote": "Colt McCoy is injured! And that changes everything about this game.",
+    "announcer": "Brent Musburger",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-028",
+    "season": 2000,
+    "homeTeam": "Miami",
+    "awayTeam": "Florida State",
+    "homeScore": 27,
+    "awayScore": 24,
+    "venue": "Orange Bowl",
+    "gameType": "rivalry",
+    "description": "In a pivotal late-season rivalry game, the home team upset the #1 ranked defending national champion 27-24. The visiting team's final field goal attempt sailed wide right — the latest installment in a legendary 'Wide Right' curse that had haunted the series. The loss knocked the visitors out of the national title race.",
+    "disguiseHints": {
+      "home": "a surging in-state rival from South Florida",
+      "away": "the #1 ranked defending national champion, haunted by a kicking curse in this series"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-029",
+    "season": 2007,
+    "homeTeam": "Rutgers",
+    "awayTeam": "USF",
+    "homeScore": 30,
+    "awayScore": 27,
+    "venue": "Rutgers Stadium",
+    "gameType": "upset",
+    "description": "In a season defined by chaos and upsets, the #2 ranked team — a program that had never been ranked this high in its history — fell to an unranked Big East opponent 30-27. It was emblematic of the 2007 season, where every top-2 ranked team seemed to lose. The defeated team dropped completely out of the rankings after their magical run ended.",
+    "disguiseHints": {
+      "home": "an unranked Big East team playing on their home turf",
+      "away": "the #2 ranked team in the country, the highest ranking in program history"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "expert"
+  },
+  {
+    "id": "legend-030",
+    "season": 2013,
+    "homeTeam": "Auburn",
+    "awayTeam": "Georgia",
+    "homeScore": 43,
+    "awayScore": 38,
+    "venue": "Jordan-Hare Stadium",
+    "gameType": "classic",
+    "description": "Trailing 38-37 with 36 seconds left, the home team's quarterback heaved a desperation 73-yard pass that was tipped by two defenders before landing in a receiver's hands for the game-winning touchdown. Known as the 'Prayer at Jordan-Hare,' it was the second miraculous finish at this stadium in three weeks.",
+    "disguiseHints": {
+      "home": "an SEC West team known for miraculous finishes this season",
+      "away": "an SEC East rival who had the game seemingly in hand"
+    },
+    "broadcastQuote": "A miracle at Jordan-Hare! A miracle at Jordan-Hare! Oh my God!",
+    "announcer": "Verne Lundquist",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-031",
+    "season": 2016,
+    "homeTeam": "Ohio State",
+    "awayTeam": "Michigan",
+    "homeScore": 30,
+    "awayScore": 27,
+    "venue": "Ohio Stadium",
+    "gameType": "rivalry",
+    "description": "In a double-overtime classic between #2 and #3, the home team survived 30-27. A controversial fourth-down spot in the second overtime was reviewed and confirmed, giving the home team the first down that led to the winning score. The visiting team's head coach was livid, and the debate over the spot is still argued today.",
+    "disguiseHints": {
+      "home": "the #2 ranked Big Ten team in the fiercest rivalry in college football",
+      "away": "the #3 ranked rival, coached by a fiery leader in his second season"
+    },
+    "broadcastQuote": "The spot is confirmed! Ohio State will have a fresh set of downs!",
+    "announcer": "Gus Johnson",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-032",
+    "season": 2023,
+    "homeTeam": "Alabama",
+    "awayTeam": "Michigan",
+    "homeScore": 20,
+    "awayScore": 27,
+    "venue": "Rose Bowl",
+    "gameType": "championship",
+    "description": "In the CFP Semifinal (Rose Bowl), the Big Ten champion overcame a halftime deficit to win 27-20 in overtime against an SEC powerhouse. The winning team's star running back powered their comeback with a dominant second half, while their defense forced a critical turnover in overtime to seal the victory.",
+    "disguiseHints": {
+      "home": "an SEC powerhouse and #4 seed in the playoff",
+      "away": "the undefeated #1 seed Big Ten champion, despite off-field controversy"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-033",
+    "season": 2021,
+    "homeTeam": "Auburn",
+    "awayTeam": "Alabama",
+    "homeScore": 22,
+    "awayScore": 24,
+    "venue": "Jordan-Hare Stadium",
+    "gameType": "rivalry",
+    "description": "In a four-overtime Iron Bowl, the visiting team escaped 24-22. After three scoreless overtimes where both teams traded field goals and missed opportunities, the visiting team finally converted a two-point conversion to survive. The marathon rivalry game tested both teams' endurance and grit.",
+    "disguiseHints": {
+      "home": "an SEC West team hosting the rivalry game in a hostile environment",
+      "away": "the higher-ranked SEC West rival fighting to stay in the CFP race"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "expert"
+  },
+  {
+    "id": "legend-034",
+    "season": 2015,
+    "homeTeam": "Michigan",
+    "awayTeam": "Michigan State",
+    "homeScore": 23,
+    "awayScore": 27,
+    "venue": "Michigan Stadium",
+    "gameType": "upset",
+    "description": "With 10 seconds left, the home team led 23-21 and their punter fumbled a low snap. He tried to kick it away but the ball was scooped up by a visiting player who returned it for a walk-off touchdown. The 27-23 loss became one of the most infamous special teams disasters in college football history.",
+    "disguiseHints": {
+      "home": "a Big Ten team that had the game won before a catastrophic special teams blunder",
+      "away": "the in-state Big Ten rival who benefited from an incredible stroke of luck"
+    },
+    "broadcastQuote": "Oh he has trouble with the snap! And the ball is free! It's picked up by Michigan State's Jalen Watts-Jackson, and he scores! On the last play of the game! Unbelievable!",
+    "announcer": "Sean McDonough",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-035",
+    "season": 2007,
+    "homeTeam": "Stanford",
+    "awayTeam": "USC",
+    "homeScore": 24,
+    "awayScore": 23,
+    "venue": "Stanford Stadium",
+    "gameType": "upset",
+    "description": "A 41-point underdog — the biggest underdog to win outright in recent memory — stunned the #1 team in the country 24-23. The home team, a struggling program that had won just one game the previous season, rode a gutsy defensive performance and timely turnovers to pull off one of the all-time great David-vs-Goliath upsets.",
+    "disguiseHints": {
+      "home": "a struggling Pac-10 team that was a 41-point underdog",
+      "away": "the #1 ranked team in the country, loaded with future NFL talent"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-036",
+    "season": 2005,
+    "homeTeam": "Ohio State",
+    "awayTeam": "Penn State",
+    "homeScore": 10,
+    "awayScore": 17,
+    "venue": "Beaver Stadium",
+    "gameType": "upset",
+    "description": "Under the lights in a sold-out whiteout, the home team knocked off the #6 ranked Big Ten rival 17-10. It was a signature win in a magical late-career renaissance for the home team's legendary 78-year-old head coach, who would lead the team to an 11-1 season and an Orange Bowl victory.",
+    "disguiseHints": {
+      "home": "a Big Ten team in a legendary whiteout atmosphere, led by a coaching icon",
+      "away": "a top-10 Big Ten rival known for their fierce rivalry with the home team"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "expert"
+  },
+  {
+    "id": "legend-037",
+    "season": 2014,
+    "homeTeam": "Baylor",
+    "awayTeam": "TCU",
+    "homeScore": 61,
+    "awayScore": 58,
+    "venue": "McLane Stadium",
+    "gameType": "classic",
+    "description": "In a Big 12 shootout between rivals separated by 90 miles, the home team won 61-58 in a game that was even crazier than the score suggests. Both teams entered the game in the top 10, and the loss created a co-champion controversy that kept both teams out of the first College Football Playoff.",
+    "disguiseHints": {
+      "home": "a top-5 Big 12 team in a new on-campus stadium",
+      "away": "a top-10 Big 12 rival from down Interstate 35"
+    },
+    "broadcastQuote": null,
+    "announcer": null,
+    "difficulty": "hard"
+  },
+  {
+    "id": "legend-038",
+    "season": 2008,
+    "homeTeam": "Texas Tech",
+    "awayTeam": "Texas",
+    "homeScore": 39,
+    "awayScore": 33,
+    "venue": "Jones AT&T Stadium",
+    "gameType": "upset",
+    "description": "The home team stunned the #1 team in the country 39-33 in a nationally televised showdown. With 1:29 left, their quarterback threw a fade to a star receiver who made a spectacular catch along the sideline for the go-ahead touchdown. Fans stormed the field in celebration as the upset knocked the top team out of the title race.",
+    "disguiseHints": {
+      "home": "a high-powered Big 12 team with an Air Raid offense under a colorful coach",
+      "away": "the #1 ranked team in the country, a Big 12 rival from down I-35"
+    },
+    "broadcastQuote": "Crabtree! Pulls free! Touchdown Red Raiders! With 1:29 to play!",
+    "announcer": "Gus Johnson",
+    "difficulty": "medium"
+  },
+  {
+    "id": "legend-039",
+    "season": 2012,
+    "homeTeam": "Alabama",
+    "awayTeam": "Texas A&M",
+    "homeScore": 24,
+    "awayScore": 29,
+    "venue": "Bryant-Denny Stadium",
+    "gameType": "upset",
+    "description": "A redshirt freshman quarterback in his first road game against a top-ranked team threw for 253 yards and 2 touchdowns to lead the 29-24 upset of the #1 team in the country. The electrifying signal-caller's performance launched him into the Heisman conversation — he would go on to become the first freshman to win the award.",
+    "disguiseHints": {
+      "home": "the #1 ranked defending national champion on their home field",
+      "away": "an SEC newcomer led by a dynamic redshirt freshman quarterback"
+    },
+    "broadcastQuote": "Johnny Manziel! How about that! The legend grows!",
+    "announcer": "Verne Lundquist",
+    "difficulty": "easy"
+  },
+  {
+    "id": "legend-040",
+    "season": 2019,
+    "homeTeam": "LSU",
+    "awayTeam": "Clemson",
+    "homeScore": 42,
+    "awayScore": 25,
+    "venue": "Mercedes-Benz Superdome",
+    "gameType": "championship",
+    "description": "In the CFP National Championship, the #1 team's Heisman-winning quarterback threw for 463 yards and 5 touchdowns in a 42-25 victory, capping the greatest single season by a quarterback in college football history. The win completed a perfect 15-0 season against a historically difficult schedule and dethroned the defending champion.",
+    "disguiseHints": {
+      "home": "the #1 team in the country, led by a Heisman-winning senior QB having a historic season",
+      "away": "the defending national champion seeking back-to-back titles"
+    },
+    "broadcastQuote": "Joe Burrow has put together the greatest season in college football history!",
+    "announcer": "Chris Fowler",
+    "difficulty": "easy"
+  }
+]

@@ -6,6 +6,7 @@ import {
   calculateRarityScore,
   calculateGridScore,
   submitGuess,
+  areCompatibleCriteria,
 } from './grid-engine';
 
 // ---- generateDailyPuzzle ----
@@ -284,5 +285,93 @@ describe('submitGuess', () => {
     }
     expect(state.isComplete).toBe(true);
     expect(state.score).toBeGreaterThan(0);
+  });
+});
+
+// ---- areCompatibleCriteria ----
+
+describe('areCompatibleCriteria', () => {
+  it('allows QB + passing stats', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'QB' },
+      { type: 'stat_threshold', value: '30+ Passing TDs' }
+    )).toBe(true);
+  });
+
+  it('blocks K + passing stats', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'K' },
+      { type: 'stat_threshold', value: '30+ Passing TDs' }
+    )).toBe(false);
+  });
+
+  it('allows WR + 1 Passing TD (trick play)', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'WR' },
+      { type: 'stat_threshold', value: '1+ Passing TD' }
+    )).toBe(true);
+  });
+
+  it('allows DEF + 5+ Sacks', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'DEF' },
+      { type: 'stat_threshold', value: '5+ Sacks' }
+    )).toBe(true);
+  });
+
+  it('blocks QB + defensive stats', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'QB' },
+      { type: 'stat_threshold', value: '5+ Sacks' }
+    )).toBe(false);
+  });
+
+  it('blocks DEF + rushing TDs', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'DEF' },
+      { type: 'stat_threshold', value: '10+ Rush TDs' }
+    )).toBe(false);
+  });
+
+  it('blocks K + rushing yards', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'K' },
+      { type: 'stat_threshold', value: '1000+ Rush Yds' }
+    )).toBe(false);
+  });
+
+  it('allows RB + 500+ Rush Yds', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'RB' },
+      { type: 'stat_threshold', value: '500+ Rush Yds' }
+    )).toBe(true);
+  });
+
+  it('non position+stat combos are always compatible', () => {
+    expect(areCompatibleCriteria(
+      { type: 'conference', value: 'SEC' },
+      { type: 'school', value: 'Alabama' }
+    )).toBe(true);
+  });
+
+  it('two stat_threshold criteria are always compatible', () => {
+    expect(areCompatibleCriteria(
+      { type: 'stat_threshold', value: '30+ Passing TDs' },
+      { type: 'stat_threshold', value: '3000+ Passing Yds' }
+    )).toBe(true);
+  });
+
+  it('conference + stat_threshold is always compatible', () => {
+    expect(areCompatibleCriteria(
+      { type: 'conference', value: 'SEC' },
+      { type: 'stat_threshold', value: '10+ Sacks' }
+    )).toBe(true);
+  });
+
+  it('unknown stat_threshold values are treated as compatible', () => {
+    expect(areCompatibleCriteria(
+      { type: 'position', value: 'K' },
+      { type: 'stat_threshold', value: 'some_unknown_stat' }
+    )).toBe(true);
   });
 });
