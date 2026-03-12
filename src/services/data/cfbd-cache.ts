@@ -98,13 +98,14 @@ export interface CachedGame {
 }
 
 export interface CachedDraftPick {
-  pick: number;
-  round: number;
-  team: string;
-  player: string;
+  name: string;
   position: string;
-  college: string;
-  conference: string;
+  collegeTeam: string;
+  nflTeam: string;
+  year: number;
+  round: number;
+  pick: number;
+  overall: number;
 }
 
 export interface CachedRanking {
@@ -331,20 +332,19 @@ export function getDraftPicksByRound(round: number): CachedDraftPick[] {
 }
 
 export function getDraftPicksByCollege(college: string): CachedDraftPick[] {
-  return draftPicks.filter(p => p.college.toLowerCase() === college.toLowerCase());
+  return draftPicks.filter(p => p.collegeTeam.toLowerCase() === college.toLowerCase());
 }
 
 export function getFirstRoundPicks(): CachedDraftPick[] {
   return draftPicks.filter(p => p.round === 1);
 }
 
-export function getDraftPicksByYear(_year: number): CachedDraftPick[] {
-  // Seed data is single-year, so return all picks
-  return draftPicks;
+export function getDraftPicksByYear(year: number): CachedDraftPick[] {
+  return draftPicks.filter(p => p.year === year);
 }
 
 export function getDraftPicksByTeam(college: string): CachedDraftPick[] {
-  return draftPicks.filter(p => p.college.toLowerCase() === college.toLowerCase());
+  return draftPicks.filter(p => p.collegeTeam.toLowerCase() === college.toLowerCase());
 }
 
 // --- Rankings Getters ---

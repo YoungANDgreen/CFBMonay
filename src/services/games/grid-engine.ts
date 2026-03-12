@@ -12,8 +12,92 @@ import type {
   Player,
 } from '@/types';
 
+import {
+  getAllTeams,
+  getTeamsByConference,
+  getPlayersByPosition,
+  getDraftPicksByYear,
+  getStatLeadersByCategory,
+} from '@/services/data/cfbd-cache';
+import type { CachedPlayerSeasonStats } from '@/services/data/cfbd-cache';
+
+// --- Cache-Backed Criteria Loading ---
+
+let _cachedSchoolCriteria: GridCriteria[] | null = null;
+let _cachedConferenceCriteria: GridCriteria[] | null = null;
+
+async function loadSchoolCriteriaFromCache(): Promise<GridCriteria[]> {
+  if (_cachedSchoolCriteria) return _cachedSchoolCriteria;
+  try {
+    const teams = await getAllTeams();
+    if (teams && teams.length > 0) {
+      _cachedSchoolCriteria = teams
+        .filter(t => t.conference)
+        .map(t => ({
+          type: 'school' as CriteriaType,
+          value: t.school,
+          displayText: t.school,
+        }));
+      return _cachedSchoolCriteria;
+    }
+  } catch {
+    // fall through to hardcoded
+  }
+  return SCHOOL_CRITERIA_FALLBACK;
+}
+
+async function loadConferenceCriteriaFromCache(): Promise<GridCriteria[]> {
+  if (_cachedConferenceCriteria) return _cachedConferenceCriteria;
+  try {
+    const teams = await getAllTeams();
+    if (teams && teams.length > 0) {
+      const conferences = new Set(teams.map(t => t.conference).filter(Boolean));
+      _cachedConferenceCriteria = Array.from(conferences).map(conf => ({
+        type: 'conference' as CriteriaType,
+        value: conf,
+        displayText: conf,
+      }));
+      return _cachedConferenceCriteria;
+    }
+  } catch {
+    // fall through to hardcoded
+  }
+  return CONFERENCE_CRITERIA_FALLBACK;
+}
+
+/**
+ * Refreshes the criteria pools from the cache. Call this once at startup
+ * or when you know the cache is populated. After this resolves, the
+ * synchronous CONFERENCE_CRITERIA and SCHOOL_CRITERIA arrays are
+ * updated in-place so existing synchronous code keeps working.
+ */
+export async function loadGridCriteriaFromCache(): Promise<void> {
+  const [confCriteria, schoolCriteria] = await Promise.all([
+    loadConferenceCriteriaFromCache(),
+    loadSchoolCriteriaFromCache(),
+  ]);
+
+  // Mutate in-place so the ALL_CRITERIA_POOLS reference stays valid
+  if (confCriteria.length > 0) {
+    CONFERENCE_CRITERIA.length = 0;
+    CONFERENCE_CRITERIA.push(...confCriteria);
+  }
+  if (schoolCriteria.length > 0) {
+    SCHOOL_CRITERIA.length = 0;
+    SCHOOL_CRITERIA.push(...schoolCriteria);
+  }
+}
+
 // --- Criteria Pool ---
 // These are the building blocks for generating grid puzzles
+
+const CONFERENCE_CRITERIA_FALLBACK: GridCriteria[] = [
+  { type: 'conference', value: 'SEC', displayText: 'SEC' },
+  { type: 'conference', value: 'Big Ten', displayText: 'Big Ten' },
+  { type: 'conference', value: 'Big 12', displayText: 'Big 12' },
+  { type: 'conference', value: 'ACC', displayText: 'ACC' },
+  { type: 'conference', value: 'Pac-12', displayText: 'Pac-12' },
+];
 
 const CONFERENCE_CRITERIA: GridCriteria[] = [
   { type: 'conference', value: 'SEC', displayText: 'SEC' },
@@ -49,11 +133,11 @@ const POSITION_CRITERIA: GridCriteria[] = [
   { type: 'position', value: 'QB', displayText: 'Quarterback' },
   { type: 'position', value: 'RB', displayText: 'Running Back' },
   { type: 'position', value: 'WR', displayText: 'Wide Receiver' },
-  { type: 'position', value: 'DL', displayText: 'Defensive Lineman' },
-  { type: 'position', value: 'LB', displayText: 'Linebacker' },
+  { type: 'position', value: 'DEF', displayText: 'Defensive Player' },
+  { type: 'position', value: 'K', displayText: 'Kicker' },
 ];
 
-const SCHOOL_CRITERIA: GridCriteria[] = [
+const SCHOOL_CRITERIA_FALLBACK: GridCriteria[] = [
   { type: 'school', value: 'Alabama', displayText: 'Alabama' },
   { type: 'school', value: 'Ohio State', displayText: 'Ohio State' },
   { type: 'school', value: 'LSU', displayText: 'LSU' },
@@ -66,11 +150,13 @@ const SCHOOL_CRITERIA: GridCriteria[] = [
   { type: 'school', value: 'Notre Dame', displayText: 'Notre Dame' },
 ];
 
+const SCHOOL_CRITERIA: GridCriteria[] = [...SCHOOL_CRITERIA_FALLBACK];
+
 const ALL_CRITERIA_POOLS: GridCriteria[][] = [
   CONFERENCE_CRITERIA,
-  AWARD_CRITERIA,
+  // AWARD_CRITERIA excluded — no award data in cache yet
   STAT_CRITERIA,
-  DRAFT_CRITERIA,
+  // DRAFT_CRITERIA excluded — only 101 draft picks in seed data
   POSITION_CRITERIA,
   SCHOOL_CRITERIA,
 ];
@@ -153,8 +239,138 @@ export function generateDailyPuzzle(dateStr: string, size: 3 | 4 = 3): GridPuzzl
     size,
     rows,
     columns,
-    validAnswers: {}, // populated by backend with real player data
+    validAnswers: {}, // populated by populateValidAnswersFromCache() or backend
   };
+}
+
+/**
+ * Populate a puzzle's validAnswers map using real cached player and draft data.
+ * Call after generating the puzzle. Returns the same puzzle with validAnswers filled in.
+ */
+// --- Pre-built lookup indexes for fast grid matching ---
+
+// Team → conference map (lazy)
+let _teamConfMap: Map<string, string> | null = null;
+function getTeamConfMap(): Map<string, string> {
+  if (!_teamConfMap) {
+    _teamConfMap = new Map();
+    for (const t of getAllTeams()) {
+      _teamConfMap.set(t.school.toLowerCase(), t.conference);
+    }
+  }
+  return _teamConfMap;
+}
+
+// Build stat threshold sets: player name (lowercase) → Set of met thresholds
+function buildStatThresholdIndex(): Map<string, Set<string>> {
+  const index = new Map<string, Set<string>>();
+
+  function addThreshold(name: string, threshold: string) {
+    const key = name.toLowerCase();
+    let set = index.get(key);
+    if (!set) { set = new Set(); index.set(key, set); }
+    set.add(threshold);
+  }
+
+  // Scan all stat categories efficiently
+  const allPassers = getStatLeadersByCategory('passing', 50000);
+  for (const s of allPassers) {
+    const name = s.player;
+    if ((s.passingTDs ?? 0) >= 30) addThreshold(name, 'passing_tds_30');
+    if ((s.passingYards ?? 0) >= 3000) addThreshold(name, 'passing_yards_3000');
+    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
+  }
+
+  const allRushers = getStatLeadersByCategory('rushing', 50000);
+  for (const s of allRushers) {
+    const name = s.player;
+    if ((s.rushingYards ?? 0) >= 1000) addThreshold(name, 'rushing_yards_1000');
+    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
+  }
+
+  const allReceivers = getStatLeadersByCategory('receiving', 50000);
+  for (const s of allReceivers) {
+    const name = s.player;
+    if ((s.receivingYards ?? 0) >= 1000) addThreshold(name, 'receiving_yards_1000');
+    if (((s.passingTDs ?? 0) + (s.rushingTDs ?? 0) + (s.receivingTDs ?? 0)) >= 20) addThreshold(name, 'total_tds_20');
+  }
+
+  return index;
+}
+
+export async function populateValidAnswersFromCache(
+  puzzle: GridPuzzle,
+): Promise<GridPuzzle> {
+  try {
+    const positions = ['QB', 'RB', 'WR', 'DEF', 'ATH', 'K'];
+    const allPlayers = positions.flatMap(pos => getPlayersByPosition(pos));
+    const allDrafts = [2020, 2021, 2022, 2023, 2024].flatMap(yr => getDraftPicksByYear(yr));
+
+    if (allPlayers.length === 0) {
+      return puzzle;
+    }
+
+    // Pre-build all lookup indexes
+    const confMap = getTeamConfMap();
+    const draftByName = new Map(
+      allDrafts.filter(d => d.name).map(d => [d.name.toLowerCase(), d])
+    );
+    const statIndex = buildStatThresholdIndex();
+
+    const validAnswers: Record<string, string[]> = {};
+
+    for (let row = 0; row < puzzle.size; row++) {
+      for (let col = 0; col < puzzle.size; col++) {
+        const rowCrit = puzzle.rows[row];
+        const colCrit = puzzle.columns[col];
+        const cellKey = `${row}-${col}`;
+
+        const matching = allPlayers.filter(p => {
+          const fullName = `${p.firstName} ${p.lastName}`;
+          const nameLower = fullName.toLowerCase();
+          const draft = draftByName.get(nameLower);
+          const thresholds = statIndex.get(nameLower);
+          return matchCriteria(p, fullName, draft, thresholds, confMap, rowCrit) &&
+                 matchCriteria(p, fullName, draft, thresholds, confMap, colCrit);
+        });
+
+        validAnswers[cellKey] = matching.map(p => String(p.id));
+      }
+    }
+
+    return { ...puzzle, validAnswers };
+  } catch {
+    return puzzle;
+  }
+}
+
+function matchCriteria(
+  player: { team: string; position: string },
+  _fullName: string,
+  draft: { round: number; pick: number } | undefined,
+  thresholds: Set<string> | undefined,
+  confMap: Map<string, string>,
+  criteria: GridCriteria,
+): boolean {
+  switch (criteria.type) {
+    case 'school':
+      return player.team.toLowerCase() === criteria.value.toLowerCase();
+    case 'conference':
+      return confMap.get(player.team.toLowerCase()) === criteria.value;
+    case 'position':
+      return player.position.toUpperCase() === criteria.value.toUpperCase();
+    case 'draft_round':
+      if (!draft) return criteria.value === 'undrafted';
+      if (criteria.value === 'top10') return draft.pick <= 10;
+      if (criteria.value === 'undrafted') return false;
+      return draft.round === parseInt(criteria.value, 10);
+    case 'stat_threshold':
+      return thresholds?.has(criteria.value) ?? false;
+    case 'award':
+      return false;
+    default:
+      return false;
+  }
 }
 
 // --- Game State ---

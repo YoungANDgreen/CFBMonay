@@ -12,6 +12,12 @@ import type {
   Penalty,
 } from '@/types';
 
+import {
+  getTopPlayersByStat,
+  getStatLeadersByCategory,
+  type CachedPlayerSeasonStats,
+} from '@/services/data/cfbd-cache';
+
 // --- Stat Category Definitions ---
 
 const STAT_CATEGORIES: Record<StatCategory, { label: string; unit: string }> = {
@@ -240,4 +246,90 @@ export function calculateStatStackScore(state: StatStackGameState): {
     penaltyTotal,
     finalScore: Math.max(0, state.totalStatValue),
   };
+}
+
+// --- Cache-Backed Stat Leaders ---
+
+/** Maps our StatCategory to the cache stat category strings used by getTopPlayersByStat */
+const CATEGORY_TO_CACHE_KEY: Record<StatCategory, string> = {
+  rushing_yards: 'rushing',
+  passing_tds: 'passing',
+  receiving_yards: 'receiving',
+  sacks: 'defensive',
+  interceptions: 'defensive',
+  total_tds: 'rushing',
+  all_purpose_yards: 'rushing',
+};
+
+/** Maps our StatCategory to the specific stat field within CachedPlayerSeasonStats */
+const CATEGORY_TO_STAT_FIELD: Record<StatCategory, keyof CachedPlayerSeasonStats> = {
+  rushing_yards: 'rushingYards',
+  passing_tds: 'passingTDs',
+  receiving_yards: 'receivingYards',
+  sacks: 'sacks',
+  interceptions: 'interceptions',
+  total_tds: 'passingTDs',
+  all_purpose_yards: 'rushingYards',
+};
+
+let _cachedStatLeaders: Record<string, CachedPlayerSeasonStats[]> = {};
+
+/**
+ * Load top players for a given stat category from the cache.
+ * Returns cached player season stats sorted descending by the relevant stat.
+ * Falls back to an empty array if cache is unavailable.
+ */
+export async function getStatLeadersFromCache(
+  category: StatCategory,
+  limit: number = 100,
+): Promise<CachedPlayerSeasonStats[]> {
+  const cacheKey = `${category}-${limit}`;
+  if (_cachedStatLeaders[cacheKey]) return _cachedStatLeaders[cacheKey];
+
+  try {
+    const cacheCategory = CATEGORY_TO_CACHE_KEY[category];
+    const statField = CATEGORY_TO_STAT_FIELD[category];
+    const players = getStatLeadersByCategory(cacheCategory);
+
+    if (players && players.length > 0) {
+      // Sort by the specific stat field descending
+      const sorted = [...players]
+        .filter(p => p[statField] !== undefined)
+        .sort((a, b) => ((b[statField] as number) ?? 0) - ((a[statField] as number) ?? 0))
+        .slice(0, limit);
+
+      _cachedStatLeaders[cacheKey] = sorted;
+      return sorted;
+    }
+  } catch {
+    // fall through — return empty, caller can use own fallback
+  }
+  return [];
+}
+
+/**
+ * Compute the max possible score for a puzzle from real cached stat data.
+ * Takes the top 5 stat values for the category and sums them.
+ */
+export async function computeMaxPossibleScore(
+  category: StatCategory,
+): Promise<number> {
+  const leaders = await getStatLeadersFromCache(category, 5);
+  const statField = CATEGORY_TO_STAT_FIELD[category];
+  return leaders.reduce((sum, p) => sum + ((p[statField] as number) ?? 0), 0);
+}
+
+/**
+ * Generate a stat stack puzzle with real max possible score from cache.
+ * Falls back to the basic puzzle if cache is empty.
+ */
+export async function generateStatStackPuzzleWithCache(
+  dateStr: string,
+): Promise<StatStackPuzzle> {
+  const puzzle = generateStatStackPuzzle(dateStr);
+  const maxScore = await computeMaxPossibleScore(puzzle.statCategory);
+  if (maxScore > 0) {
+    return { ...puzzle, maxPossibleScore: maxScore };
+  }
+  return puzzle;
 }

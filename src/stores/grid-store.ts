@@ -8,6 +8,8 @@ import {
   generateDailyPuzzle,
   createInitialGameState,
   submitGuess,
+  loadGridCriteriaFromCache,
+  populateValidAnswersFromCache,
 } from '@/services/games/grid-engine';
 
 interface GridStore {
@@ -18,13 +20,13 @@ interface GridStore {
   dailyCompleted: boolean;
 
   // Actions
-  loadDailyPuzzle: () => void;
+  loadDailyPuzzle: () => Promise<void>;
   selectCell: (row: number, col: number) => void;
   submitAnswer: (player: Player) => void;
   setSearchQuery: (query: string) => void;
   setSearchResults: (results: Player[]) => void;
   setIsSearching: (searching: boolean) => void;
-  resetGame: () => void;
+  resetGame: () => Promise<void>;
 }
 
 function getTodayStr(): string {
@@ -39,9 +41,11 @@ export const useGridStore = create<GridStore>((set, get) => ({
   isSearching: false,
   dailyCompleted: false,
 
-  loadDailyPuzzle: () => {
+  loadDailyPuzzle: async () => {
     const dateStr = getTodayStr();
-    const puzzle = generateDailyPuzzle(dateStr);
+    await loadGridCriteriaFromCache();
+    const basePuzzle = generateDailyPuzzle(dateStr);
+    const puzzle = await populateValidAnswersFromCache(basePuzzle);
     const gameState = createInitialGameState(puzzle);
     set({ gameState, dailyCompleted: false });
   },
@@ -77,9 +81,11 @@ export const useGridStore = create<GridStore>((set, get) => ({
   setSearchResults: (results: Player[]) => set({ searchResults: results }),
   setIsSearching: (searching: boolean) => set({ isSearching: searching }),
 
-  resetGame: () => {
+  resetGame: async () => {
     const dateStr = getTodayStr();
-    const puzzle = generateDailyPuzzle(dateStr);
+    await loadGridCriteriaFromCache();
+    const basePuzzle = generateDailyPuzzle(dateStr);
+    const puzzle = await populateValidAnswersFromCache(basePuzzle);
     const gameState = createInitialGameState(puzzle);
     set({
       gameState,

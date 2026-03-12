@@ -5,7 +5,7 @@
 import { create } from 'zustand';
 import type { StatStackGameState, StatStackPick } from '@/types';
 import {
-  generateStatStackPuzzle,
+  generateStatStackPuzzleWithCache,
   createStatStackGameState,
   submitStatStackPick,
   useTransferPortal,
@@ -23,12 +23,12 @@ interface StatStackStore {
     finalScore: number;
   } | null;
 
-  loadDailyPuzzle: () => void;
+  loadDailyPuzzle: () => Promise<void>;
   submitPick: (pick: StatStackPick) => void;
   activateTransferPortal: (rowIndex: number) => void;
   setSearchQuery: (query: string) => void;
   setIsSearching: (searching: boolean) => void;
-  resetGame: () => void;
+  resetGame: () => Promise<void>;
 }
 
 function getTodayStr(): string {
@@ -42,9 +42,9 @@ export const useStatStackStore = create<StatStackStore>((set, get) => ({
   isSearching: false,
   scoreBreakdown: null,
 
-  loadDailyPuzzle: () => {
+  loadDailyPuzzle: async () => {
     const dateStr = getTodayStr();
-    const puzzle = generateStatStackPuzzle(dateStr);
+    const puzzle = await generateStatStackPuzzleWithCache(dateStr);
     const gameState = createStatStackGameState(puzzle);
     set({ gameState, scoreBreakdown: null });
   },
@@ -72,9 +72,9 @@ export const useStatStackStore = create<StatStackStore>((set, get) => ({
   setSearchQuery: (query: string) => set({ searchQuery: query }),
   setIsSearching: (searching: boolean) => set({ isSearching: searching }),
 
-  resetGame: () => {
+  resetGame: async () => {
     const dateStr = getTodayStr();
-    const puzzle = generateStatStackPuzzle(dateStr);
+    const puzzle = await generateStatStackPuzzleWithCache(dateStr);
     const gameState = createStatStackGameState(puzzle);
     set({ gameState, scoreBreakdown: null, searchQuery: '' });
   },
