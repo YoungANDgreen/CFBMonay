@@ -49,9 +49,8 @@ next-env.d.ts
 expo-env.d.ts
 # @end expo-cli
 
-# CFBD data packs (large, local development only)
-starter_pack/
-model_pack/
+# CFBD data packs
+starter_pack/data.zip
 
 # ML models and training data (large files)
 server/ml/models/
