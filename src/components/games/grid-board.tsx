@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { BlurView } from 'expo-blur';
 import { colors, spacing, typography, borderRadius } from '@/lib/theme';
 import { GridCellComponent } from './grid-cell';
 import type { GridCell, GridCriteria } from '@/types';
@@ -17,15 +18,21 @@ export function GridBoard({ cells, rows, columns, selectedCell, onCellPress }: G
     <View style={styles.container}>
       {/* Column headers */}
       <View style={styles.headerRow}>
-        <View style={styles.cornerCell} />
+        <View style={styles.cornerCell}>
+          <View style={styles.cornerDiagonal} />
+        </View>
         {columns.map((col, i) => (
           <View key={`col-${i}`} style={styles.headerCell}>
             <Text style={styles.headerText} numberOfLines={2}>
               {col.displayText}
             </Text>
+            <View style={[styles.headerAccent, { backgroundColor: colors.accent }]} />
           </View>
         ))}
       </View>
+
+      {/* Thin separator */}
+      <View style={styles.separator} />
 
       {/* Grid rows */}
       {cells.map((row, rowIndex) => (
@@ -35,6 +42,7 @@ export function GridBoard({ cells, rows, columns, selectedCell, onCellPress }: G
             <Text style={styles.headerText} numberOfLines={2}>
               {rows[rowIndex].displayText}
             </Text>
+            <View style={[styles.rowHeaderAccent, { backgroundColor: colors.accent }]} />
           </View>
 
           {/* Grid cells */}
@@ -56,31 +64,57 @@ export function GridBoard({ cells, rows, columns, selectedCell, onCellPress }: G
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing.sm,
+    padding: spacing.xs,
   },
   headerRow: {
     flexDirection: 'row',
-    marginBottom: spacing.xs,
+    marginBottom: 0,
   },
   cornerCell: {
     width: 80,
     marginRight: 2,
+    position: 'relative',
+  },
+  cornerDiagonal: {
+    position: 'absolute',
+    bottom: 4,
+    right: 4,
+    width: 20,
+    height: 2,
+    backgroundColor: colors.border,
+    transform: [{ rotate: '-45deg' }],
   },
   headerCell: {
     flex: 1,
     margin: 2,
-    padding: spacing.xs,
-    backgroundColor: colors.surfaceLight,
-    borderRadius: borderRadius.sm,
+    padding: spacing.sm,
+    backgroundColor: colors.surface,
+    borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 48,
+    minHeight: 52,
+    borderWidth: 1,
+    borderColor: colors.border + '60',
   },
   headerText: {
     color: colors.accent,
     fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.bold,
+    fontWeight: typography.fontWeight.heavy,
     textAlign: 'center',
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+  },
+  headerAccent: {
+    width: 16,
+    height: 2,
+    borderRadius: 1,
+    marginTop: 4,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: colors.border + '30',
+    marginHorizontal: spacing.sm,
+    marginVertical: 2,
   },
   gridRow: {
     flexDirection: 'row',
@@ -88,10 +122,19 @@ const styles = StyleSheet.create({
   rowHeaderCell: {
     width: 80,
     marginRight: 2,
-    padding: spacing.xs,
-    backgroundColor: colors.surfaceLight,
-    borderRadius: borderRadius.sm,
+    padding: spacing.sm,
+    backgroundColor: colors.surface,
+    borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border + '60',
+    margin: 2,
+  },
+  rowHeaderAccent: {
+    width: 16,
+    height: 2,
+    borderRadius: 1,
+    marginTop: 4,
   },
 });

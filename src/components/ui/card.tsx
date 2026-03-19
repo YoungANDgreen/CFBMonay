@@ -6,11 +6,12 @@ interface CardProps {
   children: React.ReactNode;
   style?: ViewStyle;
   variant?: 'default' | 'highlighted' | 'game';
+  accentColor?: string;
 }
 
-export function Card({ children, style, variant = 'default' }: CardProps) {
+export function Card({ children, style, variant = 'default', accentColor }: CardProps) {
   return (
-    <View style={[styles.base, variantStyles[variant], style]}>
+    <View style={[styles.base, variantStyles[variant], accentColor && { borderLeftWidth: 4, borderLeftColor: accentColor }, style]}>
       {children}
     </View>
   );
@@ -18,9 +19,9 @@ export function Card({ children, style, variant = 'default' }: CardProps) {
 
 const styles = StyleSheet.create({
   base: {
-    borderRadius: borderRadius.lg,
+    borderRadius: borderRadius.sm,
     padding: spacing.md,
-    ...shadows.md,
+    ...shadows.sm,
   },
 });
 
@@ -32,12 +33,12 @@ const variantStyles: Record<string, ViewStyle> = {
   },
   highlighted: {
     backgroundColor: colors.surfaceLight,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: colors.accent,
   },
   game: {
     backgroundColor: colors.surfaceLight,
     borderWidth: 2,
-    borderColor: colors.border,
+    borderColor: colors.borderHeavy,
   },
 };

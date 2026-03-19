@@ -17,6 +17,7 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   style?: ViewStyle;
+  accentColor?: string;
 }
 
 export function Button({
@@ -27,7 +28,22 @@ export function Button({
   disabled = false,
   loading = false,
   style,
+  accentColor,
 }: ButtonProps) {
+  const dynamicContainer: ViewStyle = {};
+  const dynamicText: TextStyle = {};
+
+  if (accentColor) {
+    if (variant === 'primary') {
+      dynamicContainer.backgroundColor = accentColor;
+    } else if (variant === 'outline') {
+      dynamicContainer.borderColor = accentColor;
+      dynamicText.color = accentColor;
+    } else if (variant === 'ghost') {
+      dynamicText.color = accentColor;
+    }
+  }
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -36,6 +52,7 @@ export function Button({
         styles.base,
         sizeStyles[size],
         variantContainerStyles[variant],
+        dynamicContainer,
         disabled && styles.disabled,
         style,
       ]}
@@ -43,11 +60,11 @@ export function Button({
     >
       {loading ? (
         <ActivityIndicator
-          color={variant === 'outline' || variant === 'ghost' ? colors.accent : colors.primary}
+          color={variant === 'outline' || variant === 'ghost' ? (accentColor || colors.accent) : colors.primary}
           size="small"
         />
       ) : (
-        <Text style={[styles.text, sizeTextStyles[size], variantTextStyles[variant]]}>
+        <Text style={[styles.text, sizeTextStyles[size], variantTextStyles[variant], dynamicText]}>
           {title}
         </Text>
       )}
@@ -59,37 +76,39 @@ const styles = StyleSheet.create({
   base: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: borderRadius.md,
+    borderRadius: borderRadius.sm,
   },
   disabled: {
     opacity: 0.5,
   },
   text: {
-    fontWeight: typography.fontWeight.semibold,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
   },
 });
 
 const sizeStyles: Record<string, ViewStyle> = {
-  sm: { paddingHorizontal: spacing.md, paddingVertical: spacing.xs, minHeight: 32 },
-  md: { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, minHeight: 44 },
+  sm: { paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 2, minHeight: 32 },
+  md: { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm + 2, minHeight: 44 },
   lg: { paddingHorizontal: spacing.xl, paddingVertical: spacing.md, minHeight: 52 },
 };
 
 const sizeTextStyles: Record<string, TextStyle> = {
-  sm: { fontSize: typography.fontSize.sm },
-  md: { fontSize: typography.fontSize.md },
-  lg: { fontSize: typography.fontSize.lg },
+  sm: { fontSize: typography.fontSize.xs },
+  md: { fontSize: typography.fontSize.sm },
+  lg: { fontSize: typography.fontSize.md },
 };
 
 const variantContainerStyles: Record<string, ViewStyle> = {
   primary: { backgroundColor: colors.accent },
-  secondary: { backgroundColor: colors.surfaceLight },
-  outline: { backgroundColor: 'transparent', borderWidth: 1, borderColor: colors.accent },
+  secondary: { backgroundColor: colors.surfaceHighlight, borderWidth: 1, borderColor: colors.border },
+  outline: { backgroundColor: 'transparent', borderWidth: 2, borderColor: colors.accent },
   ghost: { backgroundColor: 'transparent' },
 };
 
 const variantTextStyles: Record<string, TextStyle> = {
-  primary: { color: colors.primary },
+  primary: { color: colors.black },
   secondary: { color: colors.textPrimary },
   outline: { color: colors.accent },
   ghost: { color: colors.accent },

@@ -9,14 +9,15 @@ import {
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing, typography, borderRadius, shadows, gameGradients } from '@/lib/theme';
-import { Card } from '@/components/ui/card';
+import { useTeamTheme } from '@/lib/team-theme-context';
+import { TeamLogo } from '@/components/ui/team-logo';
 import { Badge } from '@/components/ui/badge';
 
 interface GameCardData {
   id: string;
   title: string;
   subtitle: string;
-  icon: string;
+  tag: string;
   accentColor: string;
   gradient: string[];
   route: string;
@@ -26,9 +27,9 @@ interface GameCardData {
 const GAMES: GameCardData[] = [
   {
     id: 'grid',
-    title: 'The Grid',
+    title: 'THE GRID',
     subtitle: 'Daily 3x3 puzzle — match players to criteria',
-    icon: '🔲',
+    tag: '01',
     accentColor: colors.gridGreen,
     gradient: gameGradients.grid,
     route: '/games/grid',
@@ -36,9 +37,9 @@ const GAMES: GameCardData[] = [
   },
   {
     id: 'stat-stack',
-    title: 'Stat Stack',
+    title: 'STAT STACK',
     subtitle: 'Pick 5 players to maximize today\'s stat',
-    icon: '📊',
+    tag: '02',
     accentColor: colors.statStackBlue,
     gradient: gameGradients.statStack,
     route: '/games/stat-stack',
@@ -46,37 +47,38 @@ const GAMES: GameCardData[] = [
   },
   {
     id: 'clash',
-    title: 'Conference Clash',
+    title: 'CONFERENCE CLASH',
     subtitle: 'Head-to-head knowledge battles',
-    icon: '⚔️',
+    tag: '03',
     accentColor: colors.clashRed,
     gradient: gameGradients.clash,
     route: '/games/clash',
-    badge: 'MULTIPLAYER',
+    badge: 'LIVE',
   },
   {
     id: 'dynasty',
-    title: 'Dynasty Builder',
+    title: 'DYNASTY BUILDER',
     subtitle: 'Build your all-time program roster',
-    icon: '🏛️',
+    tag: '04',
     accentColor: colors.dynastyPurple,
     gradient: gameGradients.dynasty,
     route: '/games/dynasty',
   },
   {
     id: 'predictions',
-    title: 'Prediction Arena',
+    title: 'PREDICTION ARENA',
     subtitle: 'Beat the ML model — predict game outcomes',
-    icon: '🤖',
+    tag: '05',
     accentColor: colors.predictionOrange,
     gradient: gameGradients.prediction,
     route: '/games/predictions',
-    badge: 'ML-POWERED',
+    badge: 'ML',
   },
 ];
 
 export default function PlayScreen() {
   const router = useRouter();
+  const { teamTheme, favoriteTeam } = useTeamTheme();
 
   return (
     <ScrollView
@@ -86,101 +88,105 @@ export default function PlayScreen() {
     >
       {/* Hero Section */}
       <View style={styles.hero}>
-        <Text style={styles.heroTitle}>Game Day</Text>
-        <Text style={styles.heroSubtitle}>
+        <View style={styles.heroRow}>
+          <View style={styles.heroTextBlock}>
+            <Text style={styles.heroTitle}>GAME{'\n'}DAY</Text>
+            <View style={[styles.heroAccent, { backgroundColor: teamTheme.primary }]} />
+          </View>
+          {favoriteTeam && (
+            <View style={styles.heroLogo}>
+              <TeamLogo school={favoriteTeam} size={64} />
+            </View>
+          )}
+        </View>
+        <Text style={styles.heroDate}>
           {new Date().toLocaleDateString('en-US', {
             weekday: 'long',
             month: 'long',
             day: 'numeric',
-          })}
+          }).toUpperCase()}
         </Text>
       </View>
 
       {/* Daily Challenge Banner */}
       <TouchableOpacity
-        style={styles.dailyBanner}
+        style={[styles.dailyBanner, { borderLeftColor: teamTheme.primary }]}
         onPress={() => router.push('/games/grid' as never)}
         activeOpacity={0.8}
       >
-        <LinearGradient
-          colors={[colors.accent + '25', colors.accent + '08']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.dailyBannerGradient}
-        >
-          <View style={styles.dailyBannerContent}>
-            <Text style={styles.dailyBannerIcon}>🏆</Text>
-            <View style={styles.dailyBannerText}>
-              <Text style={styles.dailyBannerTitle}>Daily Challenge</Text>
-              <Text style={styles.dailyBannerSub}>
-                Complete The Grid + Stat Stack for bonus XP
-              </Text>
-            </View>
-            <Text style={styles.dailyBannerArrow}>→</Text>
+        <View style={styles.dailyBannerContent}>
+          <View style={styles.dailyBannerLeft}>
+            <Text style={[styles.dailyBannerLabel, { color: teamTheme.primary }]}>DAILY CHALLENGE</Text>
+            <Text style={styles.dailyBannerDesc}>
+              Complete The Grid + Stat Stack for bonus XP
+            </Text>
           </View>
-        </LinearGradient>
+          <View style={[styles.dailyBannerArrow, { backgroundColor: teamTheme.primary }]}>
+            <Text style={[styles.dailyBannerArrowText, { color: teamTheme.text }]}>GO</Text>
+          </View>
+        </View>
       </TouchableOpacity>
 
-      {/* Game Cards */}
+      {/* Section Header */}
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Games</Text>
-        <View style={styles.sectionAccent} />
+        <Text style={styles.sectionLabel}>GAMES</Text>
+        <View style={[styles.sectionLine, { backgroundColor: teamTheme.primary }]} />
       </View>
+
+      {/* Game Cards */}
       {GAMES.map((game) => (
         <TouchableOpacity
           key={game.id}
           style={styles.gameCard}
           onPress={() => router.push(game.route as never)}
-          activeOpacity={0.7}
+          activeOpacity={0.8}
         >
-          <LinearGradient
-            colors={[game.gradient[0] + '30', game.gradient[1] + '10']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.gameCardGradient}
-          >
-            <View style={[styles.gameIconContainer, { backgroundColor: game.accentColor + '25' }]}>
-              <Text style={styles.gameIcon}>{game.icon}</Text>
-            </View>
+          {/* Left accent bar */}
+          <View style={[styles.gameAccentBar, { backgroundColor: game.accentColor }]} />
+
+          <View style={styles.gameCardInner}>
+            {/* Tag number */}
+            <Text style={[styles.gameTag, { color: game.accentColor }]}>{game.tag}</Text>
+
+            {/* Info block */}
             <View style={styles.gameInfo}>
               <View style={styles.gameTitleRow}>
                 <Text style={styles.gameTitle}>{game.title}</Text>
                 {game.badge && (
-                  <Badge label={game.badge} color={game.accentColor} textColor="#fff" size="sm" />
+                  <Badge label={game.badge} color={game.accentColor} textColor="#000" size="sm" />
                 )}
               </View>
               <Text style={styles.gameSubtitle}>{game.subtitle}</Text>
             </View>
-            <View style={styles.gameArrowContainer}>
-              <Text style={[styles.gameArrow, { color: game.accentColor }]}>›</Text>
+
+            {/* Arrow */}
+            <View style={[styles.gameArrow, { borderColor: game.accentColor }]}>
+              <Text style={[styles.gameArrowText, { color: game.accentColor }]}>&#x203A;</Text>
             </View>
-          </LinearGradient>
-          {/* Left accent bar */}
-          <View style={[styles.gameAccentBar, { backgroundColor: game.accentColor }]} />
+          </View>
+
+          {/* Bottom accent line */}
+          <View style={[styles.gameBottomLine, { backgroundColor: game.accentColor + '30' }]} />
         </TouchableOpacity>
       ))}
 
-      {/* Quick Stats */}
+      {/* Stats Section */}
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Your Stats</Text>
-        <View style={styles.sectionAccent} />
+        <Text style={styles.sectionLabel}>YOUR STATS</Text>
+        <View style={[styles.sectionLine, { backgroundColor: teamTheme.primary }]} />
       </View>
-      <View style={styles.statsGrid}>
-        <Card style={styles.statCard}>
-          <Text style={styles.statEmoji}>🔥</Text>
-          <Text style={styles.statNumber}>0</Text>
-          <Text style={styles.statLabel}>Day Streak</Text>
-        </Card>
-        <Card style={styles.statCard}>
-          <Text style={styles.statEmoji}>🎯</Text>
-          <Text style={styles.statNumber}>--</Text>
-          <Text style={styles.statLabel}>Best Grid</Text>
-        </Card>
-        <Card style={styles.statCard}>
-          <Text style={styles.statEmoji}>🧠</Text>
-          <Text style={styles.statNumber}>--</Text>
-          <Text style={styles.statLabel}>Prediction %</Text>
-        </Card>
+
+      <View style={styles.statsRow}>
+        {[
+          { label: 'STREAK', value: '0', color: colors.predictionOrange },
+          { label: 'BEST GRID', value: '--', color: colors.gridGreen },
+          { label: 'PREDICT %', value: '--', color: colors.statStackBlue },
+        ].map((stat, i) => (
+          <View key={i} style={[styles.statBlock, i > 0 && styles.statBlockBorder]}>
+            <Text style={[styles.statValue, { color: stat.color }]}>{stat.value}</Text>
+            <Text style={styles.statLabel}>{stat.label}</Text>
+          </View>
+        ))}
       </View>
     </ScrollView>
   );
@@ -193,88 +199,111 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: spacing.md,
-    paddingBottom: spacing.xxl,
+    paddingBottom: spacing.xxl + 20,
   },
+
+  // Hero
   hero: {
     marginBottom: spacing.lg,
-    marginTop: spacing.sm,
-  },
-  heroTitle: {
-    color: colors.textPrimary,
-    fontSize: typography.fontSize.hero,
-    fontWeight: typography.fontWeight.heavy,
-  },
-  heroSubtitle: {
-    color: colors.textSecondary,
-    fontSize: typography.fontSize.md,
     marginTop: spacing.xs,
   },
-  dailyBanner: {
-    borderRadius: borderRadius.lg,
-    borderWidth: 1,
-    borderColor: colors.accent + '40',
-    marginBottom: spacing.lg,
-    overflow: 'hidden',
-    ...shadows.md,
+  heroRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
-  dailyBannerGradient: {
-    padding: spacing.md,
+  heroTextBlock: {},
+  heroTitle: {
+    color: colors.textPrimary,
+    fontSize: typography.fontSize.display,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: -1,
+    lineHeight: 46,
+  },
+  heroAccent: {
+    width: 60,
+    height: 4,
+    marginTop: spacing.sm,
+  },
+  heroLogo: {
+    marginTop: spacing.xs,
+  },
+  heroDate: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.bold,
+    letterSpacing: 3,
+    marginTop: spacing.md,
+  },
+
+  // Daily Banner
+  dailyBanner: {
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderLeftWidth: 4,
+    borderRadius: borderRadius.sm,
+    marginBottom: spacing.lg,
   },
   dailyBannerContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    padding: spacing.md,
   },
-  dailyBannerIcon: {
-    fontSize: 32,
-    marginRight: spacing.md,
-  },
-  dailyBannerText: {
+  dailyBannerLeft: {
     flex: 1,
   },
-  dailyBannerTitle: {
-    color: colors.accent,
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
+  dailyBannerLabel: {
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 3,
+    marginBottom: 4,
   },
-  dailyBannerSub: {
+  dailyBannerDesc: {
     color: colors.textSecondary,
     fontSize: typography.fontSize.sm,
-    marginTop: 2,
   },
   dailyBannerArrow: {
-    color: colors.accent,
-    fontSize: typography.fontSize.xl,
-    fontWeight: typography.fontWeight.bold,
+    width: 40,
+    height: 40,
+    borderRadius: borderRadius.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: spacing.md,
   },
+  dailyBannerArrowText: {
+    fontSize: typography.fontSize.sm,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 2,
+  },
+
+  // Section Header
   sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: spacing.md,
     marginTop: spacing.sm,
   },
-  sectionTitle: {
-    color: colors.textPrimary,
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.xs,
+  sectionLabel: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 4,
+    marginRight: spacing.sm,
   },
-  sectionAccent: {
-    width: 40,
+  sectionLine: {
+    flex: 1,
     height: 2,
-    backgroundColor: colors.accent,
-    borderRadius: borderRadius.full,
   },
+
+  // Game Cards
   gameCard: {
-    borderRadius: borderRadius.lg,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: borderRadius.sm,
     marginBottom: spacing.sm,
     overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: colors.border + '80',
-    ...shadows.md,
-  },
-  gameCardGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: spacing.md,
-    paddingLeft: spacing.md + 4,
   },
   gameAccentBar: {
     position: 'absolute',
@@ -282,22 +311,23 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     width: 4,
-    borderTopLeftRadius: borderRadius.lg,
-    borderBottomLeftRadius: borderRadius.lg,
   },
-  gameIconContainer: {
-    width: 52,
-    height: 52,
-    borderRadius: borderRadius.md,
-    justifyContent: 'center',
+  gameCardInner: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginRight: spacing.md,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingLeft: spacing.md + 8,
   },
-  gameIcon: {
-    fontSize: 28,
+  gameTag: {
+    fontSize: typography.fontSize.xxl,
+    fontWeight: typography.fontWeight.heavy,
+    width: 40,
+    opacity: 0.3,
   },
   gameInfo: {
     flex: 1,
+    marginLeft: spacing.sm,
   },
   gameTitleRow: {
     flexDirection: 'row',
@@ -306,49 +336,60 @@ const styles = StyleSheet.create({
   },
   gameTitle: {
     color: colors.textPrimary,
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
+    fontSize: typography.fontSize.md,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 2,
   },
   gameSubtitle: {
-    color: colors.textSecondary,
+    color: colors.textMuted,
     fontSize: typography.fontSize.sm,
     marginTop: 3,
   },
-  gameArrowContainer: {
+  gameArrow: {
     width: 32,
     height: 32,
-    borderRadius: borderRadius.full,
-    backgroundColor: colors.surfaceHighlight + '60',
+    borderWidth: 2,
+    borderRadius: borderRadius.sm,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: spacing.sm,
   },
-  gameArrow: {
-    fontSize: 22,
-    fontWeight: typography.fontWeight.bold,
-    marginTop: -1,
+  gameArrowText: {
+    fontSize: 20,
+    fontWeight: typography.fontWeight.heavy,
+    marginTop: -2,
   },
-  statsGrid: {
+  gameBottomLine: {
+    height: 1,
+    marginHorizontal: spacing.md,
+  },
+
+  // Stats
+  statsRow: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: borderRadius.sm,
   },
-  statCard: {
+  statBlock: {
     flex: 1,
     alignItems: 'center',
     paddingVertical: spacing.lg,
   },
-  statEmoji: {
-    fontSize: 20,
-    marginBottom: spacing.xs,
+  statBlockBorder: {
+    borderLeftWidth: 1,
+    borderLeftColor: colors.border,
   },
-  statNumber: {
-    color: colors.accent,
+  statValue: {
     fontSize: typography.fontSize.xxl,
     fontWeight: typography.fontWeight.heavy,
   },
   statLabel: {
     color: colors.textMuted,
     fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.bold,
+    letterSpacing: 2,
     marginTop: spacing.xs,
   },
 });

@@ -296,15 +296,16 @@ export function calculateStatStackScore(state: StatStackGameState): {
 
 // --- Cache-Backed Stat Leaders ---
 
-/** Maps our StatCategory to the cache stat category strings used by getTopPlayersByStat */
-const CATEGORY_TO_CACHE_KEY: Record<StatCategory, string> = {
-  rushing_yards: 'rushing',
-  passing_tds: 'passing',
-  receiving_yards: 'receiving',
-  sacks: 'defensive',
-  interceptions: 'defensive',
-  total_tds: 'rushing',
-  all_purpose_yards: 'rushing',
+/** Maps our StatCategory to the cache stat category strings used by getTopPlayersByStat.
+ *  PBP data uses short codes (RB, WR, DEF, QB, K, ATH), seed data uses full names. */
+const CATEGORY_TO_CACHE_KEYS: Record<StatCategory, string[]> = {
+  rushing_yards: ['rushing', 'RB'],
+  passing_tds: ['passing', 'QB'],
+  receiving_yards: ['receiving', 'WR'],
+  sacks: ['defensive', 'DEF'],
+  interceptions: ['defensive', 'DEF'],
+  total_tds: ['rushing', 'RB', 'receiving', 'WR'],
+  all_purpose_yards: ['rushing', 'RB', 'receiving', 'WR'],
 };
 
 /** Maps our StatCategory to the specific stat field within CachedPlayerSeasonStats */
@@ -321,6 +322,45 @@ const CATEGORY_TO_STAT_FIELD: Record<StatCategory, keyof CachedPlayerSeasonStats
 let _cachedStatLeaders: Record<string, CachedPlayerSeasonStats[]> = {};
 
 /**
+ * Look up a specific player's stat value for a given category and season.
+ * Searches across both PBP-parsed categories (DEF, RB, WR, etc.) and
+ * hand-seeded categories (defensive, rushing, etc.).
+ * Returns the numeric stat value, or 0 if no data is found.
+ */
+export function lookupPlayerStatValue(
+  playerName: string,
+  season: number,
+  category: StatCategory,
+): number {
+  const statField = CATEGORY_TO_STAT_FIELD[category];
+  const cacheKeys = CATEGORY_TO_CACHE_KEYS[category];
+  const name = playerName.toLowerCase();
+
+  // Search across all matching category keys (PBP + seed data)
+  for (const cacheKey of cacheKeys) {
+    const allStats = getStatLeadersByCategory(cacheKey, 50000);
+    const match = allStats.find(
+      s => s.player.toLowerCase() === name && s.season === season,
+    );
+    if (match && match[statField] !== undefined && (match[statField] as number) > 0) {
+      return match[statField] as number;
+    }
+  }
+
+  // Fallback: broad search by stat field across ALL stats
+  const topStats = getTopPlayersByStat(statField, 50000);
+  const topMatch = topStats.find(
+    s => s.player.toLowerCase() === name && s.season === season,
+  );
+
+  if (topMatch && topMatch[statField] !== undefined) {
+    return (topMatch[statField] as number) ?? 0;
+  }
+
+  return 0;
+}
+
+/**
  * Load top players for a given stat category from the cache.
  * Returns cached player season stats sorted descending by the relevant stat.
  * Falls back to an empty array if cache is unavailable.
@@ -333,14 +373,21 @@ export async function getStatLeadersFromCache(
   if (_cachedStatLeaders[cacheKey]) return _cachedStatLeaders[cacheKey];
 
   try {
-    const cacheCategory = CATEGORY_TO_CACHE_KEY[category];
+    const cacheKeys = CATEGORY_TO_CACHE_KEYS[category];
     const statField = CATEGORY_TO_STAT_FIELD[category];
-    const players = getStatLeadersByCategory(cacheCategory);
 
-    if (players && players.length > 0) {
-      // Sort by the specific stat field descending
-      const sorted = [...players]
-        .filter(p => p[statField] !== undefined)
+    // Merge results from all matching category keys (PBP + seed data)
+    let allPlayers: CachedPlayerSeasonStats[] = [];
+    for (const key of cacheKeys) {
+      const batch = getStatLeadersByCategory(key, 50000);
+      if (batch && batch.length > 0) {
+        allPlayers = allPlayers.concat(batch);
+      }
+    }
+
+    if (allPlayers.length > 0) {
+      const sorted = allPlayers
+        .filter(p => p[statField] !== undefined && (p[statField] as number) > 0)
         .sort((a, b) => ((b[statField] as number) ?? 0) - ((a[statField] as number) ?? 0))
         .slice(0, limit);
 

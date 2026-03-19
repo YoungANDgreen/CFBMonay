@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GridIron IQ — 5 Design Themes</title>
+<style>
+/* ========== RESET & BASE ========== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ========== NAV ========== */
+.theme-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);padding:12px 24px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.theme-nav a{padding:8px 16px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;transition:all .2s;border:1px solid rgba(255,255,255,.1)}
+.theme-nav a:hover{background:rgba(255,255,255,.1)}
+.theme-nav a.active{background:#e2b714;color:#000;border-color:#e2b714}
+
+/* ========== SECTION WRAPPER ========== */
+.theme-section{min-height:100vh;padding:80px 24px 60px;max-width:420px;margin:0 auto}
+.theme-section h1{font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;opacity:.5}
+.theme-title{font-size:32px;font-weight:900;margin-bottom:6px;line-height:1.1}
+.theme-subtitle{font-size:14px;opacity:.6;margin-bottom:32px;line-height:1.5}
+.section-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin:32px 0 12px;font-weight:800}
+
+/* ========== PHONE FRAME ========== */
+.phone{width:100%;max-width:390px;margin:0 auto 32px;border-radius:40px;overflow:hidden;position:relative;box-shadow:0 25px 80px rgba(0,0,0,.5)}
+.phone-screen{padding:20px 16px 32px;min-height:500px;position:relative;overflow:hidden}
+.phone .status-bar{display:flex;justify-content:space-between;padding:8px 24px;font-size:11px;font-weight:600;opacity:.6}
+
+/* ========== SHARED CARD PATTERNS ========== */
+.card-row{display:flex;gap:10px;margin-bottom:10px}
+.card-row > *{flex:1}
+
+/* Animated shimmer */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes glow{0%,100%{box-shadow:0 0 15px var(--glow-color,#e2b714)}50%{box-shadow:0 0 35px var(--glow-color,#e2b714)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flipIn{0%{transform:rotateY(90deg);opacity:0}100%{transform:rotateY(0);opacity:1}}
+@keyframes scorePop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes fieldScroll{0%{background-position:0 0}100%{background-position:0 40px}}
+@keyframes neonFlicker{0%,100%{opacity:1}50%{opacity:.85}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes stampIn{0%{transform:scale(2) rotate(-15deg);opacity:0}60%{transform:scale(.95) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes refract{0%{background-position:0% 0%}100%{background-position:100% 100%}}
+@keyframes reveal{0%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}60%{transform:translateY(-4px)}}
+@keyframes rotateIn{from{transform:rotate(-180deg) scale(0);opacity:0}to{transform:rotate(0) scale(1);opacity:1}}
+
+/* ================================================================
+   THEME 1: STADIUM ATMOSPHERE
+   Dark stadium vibe, field turf textures, jumbotron displays
+   ================================================================ */
+#stadium .phone{border:2px solid #1a3a1a}
+#stadium .phone-screen{
+  background:linear-gradient(180deg,#0d1a0d 0%,#0a140a 40%,#081008 100%);
+}
+#stadium .field-lines{
+  position:absolute;top:0;left:0;right:0;bottom:0;opacity:.04;
+  background:repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(255,255,255,.3) 38px,rgba(255,255,255,.3) 40px);
+  animation:fieldScroll 4s linear infinite;pointer-events:none;
+}
+#stadium .jumbotron{
+  background:linear-gradient(135deg,#0d2818,#1a4a2a);
+  border:2px solid #2d6b3d;border-radius:4px;padding:16px;margin-bottom:12px;
+  position:relative;overflow:hidden;
+}
+#stadium .jumbotron::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#00ff6a,#00cc55,#00ff6a);
+  animation:shimmer 2s linear infinite;background-size:200% 100%;
+}
+#stadium .jumbotron-title{font-size:9px;letter-spacing:3px;color:#4a9;text-transform:uppercase;margin-bottom:8px;font-weight:800}
+#stadium .jumbotron-score{font-size:42px;font-weight:900;color:#00ff6a;text-shadow:0 0 30px rgba(0,255,106,.3);line-height:1}
+#stadium .jumbotron-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;letter-spacing:1px}
+
+#stadium .turf-card{
+  background:linear-gradient(145deg,#0f1f0f,#162416);
+  border:1px solid #2a4a2a;border-radius:4px;padding:14px;margin-bottom:8px;
+  position:relative;
+}
+#stadium .turf-card.active{border-color:#00ff6a;box-shadow:0 0 20px rgba(0,255,106,.1)}
+#stadium .turf-card .row-num{
+  width:22px;height:22px;background:#00ff6a;color:#000;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;
+}
+#stadium .turf-card .constraint{font-size:12px;color:rgba(255,255,255,.6);margin-left:10px}
+#stadium .turf-card .player-name{font-size:15px;font-weight:800;color:#fff;margin-top:8px;letter-spacing:.3px}
+#stadium .turf-card .stat-value{font-size:20px;font-weight:900;color:#00ff6a}
+#stadium .turf-card .fill-bar{
+  position:absolute;left:0;top:0;bottom:0;width:var(--fill,0%);
+  background:linear-gradient(90deg,rgba(0,255,106,.06),transparent);border-radius:4px;
+}
+
+#stadium .stadium-grid{display:grid;grid-template-columns:60px repeat(3,1fr);gap:3px;margin-bottom:12px}
+#stadium .grid-header{
+  background:#162416;border:1px solid #2a4a2a;border-radius:4px;padding:8px 4px;
+  font-size:9px;font-weight:800;letter-spacing:.5px;text-align:center;
+  color:#00ff6a;text-transform:uppercase;
+}
+#stadium .grid-cell{
+  background:#0f1f0f;border:1px solid #1a3a1a;border-radius:4px;aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+  position:relative;overflow:hidden;cursor:pointer;transition:all .2s;
+}
+#stadium .grid-cell:hover{border-color:#00ff6a;background:#162416}
+#stadium .grid-cell.correct{background:#0d2818;border-color:#00ff6a80}
+#stadium .grid-cell.correct::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(0,255,106,.05));
+}
+#stadium .grid-cell .cell-player{font-size:9px;text-align:center;padding:4px;color:#fff;z-index:1}
+#stadium .grid-cell .cell-school{font-size:7px;color:rgba(255,255,255,.4);margin-top:2px}
+#stadium .grid-cell .rarity{
+  position:absolute;bottom:2px;left:50%;transform:translateX(-50%);
+  font-size:6px;letter-spacing:1px;font-weight:900;padding:1px 4px;border-radius:2px;
+}
+#stadium .rarity.legendary{color:#ffd700;background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.3)}
+#stadium .rarity.rare{color:#b44dff;background:rgba(180,77,255,.15);border:1px solid rgba(180,77,255,.3)}
+
+#stadium .player-card{
+  background:linear-gradient(135deg,#0f1f0f,#1a2e1a);border:1px solid #2d6b3d;
+  border-radius:6px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+#stadium .player-avatar{
+  width:44px;height:44px;border-radius:4px;
+  background:linear-gradient(135deg,#2d6b3d,#1a4a2a);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  border:2px solid #3a8a4a;
+}
+#stadium .player-info .name{font-size:14px;font-weight:800}
+#stadium .player-info .meta{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+#stadium .player-info .pos-badge{
+  display:inline-block;background:#00ff6a;color:#000;font-size:9px;font-weight:900;
+  padding:2px 6px;border-radius:3px;margin-right:6px;
+}
+#stadium .team-card{
+  background:linear-gradient(135deg,#0f1f0f,#162416);border:1px solid #2a4a2a;
+  border-radius:6px;overflow:hidden;margin-bottom:8px;
+}
+#stadium .team-card .team-banner{
+  height:60px;display:flex;align-items:center;padding:0 16px;gap:12px;
+  position:relative;overflow:hidden;
+}
+#stadium .team-card .team-banner::before{
+  content:'';position:absolute;inset:0;opacity:.15;
+  background:var(--team-color,#2d6b3d);
+}
+#stadium .team-card .team-logo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;z-index:1}
+#stadium .team-card .team-name{font-size:16px;font-weight:900;z-index:1;letter-spacing:.5px}
+#stadium .team-card .team-conf{font-size:10px;color:rgba(255,255,255,.5);z-index:1;margin-left:auto;letter-spacing:1px}
+#stadium .team-card .team-stats{display:flex;padding:12px 16px;gap:16px}
+#stadium .team-card .team-stat{text-align:center;flex:1}
+#stadium .team-card .team-stat .val{font-size:18px;font-weight:900;color:#00ff6a}
+#stadium .team-card .team-stat .lbl{font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.3);margin-top:2px;text-transform:uppercase}
+
+/* ================================================================
+   THEME 2: PRESS BOX PREMIUM
+   Editorial / The Athletic style, serif headlines, data-heavy
+   ================================================================ */
+#pressbox .phone{border:2px solid #2a2520}
+#pressbox .phone-screen{background:#faf6f0;color:#1a1612}
+#pressbox .status-bar{color:#1a1612}
+#pressbox .pb-header{
+  border-bottom:3px double #1a1612;padding-bottom:12px;margin-bottom:16px;text-align:center;
+}
+#pressbox .pb-header .masthead{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:700;letter-spacing:-1px;color:#1a1612}
+#pressbox .pb-header .edition{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8a7a6a;margin-top:4px;font-weight:600}
+#pressbox .pb-divider{height:1px;background:#d4c8b8;margin:16px 0}
+#pressbox .pb-divider.heavy{height:2px;background:#1a1612}
+#pressbox .pb-headline{font-family:Georgia,serif;font-size:22px;font-weight:700;line-height:1.25;color:#1a1612;margin-bottom:6px}
+#pressbox .pb-byline{font-size:11px;color:#8a7a6a;margin-bottom:12px}
+#pressbox .pb-body{font-size:13px;line-height:1.6;color:#4a3a2a}
+
+#pressbox .pb-score-strip{
+  background:#1a1612;color:#faf6f0;padding:16px;border-radius:0;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:space-around;
+}
+#pressbox .pb-score-strip .big-num{font-family:Georgia,serif;font-size:36px;font-weight:700}
+#pressbox .pb-score-strip .score-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;opacity:.5;margin-top:2px}
+#pressbox .pb-score-strip .score-divider{width:1px;height:40px;background:rgba(255,255,255,.15)}
+
+#pressbox .pb-grid{display:grid;grid-template-columns:64px repeat(3,1fr);gap:2px;margin-bottom:16px}
+#pressbox .pb-grid-header{
+  background:#1a1612;color:#faf6f0;padding:10px 4px;font-size:9px;font-weight:700;
+  text-align:center;letter-spacing:.5px;text-transform:uppercase;
+}
+#pressbox .pb-grid-cell{
+  background:#fff;border:1px solid #e8ddd0;padding:8px 4px;
+  text-align:center;aspect-ratio:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;transition:all .15s;
+}
+#pressbox .pb-grid-cell:hover{background:#f5ede3}
+#pressbox .pb-grid-cell.filled{background:#f0e8da}
+#pressbox .pb-grid-cell .cell-name{font-family:Georgia,serif;font-size:10px;font-weight:700;color:#1a1612}
+#pressbox .pb-grid-cell .cell-detail{font-size:8px;color:#8a7a6a;margin-top:2px}
+#pressbox .pb-grid-cell .cell-rarity{font-size:7px;font-weight:700;margin-top:3px;letter-spacing:1px}
+#pressbox .pb-grid-cell .cell-rarity.gold{color:#b8860b}
+#pressbox .pb-grid-cell .cell-rarity.purple{color:#6a0dad}
+
+#pressbox .pb-stat-row{
+  background:#fff;border:1px solid #e8ddd0;padding:14px;margin-bottom:6px;
+  display:flex;align-items:center;position:relative;
+}
+#pressbox .pb-stat-row.active{border-left:3px solid #1a1612}
+#pressbox .pb-stat-row .row-idx{
+  font-family:Georgia,serif;font-size:18px;font-weight:700;color:#c8b8a0;
+  width:28px;text-align:center;
+}
+#pressbox .pb-stat-row .row-constraint{font-size:12px;color:#4a3a2a;flex:1;margin-left:12px}
+#pressbox .pb-stat-row .row-player{font-family:Georgia,serif;font-size:13px;font-weight:700;color:#1a1612}
+#pressbox .pb-stat-row .row-stat{font-family:Georgia,serif;font-size:20px;font-weight:700;color:#1a1612;margin-left:auto}
+#pressbox .pb-stat-row .row-unit{font-size:9px;color:#8a7a6a;letter-spacing:1px;margin-left:4px}
+
+#pressbox .pb-player-card{
+  background:#fff;border:1px solid #e8ddd0;padding:16px;margin-bottom:8px;
+  display:flex;gap:14px;align-items:center;
+}
+#pressbox .pb-player-card .avatar{
+  width:48px;height:48px;background:#f5ede3;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  border:2px solid #d4c8b8;
+}
+#pressbox .pb-player-card .info .name{font-family:Georgia,serif;font-size:16px;font-weight:700}
+#pressbox .pb-player-card .info .detail{font-size:11px;color:#8a7a6a;margin-top:2px}
+#pressbox .pb-player-card .info .tag{
+  display:inline-block;background:#1a1612;color:#faf6f0;font-size:9px;font-weight:700;
+  padding:2px 8px;margin-top:4px;letter-spacing:1px;
+}
+
+#pressbox .pb-team-card{background:#fff;border:1px solid #e8ddd0;overflow:hidden;margin-bottom:8px}
+#pressbox .pb-team-card .banner{
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  background:var(--team-bg,#1a1612);color:#fff;
+}
+#pressbox .pb-team-card .banner .logo{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:14px}
+#pressbox .pb-team-card .banner .tname{font-family:Georgia,serif;font-size:16px;font-weight:700}
+#pressbox .pb-team-card .banner .conf{margin-left:auto;font-size:10px;opacity:.6;letter-spacing:1px}
+#pressbox .pb-team-card .stats-row{display:flex;padding:12px 16px;border-top:1px solid #e8ddd0}
+#pressbox .pb-team-card .stats-row .stat{flex:1;text-align:center}
+#pressbox .pb-team-card .stats-row .stat .v{font-family:Georgia,serif;font-size:18px;font-weight:700;color:#1a1612}
+#pressbox .pb-team-card .stats-row .stat .l{font-size:8px;letter-spacing:1.5px;color:#8a7a6a;text-transform:uppercase;margin-top:2px}
+
+/* ================================================================
+   THEME 3: NEON RECRUIT
+   Cyberpunk recruiting aesthetic, glowing edges, commitment reveals
+   ================================================================ */
+#neon .phone{border:2px solid #1a0a2e}
+#neon .phone-screen{background:#08050f;position:relative}
+#neon .neon-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 20%,rgba(138,43,226,.08),transparent 60%),
+             radial-gradient(ellipse at 70% 80%,rgba(0,180,255,.06),transparent 60%);
+  pointer-events:none;
+}
+#neon .neon-scanline{
+  position:absolute;inset:0;opacity:.03;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.1) 2px,rgba(255,255,255,.1) 4px);
+}
+
+#neon .neon-header{text-align:center;margin-bottom:20px;position:relative;z-index:1}
+#neon .neon-header .title{
+  font-size:28px;font-weight:900;letter-spacing:4px;
+  background:linear-gradient(135deg,#00b4ff,#b44dff,#ff006a);
+  background-size:200% 200%;animation:gradientShift 3s ease infinite;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+#neon .neon-header .sub{font-size:10px;letter-spacing:3px;color:rgba(180,77,255,.6);margin-top:4px}
+
+#neon .neon-card{
+  background:rgba(20,10,40,.8);border:1px solid rgba(180,77,255,.2);
+  border-radius:8px;padding:14px;margin-bottom:8px;position:relative;z-index:1;
+  backdrop-filter:blur(10px);
+}
+#neon .neon-card.glow{
+  --glow-color:rgba(0,180,255,.4);animation:glow 2s ease infinite;
+  border-color:rgba(0,180,255,.4);
+}
+#neon .neon-card.glow-purple{--glow-color:rgba(180,77,255,.4);animation:glow 2.5s ease infinite;border-color:rgba(180,77,255,.4)}
+
+#neon .neon-grid{display:grid;grid-template-columns:56px repeat(3,1fr);gap:3px;margin-bottom:12px;position:relative;z-index:1}
+#neon .neon-grid-header{
+  background:rgba(180,77,255,.1);border:1px solid rgba(180,77,255,.2);border-radius:4px;
+  padding:8px 4px;font-size:9px;font-weight:800;text-align:center;color:#b44dff;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+#neon .neon-grid-cell{
+  background:rgba(20,10,40,.6);border:1px solid rgba(180,77,255,.1);
+  border-radius:4px;aspect-ratio:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;transition:all .2s;
+  position:relative;overflow:hidden;
+}
+#neon .neon-grid-cell:hover{border-color:rgba(0,180,255,.5);box-shadow:0 0 15px rgba(0,180,255,.15)}
+#neon .neon-grid-cell.filled{border-color:rgba(0,180,255,.3)}
+#neon .neon-grid-cell.filled::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,180,255,.08),rgba(180,77,255,.05));
+}
+#neon .neon-grid-cell .p{font-size:9px;font-weight:700;color:#fff;z-index:1;text-align:center}
+#neon .neon-grid-cell .s{font-size:7px;color:rgba(0,180,255,.6);z-index:1;margin-top:1px}
+#neon .neon-grid-cell .r{
+  position:absolute;bottom:2px;font-size:6px;font-weight:900;letter-spacing:1px;z-index:1;
+}
+#neon .r.leg{color:#ffd700;text-shadow:0 0 8px rgba(255,215,0,.5)}
+#neon .r.epic{color:#ff6a00;text-shadow:0 0 8px rgba(255,106,0,.5)}
+
+#neon .neon-stat-row{
+  background:rgba(20,10,40,.6);border:1px solid rgba(180,77,255,.15);
+  border-radius:6px;padding:14px;margin-bottom:6px;display:flex;align-items:center;
+  position:relative;z-index:1;overflow:hidden;
+}
+#neon .neon-stat-row.active{border-color:rgba(0,180,255,.5);box-shadow:0 0 20px rgba(0,180,255,.1)}
+#neon .neon-stat-row .idx{
+  width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;
+  background:linear-gradient(135deg,#00b4ff,#b44dff);color:#fff;
+}
+#neon .neon-stat-row .con{font-size:11px;color:rgba(255,255,255,.5);margin-left:10px;flex:1}
+#neon .neon-stat-row .pname{font-size:14px;font-weight:800;color:#fff}
+#neon .neon-stat-row .sval{font-size:22px;font-weight:900;color:#00b4ff;margin-left:auto;text-shadow:0 0 15px rgba(0,180,255,.3)}
+#neon .neon-stat-row .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(0,180,255,.06),transparent);width:var(--fill,0%);border-radius:6px}
+
+#neon .neon-player{
+  background:rgba(20,10,40,.8);border:1px solid rgba(180,77,255,.2);
+  border-radius:8px;padding:14px;display:flex;gap:12px;align-items:center;margin-bottom:8px;
+  position:relative;z-index:1;
+}
+#neon .neon-player .av{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(0,180,255,.2),rgba(180,77,255,.2));
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  border:2px solid rgba(180,77,255,.3);
+}
+#neon .neon-player .nm{font-size:14px;font-weight:800}
+#neon .neon-player .mt{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+#neon .neon-player .pos{
+  display:inline-block;font-size:9px;font-weight:900;padding:2px 6px;border-radius:3px;
+  background:linear-gradient(135deg,#00b4ff,#b44dff);color:#fff;margin-right:6px;
+}
+
+#neon .neon-team{
+  background:rgba(20,10,40,.8);border:1px solid rgba(180,77,255,.15);
+  border-radius:8px;overflow:hidden;margin-bottom:8px;position:relative;z-index:1;
+}
+#neon .neon-team .tbanner{
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  position:relative;
+}
+#neon .neon-team .tbanner::before{content:'';position:absolute;inset:0;background:var(--tc,#b44dff);opacity:.08}
+#neon .neon-team .tlogo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:16px;z-index:1;border:1px solid rgba(255,255,255,.1)}
+#neon .neon-team .tn{font-size:16px;font-weight:900;z-index:1;letter-spacing:.5px}
+#neon .neon-team .tc{font-size:9px;color:rgba(255,255,255,.3);z-index:1;margin-left:auto;letter-spacing:1.5px}
+#neon .neon-team .tstats{display:flex;padding:10px 16px;gap:8px}
+#neon .neon-team .tstats .ts{flex:1;text-align:center}
+#neon .neon-team .tstats .ts .tv{font-size:18px;font-weight:900;background:linear-gradient(135deg,#00b4ff,#b44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#neon .neon-team .tstats .ts .tl{font-size:7px;letter-spacing:1.5px;color:rgba(255,255,255,.25);text-transform:uppercase;margin-top:2px}
+
+/* ================================================================
+   THEME 4: HERITAGE VARSITY
+   Vintage leather, letterman jacket, pennant banners, retro type
+   ================================================================ */
+#heritage .phone{border:3px solid #5a3a1a}
+#heritage .phone-screen{background:#2a1f14;color:#f0e0c8}
+#heritage .status-bar{color:#c8a878}
+
+#heritage .pennant{
+  position:relative;background:#8b1a1a;padding:10px 20px 10px 16px;margin-bottom:16px;
+  clip-path:polygon(0 0,100% 0,92% 50%,100% 100%,0 100%);
+}
+#heritage .pennant .pennant-text{font-size:11px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#f0e0c8}
+#heritage .pennant .pennant-year{font-size:9px;color:rgba(240,224,200,.5);letter-spacing:2px;margin-top:2px}
+
+#heritage .leather-card{
+  background:linear-gradient(145deg,#3a2a1a,#2a1f14);
+  border:2px solid #5a3a1a;border-radius:6px;padding:16px;margin-bottom:8px;
+  position:relative;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 4px 12px rgba(0,0,0,.3);
+}
+#heritage .leather-card::before{
+  content:'';position:absolute;inset:4px;border:1px solid rgba(200,168,120,.08);border-radius:4px;pointer-events:none;
+}
+#heritage .stitch{
+  position:absolute;top:6px;bottom:6px;width:1px;
+  background:repeating-linear-gradient(180deg,#c8a878 0,#c8a878 3px,transparent 3px,transparent 7px);
+  opacity:.2;
+}
+#heritage .stitch.left{left:8px}
+#heritage .stitch.right{right:8px}
+
+#heritage .varsity-score{text-align:center;margin-bottom:16px}
+#heritage .varsity-score .big{font-family:Georgia,serif;font-size:48px;font-weight:900;color:#e2b714;text-shadow:2px 2px 0 rgba(0,0,0,.3)}
+#heritage .varsity-score .label{font-size:9px;letter-spacing:3px;color:#c8a878;text-transform:uppercase;margin-top:4px}
+
+#heritage .varsity-grid{display:grid;grid-template-columns:56px repeat(3,1fr);gap:3px;margin-bottom:12px}
+#heritage .v-grid-header{
+  background:#3a2a1a;border:2px solid #5a3a1a;border-radius:4px;padding:8px 4px;
+  font-family:Georgia,serif;font-size:9px;font-weight:700;text-align:center;color:#e2b714;
+  text-transform:uppercase;
+}
+#heritage .v-grid-cell{
+  background:#2a1f14;border:2px solid #3a2a1a;border-radius:4px;aspect-ratio:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:10px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;
+}
+#heritage .v-grid-cell:hover{border-color:#c8a878}
+#heritage .v-grid-cell.filled{background:#3a2a1a;border-color:#5a3a1a}
+#heritage .v-grid-cell.filled::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(226,183,20,.05),transparent 70%);
+}
+#heritage .v-grid-cell .cp{font-family:Georgia,serif;font-size:9px;font-weight:700;color:#f0e0c8;z-index:1;text-align:center}
+#heritage .v-grid-cell .cs{font-size:7px;color:#c8a878;z-index:1}
+
+#heritage .letterman-row{
+  background:linear-gradient(145deg,#3a2a1a,#2a1f14);
+  border:2px solid #5a3a1a;border-radius:6px;padding:14px;margin-bottom:6px;
+  display:flex;align-items:center;position:relative;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+#heritage .letterman-row .num{
+  font-family:Georgia,serif;font-size:20px;font-weight:900;color:#5a3a1a;
+  width:28px;text-align:center;
+}
+#heritage .letterman-row .desc{font-size:11px;color:#c8a878;flex:1;margin-left:10px}
+#heritage .letterman-row .pn{font-family:Georgia,serif;font-size:14px;font-weight:700;color:#f0e0c8}
+#heritage .letterman-row .sv{font-family:Georgia,serif;font-size:22px;font-weight:900;color:#e2b714;margin-left:auto}
+
+#heritage .h-player{
+  background:linear-gradient(145deg,#3a2a1a,#2a1f14);border:2px solid #5a3a1a;
+  border-radius:6px;padding:14px;display:flex;gap:12px;align-items:center;margin-bottom:8px;
+}
+#heritage .h-player .av{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#5a3a1a,#3a2a1a);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  border:3px solid #c8a878;
+}
+#heritage .h-player .nm{font-family:Georgia,serif;font-size:15px;font-weight:700}
+#heritage .h-player .mt{font-size:10px;color:#c8a878;margin-top:2px}
+#heritage .h-player .badge{
+  display:inline-block;background:#8b1a1a;color:#f0e0c8;font-size:9px;font-weight:700;
+  padding:3px 8px;border-radius:3px;margin-top:4px;letter-spacing:1px;
+}
+
+#heritage .h-team{
+  background:linear-gradient(145deg,#3a2a1a,#2a1f14);border:2px solid #5a3a1a;
+  border-radius:6px;overflow:hidden;margin-bottom:8px;
+}
+#heritage .h-team .hbanner{
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  position:relative;
+}
+#heritage .h-team .hbanner::before{content:'';position:absolute;inset:0;background:var(--htc,#8b1a1a);opacity:.12}
+#heritage .h-team .hlogo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:16px;z-index:1;border:2px solid rgba(200,168,120,.2)}
+#heritage .h-team .htn{font-family:Georgia,serif;font-size:16px;font-weight:700;z-index:1}
+#heritage .h-team .htc{font-size:9px;color:#c8a878;z-index:1;margin-left:auto;letter-spacing:1.5px}
+#heritage .h-team .hstats{display:flex;padding:10px 16px;gap:8px}
+#heritage .h-team .hstats .hs{flex:1;text-align:center}
+#heritage .h-team .hstats .hs .hv{font-family:Georgia,serif;font-size:18px;font-weight:900;color:#e2b714}
+#heritage .h-team .hstats .hs .hl{font-size:7px;letter-spacing:1.5px;color:#c8a878;opacity:.5;text-transform:uppercase;margin-top:2px}
+
+/* ================================================================
+   THEME 5: LIQUID GLASS
+   Apple-inspired frosted glass, floating cards, light refraction
+   ================================================================ */
+#glass .phone{border:1px solid rgba(255,255,255,.1);background:linear-gradient(135deg,#1a1a2e,#0f0f1a)}
+#glass .phone-screen{
+  background:linear-gradient(160deg,#0f0f1a 0%,#1a1a2e 50%,#0f0f1a 100%);
+  position:relative;
+}
+#glass .glass-orb{
+  position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;
+}
+#glass .glass-orb.o1{width:200px;height:200px;top:-40px;left:-60px;background:rgba(0,120,255,.12)}
+#glass .glass-orb.o2{width:160px;height:160px;bottom:40px;right:-40px;background:rgba(180,77,255,.1)}
+#glass .glass-orb.o3{width:120px;height:120px;top:200px;left:50%;background:rgba(255,106,0,.06)}
+
+#glass .glass-card{
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;
+  padding:16px;margin-bottom:10px;position:relative;z-index:1;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+}
+#glass .glass-card.elevated{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);
+  box-shadow:0 12px 40px rgba(0,0,0,.3);
+}
+#glass .glass-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  border-radius:16px 16px 0 0;
+}
+
+#glass .glass-header{text-align:center;margin-bottom:20px;position:relative;z-index:1}
+#glass .glass-header .title{font-size:24px;font-weight:800;letter-spacing:1px;color:rgba(255,255,255,.9)}
+#glass .glass-header .sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:4px;letter-spacing:2px}
+
+#glass .glass-score{text-align:center;padding:20px;position:relative;z-index:1}
+#glass .glass-score .big{font-size:48px;font-weight:900;color:#fff;text-shadow:0 0 40px rgba(0,120,255,.3)}
+#glass .glass-score .lbl{font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:4px}
+#glass .glass-score .pills{display:flex;justify-content:center;gap:8px;margin-top:12px}
+#glass .glass-score .pill{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:6px 14px;font-size:11px;color:rgba(255,255,255,.6);
+}
+#glass .glass-score .pill .pv{font-weight:800;color:#fff}
+
+#glass .glass-grid{display:grid;grid-template-columns:52px repeat(3,1fr);gap:4px;margin-bottom:12px;position:relative;z-index:1}
+#glass .g-grid-header{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;padding:8px 4px;font-size:9px;font-weight:700;text-align:center;
+  color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;
+}
+#glass .g-grid-cell{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;aspect-ratio:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;transition:all .3s;
+  position:relative;overflow:hidden;backdrop-filter:blur(10px);
+}
+#glass .g-grid-cell:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+#glass .g-grid-cell.filled{background:rgba(0,120,255,.06);border-color:rgba(0,120,255,.15)}
+#glass .g-grid-cell.filled::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,120,255,.4),transparent);
+}
+#glass .g-grid-cell .gp{font-size:9px;font-weight:700;color:rgba(255,255,255,.85);z-index:1;text-align:center}
+#glass .g-grid-cell .gs{font-size:7px;color:rgba(255,255,255,.35);z-index:1}
+
+#glass .glass-stat-row{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:14px;margin-bottom:6px;display:flex;align-items:center;
+  position:relative;z-index:1;backdrop-filter:blur(10px);overflow:hidden;
+}
+#glass .glass-stat-row.active{border-color:rgba(0,120,255,.3);background:rgba(0,120,255,.04)}
+#glass .glass-stat-row .gi{
+  width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);
+}
+#glass .glass-stat-row .gc{font-size:11px;color:rgba(255,255,255,.4);margin-left:10px;flex:1}
+#glass .glass-stat-row .gn{font-size:14px;font-weight:700;color:rgba(255,255,255,.85)}
+#glass .glass-stat-row .gv{font-size:22px;font-weight:900;color:#fff;margin-left:auto;text-shadow:0 0 20px rgba(0,120,255,.2)}
+
+#glass .glass-player{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;
+  margin-bottom:8px;position:relative;z-index:1;backdrop-filter:blur(10px);
+}
+#glass .glass-player .ga{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(0,120,255,.15),rgba(180,77,255,.15));
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  border:1px solid rgba(255,255,255,.1);
+}
+#glass .glass-player .gnm{font-size:14px;font-weight:700;color:rgba(255,255,255,.9)}
+#glass .glass-player .gmt{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+#glass .glass-player .gpos{
+  display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:6px;
+  background:rgba(0,120,255,.12);color:rgba(0,120,255,.8);border:1px solid rgba(0,120,255,.15);
+  margin-right:6px;
+}
+
+#glass .glass-team{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;overflow:hidden;margin-bottom:8px;position:relative;z-index:1;
+}
+#glass .glass-team .gtbanner{
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  position:relative;
+}
+#glass .glass-team .gtbanner::before{content:'';position:absolute;inset:0;background:var(--gtc,#0078ff);opacity:.04}
+#glass .glass-team .gtlogo{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:16px;z-index:1;border:1px solid rgba(255,255,255,.08)}
+#glass .glass-team .gtn{font-size:16px;font-weight:800;z-index:1;color:rgba(255,255,255,.9)}
+#glass .glass-team .gtcnf{font-size:9px;color:rgba(255,255,255,.25);z-index:1;margin-left:auto;letter-spacing:1.5px}
+#glass .glass-team .gtstats{display:flex;padding:10px 16px;gap:8px}
+#glass .glass-team .gtstats .gts{flex:1;text-align:center}
+#glass .glass-team .gtstats .gts .gtv{font-size:18px;font-weight:800;color:#fff}
+#glass .glass-team .gtstats .gts .gtl{font-size:7px;letter-spacing:1.5px;color:rgba(255,255,255,.2);text-transform:uppercase;margin-top:2px}
+
+/* Animations section */
+.anim-demo{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;
+}
+.anim-box{
+  border-radius:8px;padding:16px;text-align:center;font-size:10px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+}
+
+/* Scroll to top */
+.scroll-top{
+  position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;
+  background:rgba(226,183,20,.9);color:#000;display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;z-index:1001;box-shadow:0 4px 20px rgba(0,0,0,.3);
+  transition:transform .2s;
+}
+.scroll-top:hover{transform:scale(1.1)}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="theme-nav" id="nav">
+  <a href="#stadium" class="active" onclick="setActive(this)">01 Stadium Atmosphere</a>
+  <a href="#pressbox" onclick="setActive(this)">02 Press Box Premium</a>
+  <a href="#neon" onclick="setActive(this)">03 Neon Recruit</a>
+  <a href="#heritage" onclick="setActive(this)">04 Heritage Varsity</a>
+  <a href="#glass" onclick="setActive(this)">05 Liquid Glass</a>
+</nav>
+
+<!-- ============================================
+     THEME 1: STADIUM ATMOSPHERE
+     ============================================ -->
+<section class="theme-section" id="stadium">
+  <h1>Theme 01</h1>
+  <div class="theme-title" style="color:#00ff6a">Stadium Atmosphere</div>
+  <div class="theme-subtitle">Dark stadium vibes. Field turf textures. Jumbotron displays. Friday night lights energy. The crowd roars with every correct answer.</div>
+
+  <!-- Animations -->
+  <p class="section-label">Animations</p>
+  <div class="anim-demo">
+    <div class="anim-box" style="background:#0d2818;border:1px solid #2d6b3d;color:#00ff6a;animation:pulse 2s infinite">Pulse Glow</div>
+    <div class="anim-box" style="background:#0d2818;border:1px solid #2d6b3d;color:#00ff6a;animation:float 3s ease-in-out infinite">Float Card</div>
+    <div class="anim-box" style="background:#0d2818;border:1px solid #2d6b3d;color:#00ff6a;animation:scorePop 1.5s ease infinite">Score Pop</div>
+    <div class="anim-box" style="background:#0d2818;border:1px solid #2d6b3d;color:#00ff6a;animation:flipIn 2s ease infinite">Card Flip</div>
+  </div>
+
+  <!-- The Grid -->
+  <p class="section-label">The Grid — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:linear-gradient(180deg,#0d1a0d,#0a140a,#081008)">
+      <div class="field-lines"></div>
+      <div style="position:relative;z-index:1">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <div style="width:8px;height:8px;border-radius:2px;background:#00ff6a"></div>
+              <span style="font-size:20px;font-weight:900;color:#00ff6a;letter-spacing:2px">THE GRID</span>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,.3);letter-spacing:1.5px;margin-top:2px;margin-left:14px">THURSDAY, MAR 13</div>
+          </div>
+          <div style="width:44px;height:44px;border-radius:4px;border:2px solid #2d6b3d;background:#0d2818;display:flex;flex-direction:column;align-items:center;justify-content:center">
+            <div style="font-size:16px;font-weight:900;color:#fff">7</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.3)">/9</div>
+          </div>
+        </div>
+
+        <div class="jumbotron">
+          <div class="jumbotron-title">Current Game</div>
+          <div style="display:flex;justify-content:space-around;align-items:center">
+            <div style="text-align:center"><div class="jumbotron-score">850</div><div class="jumbotron-sub">SCORE</div></div>
+            <div style="width:1px;height:36px;background:rgba(255,255,255,.1)"></div>
+            <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#ffd700">92%</div><div class="jumbotron-sub">PERCENTILE</div></div>
+            <div style="width:1px;height:36px;background:rgba(255,255,255,.1)"></div>
+            <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#fff">2/9</div><div class="jumbotron-sub">GUESSES</div></div>
+          </div>
+        </div>
+
+        <div class="stadium-grid">
+          <div class="grid-header" style="background:transparent;border:none"></div>
+          <div class="grid-header">SEC</div>
+          <div class="grid-header">1000+ Rush</div>
+          <div class="grid-header">Heisman</div>
+          <div class="grid-header">Alabama</div>
+          <div class="grid-cell correct"><div class="cell-player">D. Henry</div><div class="cell-school">Alabama</div><div class="rarity legendary">LEGENDARY</div></div>
+          <div class="grid-cell correct"><div class="cell-player">D. Henry</div></div>
+          <div class="grid-cell" style="border-color:#00ff6a40"><span style="color:#00ff6a;font-size:16px">+</span></div>
+          <div class="grid-header">Ohio St</div>
+          <div class="grid-cell correct"><div class="cell-player">E. Smith</div><div class="cell-school">Ohio St</div><div class="rarity rare">RARE</div></div>
+          <div class="grid-cell"><span style="color:rgba(255,255,255,.2);font-size:16px">+</span></div>
+          <div class="grid-cell"><span style="color:rgba(255,255,255,.2);font-size:16px">+</span></div>
+          <div class="grid-header">Texas</div>
+          <div class="grid-cell"><span style="color:rgba(255,255,255,.2);font-size:16px">+</span></div>
+          <div class="grid-cell correct"><div class="cell-player">R. Williams</div><div class="cell-school">Texas</div></div>
+          <div class="grid-cell"><span style="color:rgba(255,255,255,.2);font-size:16px">+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Stack -->
+  <p class="section-label">Stat Stack — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:linear-gradient(180deg,#0d1a0d,#0a140a,#081008)">
+      <div class="field-lines"></div>
+      <div style="position:relative;z-index:1">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px">
+          <div style="width:8px;height:8px;border-radius:2px;background:#00b4ff"></div>
+          <span style="font-size:20px;font-weight:900;color:#00b4ff;letter-spacing:2px">STAT STACK</span>
+        </div>
+
+        <div class="jumbotron" style="border-color:#1a3a5a;background:linear-gradient(135deg,#0d1828,#1a2a4a)">
+          <div class="jumbotron-title" style="color:#4a9ac8">PASSING YARDS</div>
+          <div style="text-align:center">
+            <div class="jumbotron-score" style="color:#00b4ff;text-shadow:0 0 30px rgba(0,180,255,.3)">12,847</div>
+            <div class="jumbotron-sub">TOTAL YARDS</div>
+          </div>
+        </div>
+
+        <div class="turf-card active" style="border-color:#00b4ff;--fill:75%">
+          <div class="fill-bar" style="background:linear-gradient(90deg,rgba(0,180,255,.06),transparent);width:75%"></div>
+          <div style="display:flex;align-items:center">
+            <div class="row-num" style="background:#00b4ff">1</div>
+            <div class="constraint">SEC quarterback, any year</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <div>
+              <div class="player-name">Joe Burrow</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.3)">LSU &bull; 2019</div>
+            </div>
+            <div><span class="stat-value" style="color:#00b4ff">5,671</span><span style="font-size:9px;color:rgba(255,255,255,.3);margin-left:4px">YDS</span></div>
+          </div>
+        </div>
+
+        <div class="turf-card" style="--fill:55%">
+          <div class="fill-bar" style="width:55%"></div>
+          <div style="display:flex;align-items:center">
+            <div class="row-num">2</div>
+            <div class="constraint">Big 12 player, 2015+</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <div>
+              <div class="player-name">Patrick Mahomes</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.3)">Texas Tech &bull; 2016</div>
+            </div>
+            <div><span class="stat-value">5,052</span><span style="font-size:9px;color:rgba(255,255,255,.3);margin-left:4px">YDS</span></div>
+          </div>
+        </div>
+
+        <div class="turf-card">
+          <div style="display:flex;align-items:center">
+            <div class="row-num">3</div>
+            <div class="constraint">Any conference, pre-2010</div>
+          </div>
+          <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;font-weight:800">TAP TO SELECT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player & Team Cards -->
+  <p class="section-label">Player Cards</p>
+  <div class="player-card" style="background:linear-gradient(135deg,#0f1f0f,#1a2e1a);border:1px solid #2d6b3d;border-radius:6px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px">
+    <div class="player-avatar">&#127944;</div>
+    <div class="player-info">
+      <div><span class="pos-badge">QB</span><span class="name">Joe Burrow</span></div>
+      <div class="meta">LSU &bull; SEC &bull; 2018-2019</div>
+    </div>
+  </div>
+  <div class="player-card" style="background:linear-gradient(135deg,#0f1f0f,#1a2e1a);border:1px solid #2d6b3d;border-radius:6px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px">
+    <div class="player-avatar">&#127944;</div>
+    <div class="player-info">
+      <div><span class="pos-badge">RB</span><span class="name">Derrick Henry</span></div>
+      <div class="meta">Alabama &bull; SEC &bull; 2013-2015</div>
+    </div>
+  </div>
+
+  <p class="section-label">Team Cards</p>
+  <div class="team-card">
+    <div class="team-banner" style="--team-color:#9E1B32">
+      <div class="team-logo">&#127941;</div>
+      <div class="team-name">Alabama</div>
+      <div class="team-conf">SEC</div>
+    </div>
+    <div class="team-stats">
+      <div class="team-stat"><div class="val">13-0</div><div class="lbl">Record</div></div>
+      <div class="team-stat"><div class="val">#1</div><div class="lbl">Ranking</div></div>
+      <div class="team-stat"><div class="val">42.3</div><div class="lbl">PPG</div></div>
+    </div>
+  </div>
+  <div class="team-card">
+    <div class="team-banner" style="--team-color:#00274C">
+      <div class="team-logo">&#127944;</div>
+      <div class="team-name">Michigan</div>
+      <div class="team-conf">BIG TEN</div>
+    </div>
+    <div class="team-stats">
+      <div class="team-stat"><div class="val">12-1</div><div class="lbl">Record</div></div>
+      <div class="team-stat"><div class="val">#4</div><div class="lbl">Ranking</div></div>
+      <div class="team-stat"><div class="val">35.8</div><div class="lbl">PPG</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     THEME 2: PRESS BOX PREMIUM
+     ============================================ -->
+<section class="theme-section" id="pressbox">
+  <h1>Theme 02</h1>
+  <div class="theme-title" style="color:#1a1612">Press Box Premium</div>
+  <div class="theme-subtitle" style="color:#4a3a2a">Editorial craftsmanship meets sports journalism. Serif headlines, data-first layouts, The Athletic meets Wall Street Journal. Every pixel tells a story.</div>
+
+  <p class="section-label" style="color:#8a7a6a">Animations</p>
+  <div class="anim-demo">
+    <div class="anim-box" style="background:#faf6f0;border:2px solid #1a1612;color:#1a1612;animation:reveal 2s ease infinite">Reveal Wipe</div>
+    <div class="anim-box" style="background:#1a1612;color:#faf6f0;animation:slideUp 1.5s ease infinite">Slide Up</div>
+    <div class="anim-box" style="background:#faf6f0;border:2px solid #1a1612;color:#1a1612;animation:stampIn 2s ease infinite">Stamp In</div>
+    <div class="anim-box" style="background:#1a1612;color:#e2b714;animation:scorePop 1.5s ease infinite">Score Pop</div>
+  </div>
+
+  <!-- The Grid -->
+  <p class="section-label" style="color:#8a7a6a">The Grid — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#faf6f0;color:#1a1612">
+      <div class="pb-header">
+        <div class="masthead">THE GRID</div>
+        <div class="edition">Thursday Edition &mdash; March 13, 2026</div>
+      </div>
+
+      <div class="pb-score-strip">
+        <div style="text-align:center"><div class="big-num">850</div><div class="score-label">Score</div></div>
+        <div class="score-divider"></div>
+        <div style="text-align:center"><div class="big-num" style="color:#e2b714">92<span style="font-size:18px">%</span></div><div class="score-label">Percentile</div></div>
+        <div class="score-divider"></div>
+        <div style="text-align:center"><div class="big-num">7<span style="font-size:18px">/9</span></div><div class="score-label">Filled</div></div>
+      </div>
+
+      <div class="pb-grid">
+        <div class="pb-grid-header" style="background:transparent;border:none"></div>
+        <div class="pb-grid-header">SEC</div>
+        <div class="pb-grid-header">1000+ Rush</div>
+        <div class="pb-grid-header">Heisman</div>
+        <div class="pb-grid-header">Alabama</div>
+        <div class="pb-grid-cell filled"><div class="cell-name">D. Henry</div><div class="cell-detail">Alabama</div><div class="cell-rarity gold">LEGENDARY</div></div>
+        <div class="pb-grid-cell filled"><div class="cell-name">N. Harris</div><div class="cell-detail">Alabama</div></div>
+        <div class="pb-grid-cell"><span style="color:#c8b8a0;font-size:18px">+</span></div>
+        <div class="pb-grid-header">Ohio St</div>
+        <div class="pb-grid-cell filled"><div class="cell-name">E. Elliott</div><div class="cell-detail">Ohio St</div><div class="cell-rarity purple">RARE</div></div>
+        <div class="pb-grid-cell"><span style="color:#c8b8a0;font-size:18px">+</span></div>
+        <div class="pb-grid-cell"><span style="color:#c8b8a0;font-size:18px">+</span></div>
+        <div class="pb-grid-header">Texas</div>
+        <div class="pb-grid-cell"><span style="color:#c8b8a0;font-size:18px">+</span></div>
+        <div class="pb-grid-cell filled"><div class="cell-name">R. Williams</div><div class="cell-detail">Texas</div></div>
+        <div class="pb-grid-cell"><span style="color:#c8b8a0;font-size:18px">+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Stack -->
+  <p class="section-label" style="color:#8a7a6a">Stat Stack — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#faf6f0;color:#1a1612">
+      <div class="pb-header">
+        <div class="masthead">STAT STACK</div>
+        <div class="edition">Passing Yards &mdash; Daily Challenge</div>
+      </div>
+      <div class="pb-divider heavy"></div>
+      <div style="text-align:center;padding:12px 0"><span style="font-family:Georgia,serif;font-size:36px;font-weight:700">12,847</span><span style="font-size:12px;color:#8a7a6a;margin-left:8px;letter-spacing:1px">TOTAL YARDS</span></div>
+      <div class="pb-divider"></div>
+
+      <div class="pb-stat-row active">
+        <div class="row-idx">1</div>
+        <div style="margin-left:12px;flex:1"><div class="row-player">Joe Burrow</div><div style="font-size:10px;color:#8a7a6a">LSU &bull; 2019</div></div>
+        <div class="row-stat">5,671</div><div class="row-unit">YDS</div>
+      </div>
+      <div class="pb-stat-row">
+        <div class="row-idx">2</div>
+        <div style="margin-left:12px;flex:1"><div class="row-player">P. Mahomes</div><div style="font-size:10px;color:#8a7a6a">Texas Tech &bull; 2016</div></div>
+        <div class="row-stat">5,052</div><div class="row-unit">YDS</div>
+      </div>
+      <div class="pb-stat-row">
+        <div class="row-idx">3</div>
+        <div class="row-constraint" style="flex:1;margin-left:12px">Any conference, pre-2010</div>
+        <div style="font-size:10px;color:#c8b8a0;letter-spacing:1px">EMPTY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player & Team Cards -->
+  <p class="section-label" style="color:#8a7a6a">Player Cards</p>
+  <div class="pb-player-card">
+    <div class="avatar">&#127944;</div>
+    <div class="info"><div class="name">Joe Burrow</div><div class="detail">LSU &bull; SEC &bull; 2018-2019</div><div class="tag">QB</div></div>
+  </div>
+  <div class="pb-player-card">
+    <div class="avatar">&#127944;</div>
+    <div class="info"><div class="name">Derrick Henry</div><div class="detail">Alabama &bull; SEC &bull; 2013-2015</div><div class="tag">RB</div></div>
+  </div>
+
+  <p class="section-label" style="color:#8a7a6a">Team Cards</p>
+  <div class="pb-team-card">
+    <div class="banner" style="--team-bg:#9E1B32"><div class="logo">&#127941;</div><div class="tname">Alabama</div><div class="conf">SEC</div></div>
+    <div class="stats-row">
+      <div class="stat"><div class="v">13-0</div><div class="l">Record</div></div>
+      <div class="stat"><div class="v">#1</div><div class="l">Ranking</div></div>
+      <div class="stat"><div class="v">42.3</div><div class="l">PPG</div></div>
+    </div>
+  </div>
+  <div class="pb-team-card">
+    <div class="banner" style="--team-bg:#00274C"><div class="logo">&#127944;</div><div class="tname">Michigan</div><div class="conf">BIG TEN</div></div>
+    <div class="stats-row">
+      <div class="stat"><div class="v">12-1</div><div class="l">Record</div></div>
+      <div class="stat"><div class="v">#4</div><div class="l">Ranking</div></div>
+      <div class="stat"><div class="v">35.8</div><div class="l">PPG</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     THEME 3: NEON RECRUIT
+     ============================================ -->
+<section class="theme-section" id="neon">
+  <h1>Theme 03</h1>
+  <div class="theme-title" style="background:linear-gradient(135deg,#00b4ff,#b44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Neon Recruit</div>
+  <div class="theme-subtitle">Cyberpunk recruiting board. Neon commitment reveals. Glowing edges in the dark. The transfer portal has never looked this good.</div>
+
+  <p class="section-label" style="color:#b44dff60">Animations</p>
+  <div class="anim-demo">
+    <div class="anim-box" style="background:rgba(20,10,40,.8);border:1px solid rgba(180,77,255,.3);color:#b44dff;animation:neonFlicker 2s infinite">Neon Flicker</div>
+    <div class="anim-box" style="background:rgba(20,10,40,.8);border:1px solid rgba(0,180,255,.3);color:#00b4ff;animation:glow 2s infinite;--glow-color:rgba(0,180,255,.3)">Glow Pulse</div>
+    <div class="anim-box" style="background:rgba(20,10,40,.8);border:1px solid rgba(180,77,255,.3);color:#ff006a;animation:bounce 1.5s infinite">Bounce</div>
+    <div class="anim-box" style="background:rgba(20,10,40,.8);border:1px solid rgba(0,180,255,.3);color:#00b4ff;animation:rotateIn 2s ease infinite">Rotate In</div>
+  </div>
+
+  <!-- The Grid -->
+  <p class="section-label" style="color:#b44dff60">The Grid — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#08050f">
+      <div class="neon-bg"></div>
+      <div class="neon-scanline"></div>
+      <div class="neon-header">
+        <div class="title">THE GRID</div>
+        <div class="sub">DAILY CHALLENGE</div>
+      </div>
+
+      <div class="neon-card" style="margin-bottom:12px">
+        <div style="display:flex;justify-content:space-around;align-items:center">
+          <div style="text-align:center"><div style="font-size:32px;font-weight:900;color:#fff;text-shadow:0 0 20px rgba(0,180,255,.3)">850</div><div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3)">SCORE</div></div>
+          <div style="width:1px;height:30px;background:rgba(180,77,255,.15)"></div>
+          <div style="text-align:center"><div style="font-size:20px;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,.3)">92%</div><div style="font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.3)">PERCENTILE</div></div>
+        </div>
+      </div>
+
+      <div class="neon-grid">
+        <div class="neon-grid-header" style="background:transparent;border:none"></div>
+        <div class="neon-grid-header">SEC</div>
+        <div class="neon-grid-header">1000+ Rush</div>
+        <div class="neon-grid-header">Heisman</div>
+        <div class="neon-grid-header">Alabama</div>
+        <div class="neon-grid-cell filled"><div class="p">D. Henry</div><div class="s">Alabama</div><div class="r leg">LEGENDARY</div></div>
+        <div class="neon-grid-cell filled"><div class="p">N. Harris</div></div>
+        <div class="neon-grid-cell"><span style="color:rgba(180,77,255,.3);font-size:16px">+</span></div>
+        <div class="neon-grid-header">Ohio St</div>
+        <div class="neon-grid-cell filled"><div class="p">E. Elliott</div><div class="s">Ohio St</div><div class="r epic">EPIC</div></div>
+        <div class="neon-grid-cell"><span style="color:rgba(180,77,255,.3);font-size:16px">+</span></div>
+        <div class="neon-grid-cell"><span style="color:rgba(180,77,255,.3);font-size:16px">+</span></div>
+        <div class="neon-grid-header">Texas</div>
+        <div class="neon-grid-cell"><span style="color:rgba(180,77,255,.3);font-size:16px">+</span></div>
+        <div class="neon-grid-cell filled"><div class="p">R. Williams</div></div>
+        <div class="neon-grid-cell"><span style="color:rgba(180,77,255,.3);font-size:16px">+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Stack -->
+  <p class="section-label" style="color:#b44dff60">Stat Stack — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#08050f">
+      <div class="neon-bg"></div>
+      <div class="neon-scanline"></div>
+      <div class="neon-header">
+        <div class="title">STAT STACK</div>
+        <div class="sub">PASSING YARDS</div>
+      </div>
+      <div class="neon-card glow" style="text-align:center;padding:20px">
+        <div style="font-size:40px;font-weight:900;color:#fff;text-shadow:0 0 30px rgba(0,180,255,.4)">12,847</div>
+        <div style="font-size:9px;letter-spacing:2px;color:rgba(0,180,255,.5);margin-top:4px">TOTAL YARDS</div>
+      </div>
+
+      <div class="neon-stat-row active" style="--fill:75%">
+        <div class="fill" style="width:75%"></div>
+        <div class="idx">1</div>
+        <div style="margin-left:10px;flex:1;z-index:1"><div class="pname">Joe Burrow</div><div style="font-size:10px;color:rgba(255,255,255,.3)">LSU &bull; 2019</div></div>
+        <div class="sval" style="z-index:1">5,671</div>
+      </div>
+      <div class="neon-stat-row" style="--fill:55%">
+        <div class="fill" style="width:55%"></div>
+        <div class="idx">2</div>
+        <div style="margin-left:10px;flex:1;z-index:1"><div class="pname">P. Mahomes</div><div style="font-size:10px;color:rgba(255,255,255,.3)">Texas Tech &bull; 2016</div></div>
+        <div class="sval" style="z-index:1">5,052</div>
+      </div>
+      <div class="neon-stat-row">
+        <div class="idx">3</div>
+        <div class="con" style="margin-left:10px">Any conference, pre-2010</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <p class="section-label" style="color:#b44dff60">Player Cards</p>
+  <div class="neon-player"><div class="av">&#127944;</div><div style="flex:1"><div><span class="pos">QB</span><span class="nm">Joe Burrow</span></div><div class="mt">LSU &bull; SEC &bull; 2018-2019</div></div></div>
+  <div class="neon-player"><div class="av">&#127944;</div><div style="flex:1"><div><span class="pos">RB</span><span class="nm">Derrick Henry</span></div><div class="mt">Alabama &bull; SEC &bull; 2013-2015</div></div></div>
+
+  <p class="section-label" style="color:#b44dff60">Team Cards</p>
+  <div class="neon-team"><div class="tbanner" style="--tc:#9E1B32"><div class="tlogo">&#127941;</div><div class="tn">Alabama</div><div class="tc">SEC</div></div><div class="tstats"><div class="ts"><div class="tv">13-0</div><div class="tl">Record</div></div><div class="ts"><div class="tv">#1</div><div class="tl">Ranking</div></div><div class="ts"><div class="tv">42.3</div><div class="tl">PPG</div></div></div></div>
+  <div class="neon-team"><div class="tbanner" style="--tc:#00274C"><div class="tlogo">&#127944;</div><div class="tn">Michigan</div><div class="tc">BIG TEN</div></div><div class="tstats"><div class="ts"><div class="tv">12-1</div><div class="tl">Record</div></div><div class="ts"><div class="tv">#4</div><div class="tl">Ranking</div></div><div class="ts"><div class="tv">35.8</div><div class="tl">PPG</div></div></div></div>
+</section>
+
+<!-- ============================================
+     THEME 4: HERITAGE VARSITY
+     ============================================ -->
+<section class="theme-section" id="heritage">
+  <h1 style="color:#c8a878">Theme 04</h1>
+  <div class="theme-title" style="color:#e2b714;font-family:Georgia,serif">Heritage Varsity</div>
+  <div class="theme-subtitle" style="color:#c8a878">Letterman leather. Vintage pennants. Oak-paneled trophy rooms. The weight of tradition in every interaction. Built for the purists.</div>
+
+  <p class="section-label" style="color:#5a3a1a">Animations</p>
+  <div class="anim-demo">
+    <div class="anim-box" style="background:#3a2a1a;border:2px solid #5a3a1a;color:#e2b714;animation:stampIn 2s ease infinite;font-family:Georgia,serif">Stamp</div>
+    <div class="anim-box" style="background:#3a2a1a;border:2px solid #5a3a1a;color:#c8a878;animation:float 3s ease-in-out infinite;font-family:Georgia,serif">Float</div>
+    <div class="anim-box" style="background:#3a2a1a;border:2px solid #5a3a1a;color:#e2b714;animation:flipIn 2s ease infinite;font-family:Georgia,serif">Card Flip</div>
+    <div class="anim-box" style="background:#8b1a1a;border:2px solid #5a3a1a;color:#f0e0c8;animation:reveal 2s ease infinite;font-family:Georgia,serif">Reveal</div>
+  </div>
+
+  <!-- The Grid -->
+  <p class="section-label" style="color:#5a3a1a">The Grid — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#2a1f14;color:#f0e0c8">
+      <div class="pennant"><div class="pennant-text">The Grid</div><div class="pennant-year">Thursday &mdash; March 13, 2026</div></div>
+
+      <div class="leather-card">
+        <div class="stitch left"></div><div class="stitch right"></div>
+        <div class="varsity-score"><div class="big">850</div><div class="label">Score &bull; 92nd Percentile</div></div>
+      </div>
+
+      <div class="varsity-grid">
+        <div class="v-grid-header" style="background:transparent;border:none"></div>
+        <div class="v-grid-header">SEC</div>
+        <div class="v-grid-header">1000+ Rush</div>
+        <div class="v-grid-header">Heisman</div>
+        <div class="v-grid-header">Alabama</div>
+        <div class="v-grid-cell filled"><div class="cp">D. Henry</div><div class="cs">Alabama</div></div>
+        <div class="v-grid-cell filled"><div class="cp">N. Harris</div></div>
+        <div class="v-grid-cell"><span style="color:#5a3a1a;font-size:16px">+</span></div>
+        <div class="v-grid-header">Ohio St</div>
+        <div class="v-grid-cell filled"><div class="cp">E. Elliott</div><div class="cs">Ohio St</div></div>
+        <div class="v-grid-cell"><span style="color:#5a3a1a;font-size:16px">+</span></div>
+        <div class="v-grid-cell"><span style="color:#5a3a1a;font-size:16px">+</span></div>
+        <div class="v-grid-header">Texas</div>
+        <div class="v-grid-cell"><span style="color:#5a3a1a;font-size:16px">+</span></div>
+        <div class="v-grid-cell filled"><div class="cp">R. Williams</div></div>
+        <div class="v-grid-cell"><span style="color:#5a3a1a;font-size:16px">+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Stack -->
+  <p class="section-label" style="color:#5a3a1a">Stat Stack — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:#2a1f14;color:#f0e0c8">
+      <div class="pennant" style="background:#1a3a5a"><div class="pennant-text">Stat Stack</div><div class="pennant-year">Passing Yards &mdash; Daily Challenge</div></div>
+
+      <div class="leather-card" style="text-align:center">
+        <div class="stitch left"></div><div class="stitch right"></div>
+        <div style="font-family:Georgia,serif;font-size:36px;font-weight:900;color:#e2b714">12,847</div>
+        <div style="font-size:9px;letter-spacing:2px;color:#c8a878;margin-top:4px">TOTAL PASSING YARDS</div>
+      </div>
+
+      <div class="letterman-row">
+        <div class="num">1</div>
+        <div style="margin-left:10px;flex:1"><div class="pn">Joe Burrow</div><div style="font-size:10px;color:#c8a878">LSU &bull; 2019</div></div>
+        <div class="sv">5,671</div>
+      </div>
+      <div class="letterman-row">
+        <div class="num">2</div>
+        <div style="margin-left:10px;flex:1"><div class="pn">P. Mahomes</div><div style="font-size:10px;color:#c8a878">Texas Tech &bull; 2016</div></div>
+        <div class="sv">5,052</div>
+      </div>
+      <div class="letterman-row">
+        <div class="num">3</div>
+        <div class="desc" style="margin-left:10px">Any conference, pre-2010</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <p class="section-label" style="color:#5a3a1a">Player & Team Cards</p>
+  <div class="h-player"><div class="av">&#127944;</div><div style="flex:1"><div class="nm">Joe Burrow</div><div class="mt">LSU &bull; SEC &bull; 2018-2019</div><div class="badge">QUARTERBACK</div></div></div>
+  <div class="h-team"><div class="hbanner" style="--htc:#9E1B32"><div class="hlogo">&#127941;</div><div class="htn">Alabama</div><div class="htc">SEC</div></div><div class="hstats"><div class="hs"><div class="hv">13-0</div><div class="hl">Record</div></div><div class="hs"><div class="hv">#1</div><div class="hl">Ranking</div></div><div class="hs"><div class="hv">42.3</div><div class="hl">PPG</div></div></div></div>
+</section>
+
+<!-- ============================================
+     THEME 5: LIQUID GLASS
+     ============================================ -->
+<section class="theme-section" id="glass">
+  <h1>Theme 05</h1>
+  <div class="theme-title" style="color:rgba(255,255,255,.9)">Liquid Glass</div>
+  <div class="theme-subtitle">Apple's 2025 design language. Frosted translucent panels. Light refraction. Floating depth. The future of mobile, applied to college football.</div>
+
+  <p class="section-label">Animations</p>
+  <div class="anim-demo">
+    <div class="anim-box" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);animation:float 3s ease-in-out infinite;backdrop-filter:blur(10px)">Float</div>
+    <div class="anim-box" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);animation:pulse 2s infinite;backdrop-filter:blur(10px)">Breathe</div>
+    <div class="anim-box" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);animation:slideUp 1.5s ease infinite;backdrop-filter:blur(10px)">Rise</div>
+    <div class="anim-box" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);animation:refract 3s linear infinite;background-size:200% 200%;backdrop-filter:blur(10px)">Refract</div>
+  </div>
+
+  <!-- The Grid -->
+  <p class="section-label">The Grid — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:linear-gradient(160deg,#0f0f1a,#1a1a2e,#0f0f1a)">
+      <div class="glass-orb o1"></div>
+      <div class="glass-orb o2"></div>
+      <div class="glass-header">
+        <div class="title">The Grid</div>
+        <div class="sub">DAILY CHALLENGE</div>
+      </div>
+
+      <div class="glass-card elevated">
+        <div class="glass-score">
+          <div class="big">850</div>
+          <div class="lbl">Score</div>
+          <div class="pills">
+            <div class="pill"><span class="pv">92%</span> Percentile</div>
+            <div class="pill"><span class="pv">7</span>/9 Filled</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-grid">
+        <div class="g-grid-header" style="background:transparent;border:none"></div>
+        <div class="g-grid-header">SEC</div>
+        <div class="g-grid-header">1000+ Rush</div>
+        <div class="g-grid-header">Heisman</div>
+        <div class="g-grid-header">Alabama</div>
+        <div class="g-grid-cell filled"><div class="gp">D. Henry</div><div class="gs">Alabama</div></div>
+        <div class="g-grid-cell filled"><div class="gp">N. Harris</div></div>
+        <div class="g-grid-cell"><span style="color:rgba(255,255,255,.15);font-size:16px">+</span></div>
+        <div class="g-grid-header">Ohio St</div>
+        <div class="g-grid-cell filled"><div class="gp">E. Elliott</div><div class="gs">Ohio St</div></div>
+        <div class="g-grid-cell"><span style="color:rgba(255,255,255,.15);font-size:16px">+</span></div>
+        <div class="g-grid-cell"><span style="color:rgba(255,255,255,.15);font-size:16px">+</span></div>
+        <div class="g-grid-header">Texas</div>
+        <div class="g-grid-cell"><span style="color:rgba(255,255,255,.15);font-size:16px">+</span></div>
+        <div class="g-grid-cell filled"><div class="gp">R. Williams</div></div>
+        <div class="g-grid-cell"><span style="color:rgba(255,255,255,.15);font-size:16px">+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Stack -->
+  <p class="section-label">Stat Stack — Game Screen</p>
+  <div class="phone">
+    <div class="phone-screen" style="background:linear-gradient(160deg,#0f0f1a,#1a1a2e,#0f0f1a)">
+      <div class="glass-orb o1"></div>
+      <div class="glass-orb o3"></div>
+      <div class="glass-header">
+        <div class="title">Stat Stack</div>
+        <div class="sub">PASSING YARDS</div>
+      </div>
+
+      <div class="glass-card elevated" style="text-align:center;padding:20px">
+        <div style="font-size:42px;font-weight:900;color:#fff;text-shadow:0 0 40px rgba(0,120,255,.2)">12,847</div>
+        <div style="font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.25);margin-top:4px">TOTAL YARDS</div>
+      </div>
+
+      <div class="glass-stat-row active">
+        <div class="gi">1</div>
+        <div style="margin-left:10px;flex:1;z-index:1"><div class="gn">Joe Burrow</div><div style="font-size:10px;color:rgba(255,255,255,.3)">LSU &bull; 2019</div></div>
+        <div class="gv" style="z-index:1">5,671</div>
+      </div>
+      <div class="glass-stat-row">
+        <div class="gi">2</div>
+        <div style="margin-left:10px;flex:1"><div class="gn">P. Mahomes</div><div style="font-size:10px;color:rgba(255,255,255,.3)">Texas Tech &bull; 2016</div></div>
+        <div class="gv">5,052</div>
+      </div>
+      <div class="glass-stat-row">
+        <div class="gi">3</div>
+        <div class="gc" style="margin-left:10px">Any conference, pre-2010</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <p class="section-label">Player & Team Cards</p>
+  <div class="glass-player"><div class="ga">&#127944;</div><div style="flex:1"><div><span class="gpos">QB</span><span class="gnm">Joe Burrow</span></div><div class="gmt">LSU &bull; SEC &bull; 2018-2019</div></div></div>
+  <div class="glass-player"><div class="ga">&#127944;</div><div style="flex:1"><div><span class="gpos">RB</span><span class="gnm">Derrick Henry</span></div><div class="gmt">Alabama &bull; SEC &bull; 2013-2015</div></div></div>
+
+  <div class="glass-team" style="margin-top:8px"><div class="gtbanner" style="--gtc:#9E1B32"><div class="gtlogo">&#127941;</div><div class="gtn">Alabama</div><div class="gtcnf">SEC</div></div><div class="gtstats"><div class="gts"><div class="gtv">13-0</div><div class="gtl">Record</div></div><div class="gts"><div class="gtv">#1</div><div class="gtl">Ranking</div></div><div class="gts"><div class="gtv">42.3</div><div class="gtl">PPG</div></div></div></div>
+  <div class="glass-team"><div class="gtbanner" style="--gtc:#00274C"><div class="gtlogo">&#127944;</div><div class="gtn">Michigan</div><div class="gtcnf">BIG TEN</div></div><div class="gtstats"><div class="gts"><div class="gtv">12-1</div><div class="gtl">Record</div></div><div class="gts"><div class="gtv">#4</div><div class="gtl">Ranking</div></div><div class="gts"><div class="gtv">35.8</div><div class="gtl">PPG</div></div></div></div>
+</section>
+
+<!-- Scroll to top -->
+<div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+function setActive(el){document.querySelectorAll('.theme-nav a').forEach(a=>a.classList.remove('active'));el.classList.add('active')}
+// Update nav on scroll
+const sections=document.querySelectorAll('.theme-section');
+const navLinks=document.querySelectorAll('.theme-nav a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id});
+  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)});
+});
+</script>
+</body>
+</html>

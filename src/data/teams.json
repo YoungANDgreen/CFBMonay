@@ -5,8 +5,8 @@
     "mascot": "Falcons",
     "abbreviation": "AFA",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#003087",
+    "altColor": "#8A8D8F",
     "logos": []
   },
   {
@@ -15,8 +15,8 @@
     "mascot": "Zips",
     "abbreviation": "AKR",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#041E42",
+    "altColor": "#A89968",
     "logos": []
   },
   {
@@ -25,8 +25,8 @@
     "mascot": "Crimson Tide",
     "abbreviation": "ALA",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#9E1B32",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -35,8 +35,8 @@
     "mascot": "Mountaineers",
     "abbreviation": "APP",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#222222",
+    "altColor": "#FFCC00",
     "logos": []
   },
   {
@@ -45,8 +45,8 @@
     "mascot": "Wildcats",
     "abbreviation": "ARIZ",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#003366",
+    "altColor": "#CC0033",
     "logos": []
   },
   {
@@ -55,8 +55,8 @@
     "mascot": "Sun Devils",
     "abbreviation": "ASU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#8C1D40",
+    "altColor": "#FFC627",
     "logos": []
   },
   {
@@ -65,8 +65,8 @@
     "mascot": "Razorbacks",
     "abbreviation": "ARK",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#9D2235",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -75,8 +75,8 @@
     "mascot": "Red Wolves",
     "abbreviation": "ARST",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#CC092F",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -85,8 +85,8 @@
     "mascot": "Black Knights",
     "abbreviation": "ARMY",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#000000",
+    "altColor": "#D4B106",
     "logos": []
   },
   {
@@ -95,8 +95,8 @@
     "mascot": "Tigers",
     "abbreviation": "AUB",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#0C2340",
+    "altColor": "#E87722",
     "logos": []
   },
   {
@@ -105,8 +105,8 @@
     "mascot": "Cardinals",
     "abbreviation": "BALL",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#BA0C2F",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -115,8 +115,8 @@
     "mascot": "Bears",
     "abbreviation": "BAY",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#154734",
+    "altColor": "#FFB81C",
     "logos": []
   },
   {
@@ -125,8 +125,8 @@
     "mascot": "Broncos",
     "abbreviation": "BOIS",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#0033A0",
+    "altColor": "#D64309",
     "logos": []
   },
   {
@@ -135,8 +135,8 @@
     "mascot": "Eagles",
     "abbreviation": "BC",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#8C2232",
+    "altColor": "#B29D6C",
     "logos": []
   },
   {
@@ -145,8 +145,8 @@
     "mascot": "Falcons",
     "abbreviation": "BGSU",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#4F2C1D",
+    "altColor": "#FF7300",
     "logos": []
   },
   {
@@ -155,8 +155,8 @@
     "mascot": "Bulls",
     "abbreviation": "BUF",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#005BBB",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -165,8 +165,8 @@
     "mascot": "Cougars",
     "abbreviation": "BYU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#002E5D",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -175,8 +175,8 @@
     "mascot": "Golden Bears",
     "abbreviation": "CAL",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#003262",
+    "altColor": "#FDB515",
     "logos": []
   },
   {
@@ -185,8 +185,8 @@
     "mascot": "Chippewas",
     "abbreviation": "CMU",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#6A0032",
+    "altColor": "#FFC82E",
     "logos": []
   },
   {
@@ -195,8 +195,8 @@
     "mascot": "49ers",
     "abbreviation": "CLT",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#005035",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -205,8 +205,8 @@
     "mascot": "Bearcats",
     "abbreviation": "CIN",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#E00122",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -215,8 +215,8 @@
     "mascot": "Tigers",
     "abbreviation": "CLEM",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#F56600",
+    "altColor": "#522D80",
     "logos": []
   },
   {
@@ -225,8 +225,8 @@
     "mascot": "Chanticleers",
     "abbreviation": "CCU",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#006F71",
+    "altColor": "#A27752",
     "logos": []
   },
   {
@@ -235,8 +235,8 @@
     "mascot": "Buffaloes",
     "abbreviation": "COLO",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#CFB87C",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -245,8 +245,8 @@
     "mascot": "Rams",
     "abbreviation": "CSU",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#1E4D2B",
+    "altColor": "#C8C372",
     "logos": []
   },
   {
@@ -255,8 +255,8 @@
     "mascot": "Fightin' Blue Hens",
     "abbreviation": "DEL",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#00539F",
+    "altColor": "#FFD200",
     "logos": []
   },
   {
@@ -265,8 +265,8 @@
     "mascot": "Blue Devils",
     "abbreviation": "DUKE",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#003087",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -275,8 +275,8 @@
     "mascot": "Pirates",
     "abbreviation": "ECU",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#592A8A",
+    "altColor": "#FFC72C",
     "logos": []
   },
   {
@@ -285,8 +285,8 @@
     "mascot": "Eagles",
     "abbreviation": "EMU",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#006633",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -295,8 +295,8 @@
     "mascot": "Gators",
     "abbreviation": "FLA",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#0021A5",
+    "altColor": "#FA4616",
     "logos": []
   },
   {
@@ -305,8 +305,8 @@
     "mascot": "Owls",
     "abbreviation": "FAU",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#003366",
+    "altColor": "#CC0000",
     "logos": []
   },
   {
@@ -315,8 +315,8 @@
     "mascot": "Panthers",
     "abbreviation": "FIU",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#002D62",
+    "altColor": "#B6862C",
     "logos": []
   },
   {
@@ -325,8 +325,8 @@
     "mascot": "Seminoles",
     "abbreviation": "FSU",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#782F40",
+    "altColor": "#CEB888",
     "logos": []
   },
   {
@@ -335,8 +335,8 @@
     "mascot": "Bulldogs",
     "abbreviation": "FRES",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#DB0032",
+    "altColor": "#002E6D",
     "logos": []
   },
   {
@@ -345,8 +345,8 @@
     "mascot": "Bulldogs",
     "abbreviation": "UGA",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#BA0C2F",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -355,8 +355,8 @@
     "mascot": "Eagles",
     "abbreviation": "GASO",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#041E42",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -365,8 +365,8 @@
     "mascot": "Panthers",
     "abbreviation": "GAST",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#0039A6",
+    "altColor": "#CC0000",
     "logos": []
   },
   {
@@ -375,8 +375,8 @@
     "mascot": "Yellow Jackets",
     "abbreviation": "GT",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#B3A369",
+    "altColor": "#003057",
     "logos": []
   },
   {
@@ -385,8 +385,8 @@
     "mascot": "Rainbow Warriors",
     "abbreviation": "HAW",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#024731",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -395,8 +395,8 @@
     "mascot": "Cougars",
     "abbreviation": "HOU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#C8102E",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -405,8 +405,8 @@
     "mascot": "Fighting Illini",
     "abbreviation": "ILL",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#E84A27",
+    "altColor": "#13294B",
     "logos": []
   },
   {
@@ -415,8 +415,8 @@
     "mascot": "Hoosiers",
     "abbreviation": "IU",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#990000",
+    "altColor": "#EEEDEB",
     "logos": []
   },
   {
@@ -425,8 +425,8 @@
     "mascot": "Hawkeyes",
     "abbreviation": "IOWA",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#000000",
+    "altColor": "#FFCD00",
     "logos": []
   },
   {
@@ -435,8 +435,8 @@
     "mascot": "Cyclones",
     "abbreviation": "ISU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#C8102E",
+    "altColor": "#F1BE48",
     "logos": []
   },
   {
@@ -445,8 +445,8 @@
     "mascot": "Gamecocks",
     "abbreviation": "JVST",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -455,8 +455,8 @@
     "mascot": "Dukes",
     "abbreviation": "JMU",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#450084",
+    "altColor": "#CBB677",
     "logos": []
   },
   {
@@ -465,8 +465,8 @@
     "mascot": "Jayhawks",
     "abbreviation": "KU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#0051BA",
+    "altColor": "#E8000D",
     "logos": []
   },
   {
@@ -475,8 +475,8 @@
     "mascot": "Wildcats",
     "abbreviation": "KSU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#512888",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -485,8 +485,8 @@
     "mascot": "Owls",
     "abbreviation": "KENN",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#FDBB30",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -495,8 +495,8 @@
     "mascot": "Golden Flashes",
     "abbreviation": "KENT",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#002664",
+    "altColor": "#EAAB00",
     "logos": []
   },
   {
@@ -505,8 +505,8 @@
     "mascot": "Wildcats",
     "abbreviation": "UK",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#0033A0",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -515,8 +515,8 @@
     "mascot": "Flames",
     "abbreviation": "LIB",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#002D62",
+    "altColor": "#C41230",
     "logos": []
   },
   {
@@ -525,8 +525,8 @@
     "mascot": "Ragin' Cajuns",
     "abbreviation": "UL",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#CE181E",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -535,8 +535,8 @@
     "mascot": "Bulldogs",
     "abbreviation": "LT",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#002F8B",
+    "altColor": "#E31B23",
     "logos": []
   },
   {
@@ -545,8 +545,8 @@
     "mascot": "Cardinals",
     "abbreviation": "LOU",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#AD0000",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -555,8 +555,8 @@
     "mascot": "Tigers",
     "abbreviation": "LSU",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#461D7C",
+    "altColor": "#FDD023",
     "logos": []
   },
   {
@@ -565,8 +565,8 @@
     "mascot": "Thundering Herd",
     "abbreviation": "MRSH",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#00B140",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -575,8 +575,8 @@
     "mascot": "Terrapins",
     "abbreviation": "MD",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#E03A3E",
+    "altColor": "#FFD520",
     "logos": []
   },
   {
@@ -585,8 +585,8 @@
     "mascot": "Minutemen",
     "abbreviation": "MASS",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#881C1C",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -595,8 +595,8 @@
     "mascot": "Tigers",
     "abbreviation": "MEM",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#003087",
+    "altColor": "#898D8D",
     "logos": []
   },
   {
@@ -605,8 +605,8 @@
     "mascot": "Hurricanes",
     "abbreviation": "MIA",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#F47321",
+    "altColor": "#005030",
     "logos": []
   },
   {
@@ -615,8 +615,8 @@
     "mascot": "RedHawks",
     "abbreviation": "M-OH",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#C3142D",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -625,8 +625,8 @@
     "mascot": "Wolverines",
     "abbreviation": "MICH",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#00274C",
+    "altColor": "#FFCB05",
     "logos": []
   },
   {
@@ -635,8 +635,8 @@
     "mascot": "Spartans",
     "abbreviation": "MSU",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#18453B",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -645,8 +645,8 @@
     "mascot": "Blue Raiders",
     "abbreviation": "MTSU",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#0066CC",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -655,8 +655,8 @@
     "mascot": "Golden Gophers",
     "abbreviation": "MINN",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#7A0019",
+    "altColor": "#FFCC33",
     "logos": []
   },
   {
@@ -665,8 +665,8 @@
     "mascot": "Bulldogs",
     "abbreviation": "MSST",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#660000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -675,8 +675,8 @@
     "mascot": "Tigers",
     "abbreviation": "MIZ",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#F1B82D",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -685,8 +685,8 @@
     "mascot": "Bears",
     "abbreviation": "MOST",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#5F0000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -695,8 +695,8 @@
     "mascot": "Midshipmen",
     "abbreviation": "NAVY",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#00205B",
+    "altColor": "#C5B783",
     "logos": []
   },
   {
@@ -705,8 +705,8 @@
     "mascot": "Wolfpack",
     "abbreviation": "NCSU",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -715,8 +715,8 @@
     "mascot": "Cornhuskers",
     "abbreviation": "NEB",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#E41C38",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -725,8 +725,8 @@
     "mascot": "Wolf Pack",
     "abbreviation": "NEV",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#003366",
+    "altColor": "#807F84",
     "logos": []
   },
   {
@@ -735,8 +735,8 @@
     "mascot": "Lobos",
     "abbreviation": "UNM",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#BA0C2F",
+    "altColor": "#63666A",
     "logos": []
   },
   {
@@ -745,8 +745,8 @@
     "mascot": "Aggies",
     "abbreviation": "NMSU",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#8B0234",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -755,8 +755,8 @@
     "mascot": "Tar Heels",
     "abbreviation": "UNC",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#7BAFD4",
+    "altColor": "#13294B",
     "logos": []
   },
   {
@@ -765,8 +765,8 @@
     "mascot": "Huskies",
     "abbreviation": "NIU",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#BA0C2F",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -775,8 +775,8 @@
     "mascot": "Mean Green",
     "abbreviation": "UNT",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#00853E",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -785,8 +785,8 @@
     "mascot": "Wildcats",
     "abbreviation": "NU",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#4E2A84",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -795,8 +795,8 @@
     "mascot": "Fighting Irish",
     "abbreviation": "ND",
     "conference": "FBS Independents",
-    "color": "",
-    "altColor": "",
+    "color": "#0C2340",
+    "altColor": "#C99700",
     "logos": []
   },
   {
@@ -805,8 +805,8 @@
     "mascot": "Bobcats",
     "abbreviation": "OHIO",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#00694E",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -815,8 +815,8 @@
     "mascot": "Buckeyes",
     "abbreviation": "OSU",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#BB0000",
+    "altColor": "#666666",
     "logos": []
   },
   {
@@ -825,8 +825,8 @@
     "mascot": "Sooners",
     "abbreviation": "OU",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#841617",
+    "altColor": "#FDF9D8",
     "logos": []
   },
   {
@@ -835,8 +835,8 @@
     "mascot": "Cowboys",
     "abbreviation": "OKST",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#FF7300",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -845,8 +845,8 @@
     "mascot": "Monarchs",
     "abbreviation": "ODU",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#003057",
+    "altColor": "#7C878E",
     "logos": []
   },
   {
@@ -855,8 +855,8 @@
     "mascot": "Rebels",
     "abbreviation": "MISS",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#CE1126",
+    "altColor": "#14213D",
     "logos": []
   },
   {
@@ -865,8 +865,8 @@
     "mascot": "Ducks",
     "abbreviation": "ORE",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#154733",
+    "altColor": "#FEE123",
     "logos": []
   },
   {
@@ -875,8 +875,8 @@
     "mascot": "Beavers",
     "abbreviation": "ORST",
     "conference": "Pac-12",
-    "color": "",
-    "altColor": "",
+    "color": "#DC4405",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -885,8 +885,8 @@
     "mascot": "Nittany Lions",
     "abbreviation": "PSU",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#041E42",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -895,8 +895,8 @@
     "mascot": "Panthers",
     "abbreviation": "PITT",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#003594",
+    "altColor": "#FFB81C",
     "logos": []
   },
   {
@@ -905,8 +905,8 @@
     "mascot": "Boilermakers",
     "abbreviation": "PUR",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#CEB888",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -915,8 +915,8 @@
     "mascot": "Owls",
     "abbreviation": "RICE",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#002469",
+    "altColor": "#5E6062",
     "logos": []
   },
   {
@@ -925,8 +925,8 @@
     "mascot": "Scarlet Knights",
     "abbreviation": "RUTG",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0033",
+    "altColor": "#5F6A72",
     "logos": []
   },
   {
@@ -935,8 +935,8 @@
     "mascot": "Bearkats",
     "abbreviation": "SHSU",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#F58025",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -945,18 +945,18 @@
     "mascot": "Aztecs",
     "abbreviation": "SDSU",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#A6192E",
+    "altColor": "#000000",
     "logos": []
   },
   {
     "id": 23,
-    "school": "San José State",
+    "school": "San Jos\u00e9 State",
     "mascot": "Spartans",
     "abbreviation": "SJSU",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#0055A2",
+    "altColor": "#E5A823",
     "logos": []
   },
   {
@@ -965,8 +965,8 @@
     "mascot": "Mustangs",
     "abbreviation": "SMU",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0035",
+    "altColor": "#0033A0",
     "logos": []
   },
   {
@@ -975,8 +975,8 @@
     "mascot": "Jaguars",
     "abbreviation": "USA",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#003E7E",
+    "altColor": "#C41230",
     "logos": []
   },
   {
@@ -985,8 +985,8 @@
     "mascot": "Gamecocks",
     "abbreviation": "SC",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#73000A",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -995,8 +995,8 @@
     "mascot": "Golden Eagles",
     "abbreviation": "USM",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#000000",
+    "altColor": "#FDD023",
     "logos": []
   },
   {
@@ -1005,8 +1005,8 @@
     "mascot": "Bulls",
     "abbreviation": "USF",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#006747",
+    "altColor": "#CFC493",
     "logos": []
   },
   {
@@ -1015,8 +1015,8 @@
     "mascot": "Cardinal",
     "abbreviation": "STAN",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#8C1515",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1025,8 +1025,8 @@
     "mascot": "Orange",
     "abbreviation": "SYR",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#F76900",
+    "altColor": "#002244",
     "logos": []
   },
   {
@@ -1035,8 +1035,8 @@
     "mascot": "Horned Frogs",
     "abbreviation": "TCU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#4D1979",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1045,8 +1045,8 @@
     "mascot": "Owls",
     "abbreviation": "TEM",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#9D2235",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1055,8 +1055,8 @@
     "mascot": "Volunteers",
     "abbreviation": "TENN",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#FF8200",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1065,8 +1065,8 @@
     "mascot": "Longhorns",
     "abbreviation": "TEX",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#BF5700",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1075,8 +1075,8 @@
     "mascot": "Aggies",
     "abbreviation": "TA&M",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#500000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1085,8 +1085,8 @@
     "mascot": "Bobcats",
     "abbreviation": "TXST",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#501214",
+    "altColor": "#8D734A",
     "logos": []
   },
   {
@@ -1095,8 +1095,8 @@
     "mascot": "Red Raiders",
     "abbreviation": "TTU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0000",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -1105,8 +1105,8 @@
     "mascot": "Rockets",
     "abbreviation": "TOL",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#003C71",
+    "altColor": "#FFCE00",
     "logos": []
   },
   {
@@ -1115,8 +1115,8 @@
     "mascot": "Trojans",
     "abbreviation": "TROY",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#8B2332",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -1125,8 +1125,8 @@
     "mascot": "Green Wave",
     "abbreviation": "TULN",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#006747",
+    "altColor": "#418FDE",
     "logos": []
   },
   {
@@ -1135,8 +1135,8 @@
     "mascot": "Golden Hurricane",
     "abbreviation": "TLSA",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#002D72",
+    "altColor": "#C8102E",
     "logos": []
   },
   {
@@ -1145,8 +1145,8 @@
     "mascot": "Blazers",
     "abbreviation": "UAB",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#1E6B52",
+    "altColor": "#F4C300",
     "logos": []
   },
   {
@@ -1155,8 +1155,8 @@
     "mascot": "Knights",
     "abbreviation": "UCF",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#000000",
+    "altColor": "#BA9B37",
     "logos": []
   },
   {
@@ -1165,8 +1165,8 @@
     "mascot": "Bruins",
     "abbreviation": "UCLA",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#2D68C4",
+    "altColor": "#F2A900",
     "logos": []
   },
   {
@@ -1175,8 +1175,8 @@
     "mascot": "Huskies",
     "abbreviation": "CONN",
     "conference": "FBS Independents",
-    "color": "",
-    "altColor": "",
+    "color": "#000E2F",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1185,8 +1185,8 @@
     "mascot": "Warhawks",
     "abbreviation": "ULM",
     "conference": "Sun Belt",
-    "color": "",
-    "altColor": "",
+    "color": "#800029",
+    "altColor": "#D4A017",
     "logos": []
   },
   {
@@ -1195,8 +1195,8 @@
     "mascot": "Rebels",
     "abbreviation": "UNLV",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#CF0A2C",
+    "altColor": "#666666",
     "logos": []
   },
   {
@@ -1205,8 +1205,8 @@
     "mascot": "Trojans",
     "abbreviation": "USC",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#990000",
+    "altColor": "#FFC72C",
     "logos": []
   },
   {
@@ -1215,8 +1215,8 @@
     "mascot": "Utes",
     "abbreviation": "UTAH",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#CC0000",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1225,8 +1225,8 @@
     "mascot": "Aggies",
     "abbreviation": "USU",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#0F2439",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1235,8 +1235,8 @@
     "mascot": "Miners",
     "abbreviation": "UTEP",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#041E42",
+    "altColor": "#FF8200",
     "logos": []
   },
   {
@@ -1245,8 +1245,8 @@
     "mascot": "Roadrunners",
     "abbreviation": "UTSA",
     "conference": "American Athletic",
-    "color": "",
-    "altColor": "",
+    "color": "#0C2340",
+    "altColor": "#F47321",
     "logos": []
   },
   {
@@ -1255,8 +1255,8 @@
     "mascot": "Commodores",
     "abbreviation": "VAN",
     "conference": "SEC",
-    "color": "",
-    "altColor": "",
+    "color": "#000000",
+    "altColor": "#866D4B",
     "logos": []
   },
   {
@@ -1265,8 +1265,8 @@
     "mascot": "Cavaliers",
     "abbreviation": "UVA",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#232D4B",
+    "altColor": "#F84C1E",
     "logos": []
   },
   {
@@ -1275,8 +1275,8 @@
     "mascot": "Hokies",
     "abbreviation": "VT",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#630031",
+    "altColor": "#CF4520",
     "logos": []
   },
   {
@@ -1285,8 +1285,8 @@
     "mascot": "Demon Deacons",
     "abbreviation": "WAKE",
     "conference": "ACC",
-    "color": "",
-    "altColor": "",
+    "color": "#9E7E38",
+    "altColor": "#000000",
     "logos": []
   },
   {
@@ -1295,8 +1295,8 @@
     "mascot": "Huskies",
     "abbreviation": "WASH",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#4B2E83",
+    "altColor": "#E8D3A2",
     "logos": []
   },
   {
@@ -1305,8 +1305,8 @@
     "mascot": "Cougars",
     "abbreviation": "WSU",
     "conference": "Pac-12",
-    "color": "",
-    "altColor": "",
+    "color": "#981E32",
+    "altColor": "#5E6A71",
     "logos": []
   },
   {
@@ -1315,8 +1315,8 @@
     "mascot": "Hilltoppers",
     "abbreviation": "WKU",
     "conference": "Conference USA",
-    "color": "",
-    "altColor": "",
+    "color": "#B01E24",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1325,8 +1325,8 @@
     "mascot": "Broncos",
     "abbreviation": "WMU",
     "conference": "Mid-American",
-    "color": "",
-    "altColor": "",
+    "color": "#6C4023",
+    "altColor": "#B5A167",
     "logos": []
   },
   {
@@ -1335,8 +1335,8 @@
     "mascot": "Mountaineers",
     "abbreviation": "WVU",
     "conference": "Big 12",
-    "color": "",
-    "altColor": "",
+    "color": "#002855",
+    "altColor": "#EAAA00",
     "logos": []
   },
   {
@@ -1345,8 +1345,8 @@
     "mascot": "Badgers",
     "abbreviation": "WIS",
     "conference": "Big Ten",
-    "color": "",
-    "altColor": "",
+    "color": "#C5050C",
+    "altColor": "#FFFFFF",
     "logos": []
   },
   {
@@ -1355,8 +1355,8 @@
     "mascot": "Cowboys",
     "abbreviation": "WYO",
     "conference": "Mountain West",
-    "color": "",
-    "altColor": "",
+    "color": "#492F24",
+    "altColor": "#FFC425",
     "logos": []
   }
 ]

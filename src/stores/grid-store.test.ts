@@ -20,6 +20,7 @@ jest.mock('@/services/games/grid-engine', () => ({
   loadGridCriteriaFromCache: jest.fn(() => Promise.resolve()),
   populateValidAnswersFromCache: jest.fn((puzzle: any) => Promise.resolve(puzzle)),
   generateDailyPuzzle: jest.fn((dateStr: string) => mockPuzzle(dateStr)),
+  generateValidatedPuzzle: jest.fn((dateStr: string) => Promise.resolve(mockPuzzle(dateStr))),
   createInitialGameState: jest.fn((puzzle: any) => ({
     puzzle,
     cells: [

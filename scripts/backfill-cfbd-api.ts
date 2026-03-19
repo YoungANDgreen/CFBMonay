@@ -120,15 +120,12 @@ async function main() {
 
   console.log(`\nExisting: ${existingPlayers.length} players, ${existingStats.length} stat lines`);
 
-  // Track new data
+  // Track new data — we always replace ALL pre-2014 stats from the API
   const newPlayers = new Map<number, CachedPlayer>();
   const newStats: CachedPlayerSeasonStats[] = [];
   const existingPlayerIds = new Set(existingPlayers.map(p => p.id));
-  const existingStatKeys = new Set(
-    existingStats
-      .filter(s => s.season < 2014)
-      .map(s => `${s.playerId}-${s.season}-${s.category}`)
-  );
+  // No dedup for pre-2014 stats — we fetch everything fresh and replace
+  const existingStatKeys = new Set<string>();
 
   // Fetch rosters for each year
   console.log('\nFetching rosters...');
@@ -165,27 +162,30 @@ async function main() {
       process.stdout.write(`    ${category}...`);
       const rawStats = await fetchPlayerStats(year, category);
 
-      let added = 0;
+      // Group API rows by player — each row is one statType, we need to merge them
+      const playerMap = new Map<string, CachedPlayerSeasonStats>();
       for (const s of rawStats) {
-        const playerId = s.playerId || 0;
+        const playerId = Number(s.playerId) || 0;
         const playerName = s.player || '';
         const team = s.team || '';
         const key = `${playerId}-${year}-${category}`;
 
-        if (existingStatKeys.has(key)) continue;
+        if (existingStatKeys.has(key) && !playerMap.has(key)) continue;
 
-        // Build stat record
-        const stat: CachedPlayerSeasonStats = {
-          playerId,
-          player: playerName,
-          team,
-          season: year,
-          category,
-        };
+        // Get or create the record for this player+season+category
+        if (!playerMap.has(key)) {
+          playerMap.set(key, {
+            playerId,
+            player: playerName,
+            team,
+            season: year,
+            category,
+          });
+        }
+        const stat = playerMap.get(key)!;
 
         // Map CFBD stat types to our flat format
         if (s.statType && s.stat !== undefined) {
-          // Single stat type per record from CFBD
           const val = parseStatValue(s.stat);
           switch (s.statType) {
             case 'YDS': case 'PASS_YDS':
@@ -217,10 +217,15 @@ async function main() {
             case 'SOLO': case 'TOT': stat.tackles = val; break;
           }
         }
+      }
 
-        newStats.push(stat);
-        existingStatKeys.add(key);
-        added++;
+      let added = 0;
+      for (const [key, stat] of playerMap) {
+        if (!existingStatKeys.has(key)) {
+          newStats.push(stat);
+          existingStatKeys.add(key);
+          added++;
+        }
       }
       console.log(` ${rawStats.length} records (${added} new)`);
       await sleep(1200);

@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { colors, spacing, typography, borderRadius } from '@/lib/theme';
 import { searchPlayers, getAllTeams, getPlayerSeasons } from '@/services/data/cfbd-cache';
+import { tapHaptic, impactMediumHaptic } from '@/lib/haptics';
 import { TeamLogo } from '@/components/ui/team-logo';
 import type { Player } from '@/types';
 
@@ -92,6 +93,7 @@ export function PlayerSearch({
   }, []);
 
   const handleSelect = (player: Player) => {
+    impactMediumHaptic();
     if (showYearSelector) {
       const seasons = getPlayerSeasons(player.name);
       if (seasons.length > 0) {

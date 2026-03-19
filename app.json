@@ -19,9 +19,14 @@
       "buildNumber": "1"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "root": "./src/app"
+        }
+      ],
       "expo-font",
-      "expo-haptics"
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true

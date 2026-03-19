@@ -11,6 +11,7 @@ interface ScoreDisplayProps {
   guessesRemaining?: number;
   maxGuesses?: number;
   compact?: boolean;
+  accentColor?: string;
 }
 
 export function ScoreDisplay({
@@ -21,6 +22,7 @@ export function ScoreDisplay({
   guessesRemaining,
   maxGuesses,
   compact = false,
+  accentColor,
 }: ScoreDisplayProps) {
   return (
     <View style={[styles.container, compact && styles.compact]}>
@@ -28,33 +30,44 @@ export function ScoreDisplay({
 
       <View style={styles.statsRow}>
         <View style={styles.statItem}>
-          <Text style={styles.scoreValue}>{score.toLocaleString()}</Text>
-          <Text style={styles.statLabel}>Score</Text>
+          <Text style={[styles.scoreValue, accentColor && { color: accentColor }]}>
+            {score.toLocaleString()}
+          </Text>
+          <Text style={styles.statLabel}>SCORE</Text>
         </View>
 
         {percentile !== undefined && (
-          <View style={styles.statItem}>
-            <Text style={[styles.percentileValue, { color: getRarityColor(percentile) }]}>
-              {percentile}%
-            </Text>
-            <Text style={styles.statLabel}>Percentile</Text>
-          </View>
+          <>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={[styles.percentileValue, { color: getRarityColor(percentile) }]}>
+                {percentile}%
+              </Text>
+              <Text style={styles.statLabel}>PERCENTILE</Text>
+            </View>
+          </>
         )}
 
         {streak !== undefined && streak > 0 && (
-          <View style={styles.statItem}>
-            <Text style={styles.streakValue}>{streak}</Text>
-            <Text style={styles.statLabel}>Streak</Text>
-          </View>
+          <>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.streakValue}>{streak}</Text>
+              <Text style={styles.statLabel}>STREAK</Text>
+            </View>
+          </>
         )}
 
         {guessesRemaining !== undefined && maxGuesses !== undefined && (
-          <View style={styles.statItem}>
-            <Text style={styles.guessesValue}>
-              {guessesRemaining}/{maxGuesses}
-            </Text>
-            <Text style={styles.statLabel}>Guesses</Text>
-          </View>
+          <>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.guessesValue}>
+                {guessesRemaining}/{maxGuesses}
+              </Text>
+              <Text style={styles.statLabel}>GUESSES</Text>
+            </View>
+          </>
         )}
       </View>
     </View>
@@ -64,9 +77,9 @@ export function ScoreDisplay({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
+    borderRadius: 6,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: 'rgba(255,255,255,0.06)',
     padding: spacing.md,
     ...shadows.sm,
   },
@@ -74,19 +87,26 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
   },
   label: {
-    color: colors.textSecondary,
+    color: colors.textMuted,
     fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.medium,
+    fontWeight: typography.fontWeight.heavy,
     textTransform: 'uppercase',
-    letterSpacing: 1,
+    letterSpacing: 3,
     marginBottom: spacing.sm,
   },
   statsRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
   },
   statItem: {
     alignItems: 'center',
+    flex: 1,
+  },
+  statDivider: {
+    width: 1,
+    height: 28,
+    backgroundColor: colors.border + '60',
   },
   scoreValue: {
     color: colors.accent,
@@ -109,7 +129,9 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     color: colors.textMuted,
-    fontSize: typography.fontSize.xs,
-    marginTop: 2,
+    fontSize: 9,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 1.5,
+    marginTop: 3,
   },
 });

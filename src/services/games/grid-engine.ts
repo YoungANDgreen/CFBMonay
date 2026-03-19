@@ -331,6 +331,35 @@ function allCellsCompatible(rows: GridCriteria[], columns: GridCriteria[]): bool
   return true;
 }
 
+/**
+ * Checks if a school+conference pair is a mismatch (e.g., Alabama + Pac-12).
+ * This prevents impractical cells that would require obscure transfers.
+ */
+function hasSchoolConferenceMismatch(rows: GridCriteria[], columns: GridCriteria[]): boolean {
+  const confMap = getTeamConfMap();
+  const all = [...rows, ...columns];
+  const schools = all.filter(c => c.type === 'school');
+  const conferences = all.filter(c => c.type === 'conference');
+
+  if (schools.length === 0 || conferences.length === 0) return false;
+
+  // Each school must belong to at least one of the selected conferences
+  // OR there must be no direct school+conference cell pairing that's impossible
+  for (const row of rows) {
+    for (const col of columns) {
+      const school = row.type === 'school' ? row : col.type === 'school' ? col : null;
+      const conf = row.type === 'conference' ? row : col.type === 'conference' ? col : null;
+      if (school && conf) {
+        const schoolConf = confMap.get(school.value.toLowerCase());
+        if (schoolConf && schoolConf !== conf.value) {
+          return true; // mismatch — this cell would require a transfer
+        }
+      }
+    }
+  }
+  return false;
+}
+
 export function generateDailyPuzzle(dateStr: string, size: 3 | 4 = 3): GridPuzzle {
   const rng = seededRandom(dateToSeed(dateStr));
 
@@ -343,7 +372,7 @@ export function generateDailyPuzzle(dateStr: string, size: 3 | 4 = 3): GridPuzzl
     const usedRowTypes = rows.map(r => r.type);
     columns = pickCriteria(rng, size, usedRowTypes);
 
-    if (allCellsCompatible(rows, columns)) break;
+    if (allCellsCompatible(rows, columns) && !hasSchoolConferenceMismatch(rows, columns)) break;
   }
 
   return {
@@ -354,6 +383,48 @@ export function generateDailyPuzzle(dateStr: string, size: 3 | 4 = 3): GridPuzzl
     columns,
     validAnswers: {}, // populated by populateValidAnswersFromCache() or backend
   };
+}
+
+/**
+ * Generate a puzzle and validate that every cell has at least MIN_ANSWERS_PER_CELL
+ * valid players in our dataset. Retries with seed offsets if any cell is empty.
+ */
+const MIN_ANSWERS_PER_CELL = 3;
+
+export async function generateValidatedPuzzle(
+  dateStr: string,
+  size: 3 | 4 = 3,
+): Promise<GridPuzzle> {
+  const MAX_SEED_OFFSETS = 20;
+
+  for (let offset = 0; offset < MAX_SEED_OFFSETS; offset++) {
+    const seedStr = offset === 0 ? dateStr : `${dateStr}-v${offset}`;
+    const basePuzzle = generateDailyPuzzle(seedStr, size);
+    const puzzle = await populateValidAnswersFromCache(basePuzzle);
+
+    // Check every cell has enough valid answers
+    let allCellsViable = true;
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        const key = `${r}-${c}`;
+        const answers = puzzle.validAnswers[key];
+        if (!answers || answers.length < MIN_ANSWERS_PER_CELL) {
+          allCellsViable = false;
+          break;
+        }
+      }
+      if (!allCellsViable) break;
+    }
+
+    if (allCellsViable) {
+      // Fix the puzzle id/date back to the original dateStr
+      return { ...puzzle, id: `grid-${dateStr}`, date: dateStr };
+    }
+  }
+
+  // Fallback: return the last attempt even if imperfect
+  const fallback = generateDailyPuzzle(dateStr, size);
+  return populateValidAnswersFromCache(fallback);
 }
 
 /**

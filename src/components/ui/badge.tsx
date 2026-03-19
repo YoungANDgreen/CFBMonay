@@ -12,7 +12,7 @@ interface BadgeProps {
 export function Badge({
   label,
   color = colors.accent,
-  textColor = colors.primary,
+  textColor = colors.black,
   size = 'sm',
 }: BadgeProps) {
   return (
@@ -26,11 +26,13 @@ export function Badge({
 
 const styles = StyleSheet.create({
   base: {
-    borderRadius: borderRadius.full,
+    borderRadius: borderRadius.sm,
     alignSelf: 'flex-start',
   },
   text: {
-    fontWeight: typography.fontWeight.bold,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
   },
 });
 

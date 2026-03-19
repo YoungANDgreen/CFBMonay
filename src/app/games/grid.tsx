@@ -7,14 +7,17 @@ import {
   KeyboardAvoidingView,
   Platform,
   Animated,
+  Share,
 } from 'react-native';
-import { colors, spacing, typography, borderRadius } from '@/lib/theme';
+import { LinearGradient } from 'expo-linear-gradient';
+import { colors, spacing, typography, borderRadius, shadows } from '@/lib/theme';
 import { useGridStore } from '@/stores/grid-store';
 import { GridBoard } from '@/components/games/grid-board';
 import { PlayerSearch } from '@/components/games/player-search';
 import { ScoreDisplay } from '@/components/games/score-display';
 import { Button } from '@/components/ui/button';
 import { celebrationBurst, rollNumber } from '@/lib/animations';
+import { tapHaptic, milestoneHaptic } from '@/lib/haptics';
 import type { Player } from '@/types';
 
 export default function GridScreen() {
@@ -29,12 +32,22 @@ export default function GridScreen() {
   // Animated values
   const scoreAnim = useRef(new Animated.Value(0)).current;
   const celebrationScale = useRef(new Animated.Value(1)).current;
+  const headerOpacity = useRef(new Animated.Value(0)).current;
   const prevScore = useRef(0);
   const prevComplete = useRef(false);
 
   useEffect(() => {
     loadDailyPuzzle();
   }, [loadDailyPuzzle]);
+
+  // Fade in header on mount
+  useEffect(() => {
+    Animated.timing(headerOpacity, {
+      toValue: 1,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
+  }, [headerOpacity]);
 
   // Animate score changes
   useEffect(() => {
@@ -49,11 +62,20 @@ export default function GridScreen() {
   useEffect(() => {
     if (!gameState) return;
     if (gameState.isComplete && !prevComplete.current) {
+      milestoneHaptic();
       celebrationScale.setValue(1);
       celebrationBurst(celebrationScale).start();
     }
     prevComplete.current = gameState.isComplete;
   }, [gameState?.isComplete, celebrationScale, gameState]);
+
+  const handleCellPress = useCallback(
+    (row: number, col: number) => {
+      tapHaptic();
+      selectCell(row, col);
+    },
+    [selectCell],
+  );
 
   const handlePlayerSelect = useCallback(
     (player: Player, year?: number) => {
@@ -62,19 +84,34 @@ export default function GridScreen() {
     [submitAnswer],
   );
 
+  const handleShare = useCallback(() => {
+    if (!gameState) return;
+    const grid = gameState.cells
+      .map((row) => row.map((c) => (c.isCorrect ? '\u{1F7E9}' : c.isLocked ? '\u{1F7E5}' : '\u{2B1C}')).join(''))
+      .join('\n');
+    Share.share({
+      message: `GridIron IQ - The Grid\nScore: ${gameState.score}\n\n${grid}`,
+    });
+  }, [gameState]);
+
   if (!gameState || !gameState.puzzle) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading today's puzzle...</Text>
+        <View style={styles.loadingPulse}>
+          <Text style={styles.loadingIcon}>{'\u{1F3C8}'}</Text>
+          <Text style={styles.loadingText}>LOADING PUZZLE</Text>
+        </View>
       </View>
     );
   }
 
   const totalCells = gameState.puzzle.size * gameState.puzzle.size;
-
-  // Compute number of filled cells for completion tracking
   const filledCells = gameState.cells.reduce(
     (sum, row) => sum + row.filter((c) => c.isLocked).length,
+    0,
+  );
+  const correctCells = gameState.cells.reduce(
+    (sum, row) => sum + row.filter((c) => c.isCorrect).length,
     0,
   );
 
@@ -88,27 +125,35 @@ export default function GridScreen() {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Header */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.title}>The Grid</Text>
+        {/* Header with green accent */}
+        <Animated.View style={[styles.header, { opacity: headerOpacity }]}>
+          <View style={styles.headerLeft}>
+            <View style={styles.titleRow}>
+              <View style={[styles.titleDot, { backgroundColor: colors.gridGreen }]} />
+              <Text style={styles.title}>THE GRID</Text>
+            </View>
             <Text style={styles.date}>
               {new Date().toLocaleDateString('en-US', {
                 weekday: 'long',
                 month: 'short',
                 day: 'numeric',
-              })}
+              }).toUpperCase()}
             </Text>
           </View>
-          {/* Progress indicator */}
-          <View style={styles.progressBadge}>
-            <Text style={styles.progressText}>
-              {filledCells}/{totalCells}
-            </Text>
-          </View>
-        </View>
 
-        {/* Score Display with celebration animation */}
+          {/* Progress ring */}
+          <View style={styles.progressContainer}>
+            <View style={[
+              styles.progressRing,
+              filledCells === totalCells && { borderColor: colors.gridGreen },
+            ]}>
+              <Text style={styles.progressCount}>{correctCells}</Text>
+              <Text style={styles.progressDivider}>/{totalCells}</Text>
+            </View>
+          </View>
+        </Animated.View>
+
+        {/* Score Display */}
         <Animated.View style={{ transform: [{ scale: celebrationScale }] }}>
           <ScoreDisplay
             label={gameState.isComplete ? 'Final Score' : 'Current Game'}
@@ -116,16 +161,23 @@ export default function GridScreen() {
             guessesRemaining={gameState.guessesRemaining}
             maxGuesses={totalCells}
             compact
+            accentColor={colors.gridGreen}
           />
         </Animated.View>
 
         {/* Instructions */}
         {!gameState.isComplete && gameState.currentCell === null && (
-          <View style={styles.instructionBanner}>
+          <LinearGradient
+            colors={[colors.gridGreen + '12', 'transparent']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.instructionBanner}
+          >
+            <View style={[styles.instructionAccent, { backgroundColor: colors.gridGreen }]} />
             <Text style={styles.instructionText}>
-              Tap a cell, then search for a player who matches both the row and column criteria
+              TAP A CELL, THEN SEARCH FOR A PLAYER WHO MATCHES BOTH CRITERIA
             </Text>
-          </View>
+          </LinearGradient>
         )}
 
         {/* Grid Board */}
@@ -134,22 +186,25 @@ export default function GridScreen() {
           rows={gameState.puzzle.rows}
           columns={gameState.puzzle.columns}
           selectedCell={gameState.currentCell}
-          onCellPress={selectCell}
+          onCellPress={handleCellPress}
         />
 
         {/* Player Search — visible when a cell is selected */}
         {gameState.currentCell && !gameState.isComplete && (
           <View style={styles.searchSection}>
-            <Text style={styles.searchHint}>
-              Find a player who played in the{' '}
-              <Text style={styles.criteriaHighlight}>
-                {gameState.cells[gameState.currentCell.row][gameState.currentCell.col].rowCriteria.displayText}
+            <View style={styles.searchHintContainer}>
+              <View style={[styles.searchHintDot, { backgroundColor: colors.gridGreen }]} />
+              <Text style={styles.searchHint}>
+                Find a player who played in the{' '}
+                <Text style={styles.criteriaHighlight}>
+                  {gameState.cells[gameState.currentCell.row][gameState.currentCell.col].rowCriteria.displayText}
+                </Text>
+                {' and '}
+                <Text style={styles.criteriaHighlight}>
+                  {gameState.cells[gameState.currentCell.row][gameState.currentCell.col].colCriteria.displayText}
+                </Text>
               </Text>
-              {' and '}
-              <Text style={styles.criteriaHighlight}>
-                {gameState.cells[gameState.currentCell.row][gameState.currentCell.col].colCriteria.displayText}
-              </Text>
-            </Text>
+            </View>
             <PlayerSearch
               onSelectPlayer={handlePlayerSelect}
               showYearSelector={true}
@@ -161,10 +216,18 @@ export default function GridScreen() {
         {/* Game Complete */}
         {gameState.isComplete && (
           <View style={styles.completeSection}>
+            <Text style={styles.completeEmoji}>
+              {correctCells === totalCells ? '\u{1F3C6}' : correctCells > 0 ? '\u{1F3C8}' : '\u{1F614}'}
+            </Text>
             <Text style={styles.completeTitle}>
-              {gameState.score > 0 ? 'Nice work!' : 'Better luck tomorrow!'}
+              {correctCells === totalCells
+                ? 'PERFECT GRID!'
+                : correctCells > 0
+                  ? 'NICE WORK!'
+                  : 'BETTER LUCK TOMORROW'}
             </Text>
 
+            {/* Result mini-grid */}
             <View style={styles.resultGrid}>
               {gameState.cells.map((row, ri) => (
                 <View key={ri} style={styles.resultRow}>
@@ -175,24 +238,21 @@ export default function GridScreen() {
                         styles.resultCell,
                         cell.isCorrect ? styles.resultCorrect : styles.resultIncorrect,
                       ]}
-                    >
-                      <Text style={styles.resultEmoji}>
-                        {cell.isCorrect ? '\u2705' : '\u274C'}
-                      </Text>
-                    </View>
+                    />
                   ))}
                 </View>
               ))}
             </View>
 
             <Button
-              title="Share Results"
-              onPress={() => {}}
+              title="SHARE RESULTS"
+              onPress={handleShare}
               variant="primary"
+              accentColor={colors.gridGreen}
               style={styles.shareButton}
             />
             <Button
-              title="Play Practice Mode"
+              title="PLAY PRACTICE MODE"
               onPress={resetGame}
               variant="outline"
             />
@@ -212,69 +272,140 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.background,
   },
-  loadingText: { color: colors.textSecondary, fontSize: typography.fontSize.md },
+  loadingPulse: {
+    alignItems: 'center',
+  },
+  loadingIcon: {
+    fontSize: 40,
+    marginBottom: spacing.md,
+  },
+  loadingText: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 3,
+  },
+
+  // Header
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.md,
   },
+  headerLeft: {},
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    marginRight: spacing.sm,
+  },
   title: {
     color: colors.gridGreen,
     fontSize: typography.fontSize.xxl,
     fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 2,
   },
   date: {
     color: colors.textMuted,
-    fontSize: typography.fontSize.sm,
-    marginTop: 2,
-  },
-  progressBadge: {
-    backgroundColor: colors.surfaceLight,
-    borderRadius: borderRadius.full,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  progressText: {
-    color: colors.textSecondary,
-    fontSize: typography.fontSize.sm,
+    fontSize: typography.fontSize.xs,
     fontWeight: typography.fontWeight.bold,
+    letterSpacing: 1.5,
+    marginTop: 4,
+    marginLeft: 18, // align with title text past the dot
   },
+
+  // Progress
+  progressContainer: {},
+  progressRing: {
+    width: 52,
+    height: 52,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: colors.border,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+  },
+  progressCount: {
+    color: colors.textPrimary,
+    fontSize: typography.fontSize.lg,
+    fontWeight: typography.fontWeight.heavy,
+  },
+  progressDivider: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.bold,
+    marginTop: -2,
+  },
+
+  // Instructions
   instructionBanner: {
-    backgroundColor: colors.surfaceLight,
-    borderRadius: borderRadius.md,
-    padding: spacing.md,
+    flexDirection: 'row',
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: colors.gridGreen + '30',
     marginVertical: spacing.sm,
-    borderLeftWidth: 3,
-    borderLeftColor: colors.gridGreen,
+    overflow: 'hidden',
+  },
+  instructionAccent: {
+    width: 4,
   },
   instructionText: {
     color: colors.textSecondary,
-    fontSize: typography.fontSize.sm,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.bold,
+    letterSpacing: 0.5,
+    padding: spacing.md,
+    flex: 1,
   },
+
+  // Search
   searchSection: {
     marginTop: spacing.md,
+  },
+  searchHintContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: spacing.sm,
+  },
+  searchHintDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginTop: 5,
+    marginRight: spacing.sm,
   },
   searchHint: {
     color: colors.textSecondary,
     fontSize: typography.fontSize.sm,
-    marginBottom: spacing.sm,
+    flex: 1,
   },
   criteriaHighlight: {
-    color: colors.accent,
-    fontWeight: typography.fontWeight.bold,
+    color: colors.gridGreen,
+    fontWeight: typography.fontWeight.heavy,
+    textTransform: 'uppercase',
   },
+
+  // Complete
   completeSection: {
     alignItems: 'center',
     marginTop: spacing.lg,
   },
+  completeEmoji: {
+    fontSize: 48,
+    marginBottom: spacing.sm,
+  },
   completeTitle: {
     color: colors.textPrimary,
     fontSize: typography.fontSize.xl,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.md,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 2,
+    marginBottom: spacing.lg,
   },
   resultGrid: {
     marginBottom: spacing.lg,
@@ -283,15 +414,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   resultCell: {
-    width: 44,
-    height: 44,
+    width: 36,
+    height: 36,
     margin: 2,
-    borderRadius: borderRadius.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
+    borderRadius: 3,
   },
-  resultCorrect: { backgroundColor: colors.correct + '30' },
-  resultIncorrect: { backgroundColor: colors.incorrect + '30' },
-  resultEmoji: { fontSize: 20 },
+  resultCorrect: { backgroundColor: colors.correct + '50' },
+  resultIncorrect: { backgroundColor: colors.incorrect + '40' },
   shareButton: { marginBottom: spacing.sm, width: '100%' },
 });

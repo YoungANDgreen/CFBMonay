@@ -5,11 +5,10 @@
 import { create } from 'zustand';
 import type { GridGameState, Player } from '@/types';
 import {
-  generateDailyPuzzle,
+  generateValidatedPuzzle,
   createInitialGameState,
   submitGuess,
   loadGridCriteriaFromCache,
-  populateValidAnswersFromCache,
 } from '@/services/games/grid-engine';
 
 interface GridStore {
@@ -44,8 +43,7 @@ export const useGridStore = create<GridStore>((set, get) => ({
   loadDailyPuzzle: async () => {
     const dateStr = getTodayStr();
     await loadGridCriteriaFromCache();
-    const basePuzzle = generateDailyPuzzle(dateStr);
-    const puzzle = await populateValidAnswersFromCache(basePuzzle);
+    const puzzle = await generateValidatedPuzzle(dateStr);
     const gameState = createInitialGameState(puzzle);
     set({ gameState, dailyCompleted: false });
   },
@@ -84,8 +82,7 @@ export const useGridStore = create<GridStore>((set, get) => ({
   resetGame: async () => {
     const dateStr = getTodayStr();
     await loadGridCriteriaFromCache();
-    const basePuzzle = generateDailyPuzzle(dateStr);
-    const puzzle = await populateValidAnswersFromCache(basePuzzle);
+    const puzzle = await generateValidatedPuzzle(dateStr);
     const gameState = createInitialGameState(puzzle);
     set({
       gameState,

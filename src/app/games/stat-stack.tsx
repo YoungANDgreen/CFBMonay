@@ -13,8 +13,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing, typography, borderRadius, shadows, getRarityColor } from '@/lib/theme';
 import { getStatCategoryColor } from '@/lib/theme';
 import { scaleBounce, fadeIn, slideUp, staggeredFadeIn } from '@/lib/animations';
+import { tapHaptic, milestoneHaptic, impactMediumHaptic } from '@/lib/haptics';
 import { useStatStackStore } from '@/stores/stat-stack-store';
-import { getStatCategoryInfo } from '@/services/games/stat-stack-engine';
+import { getStatCategoryInfo, lookupPlayerStatValue } from '@/services/games/stat-stack-engine';
 import { StatStackRow } from '@/components/games/stat-stack-row';
 import { PlayerSearch } from '@/components/games/player-search';
 import { ScoreDisplay } from '@/components/games/score-display';
@@ -159,6 +160,7 @@ export default function StatStackScreen() {
   // Celebration animation when game completes
   useEffect(() => {
     if (gameState?.isComplete && scoreBreakdown) {
+      milestoneHaptic();
       celebrationScale.setValue(0.3);
       celebrationOpacity.setValue(0);
       Animated.parallel([
@@ -190,15 +192,19 @@ export default function StatStackScreen() {
       // Track team for logo display
       setRowTeams((prev) => ({ ...prev, [activeRow]: player.school }));
 
-      const mockStatValue = Math.floor(Math.random() * 2000) + 500;
+      // Look up the player's real stat value from the cache
+      const statCategory = gameState.puzzle!.statCategory;
+      const realStatValue = lookupPlayerStatValue(player.name, season, statCategory);
+
+      impactMediumHaptic();
 
       submitPick({
         rowIndex: activeRow,
         playerId: player.id,
         playerName: player.name,
         season,
-        statValue: mockStatValue,
-        isValid: true,
+        statValue: realStatValue,
+        isValid: realStatValue > 0,
       });
 
       const nextEmpty = gameState.picks.findIndex(
@@ -214,7 +220,8 @@ export default function StatStackScreen() {
   if (!gameState || !gameState.puzzle) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading today's Stat Stack...</Text>
+        <Text style={styles.loadingIcon}>{'\uD83C\uDFC8'}</Text>
+        <Text style={styles.loadingText}>LOADING STAT STACK</Text>
       </View>
     );
   }
@@ -237,14 +244,16 @@ export default function StatStackScreen() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={[styles.title, { color: accentColor }]}>Stat Stack</Text>
-          <View style={[styles.titleUnderline, { backgroundColor: colors.accent }]} />
+          <View style={styles.titleRow}>
+            <View style={[styles.titleDot, { backgroundColor: accentColor }]} />
+            <Text style={[styles.title, { color: accentColor }]}>STAT STACK</Text>
+          </View>
           <Text style={styles.date}>
             {new Date().toLocaleDateString('en-US', {
               weekday: 'long',
               month: 'short',
               day: 'numeric',
-            })}
+            }).toUpperCase()}
           </Text>
         </View>
 
@@ -354,7 +363,7 @@ export default function StatStackScreen() {
                     !gameState.isComplete
                   }
                   statUnit={categoryInfo.unit}
-                  onPress={() => !gameState.isComplete && setActiveRow(i)}
+                  onPress={() => { if (!gameState.isComplete) { tapHaptic(); setActiveRow(i); } }}
                   onTransferPortal={() => activateTransferPortal(i)}
                 />
               </View>
@@ -469,24 +478,41 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.background,
   },
-  loadingText: { color: colors.textSecondary, fontSize: typography.fontSize.md },
+  loadingIcon: {
+    fontSize: 40,
+    marginBottom: spacing.md,
+  },
+  loadingText: {
+    color: colors.textMuted,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.heavy,
+    letterSpacing: 3,
+  },
 
   // Header
   header: { marginBottom: spacing.md },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    marginRight: spacing.sm,
+  },
   title: {
     fontSize: typography.fontSize.xxl,
     fontWeight: typography.fontWeight.heavy,
-  },
-  titleUnderline: {
-    width: 40,
-    height: 3,
-    borderRadius: 2,
-    marginTop: spacing.xs,
+    letterSpacing: 2,
   },
   date: {
     color: colors.textMuted,
-    fontSize: typography.fontSize.sm,
-    marginTop: spacing.xs,
+    fontSize: typography.fontSize.xs,
+    fontWeight: typography.fontWeight.bold,
+    letterSpacing: 1.5,
+    marginTop: 4,
+    marginLeft: 18,
   },
 
   // Category banner — ticker style

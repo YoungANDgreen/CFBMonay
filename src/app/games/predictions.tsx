@@ -9,4 +9,4 @@ import { colors, typography } from '@/lib/theme';
 // - Backtesting dashboard
 // - Upset alert notifications
 
-export { default } from '../tabs/predict';
+export { default } from '../(tabs)/predict';

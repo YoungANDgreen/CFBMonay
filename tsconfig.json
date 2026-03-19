@@ -4,9 +4,22 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/**/*"],
-  "exclude": ["node_modules", "agency-agents"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "agency-agents",
+    "server",
+    "ml"
+  ]
 }

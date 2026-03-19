@@ -59,3 +59,13 @@ server/data/training_data.csv
 
 # PBP discovery output
 docs/play-format-discovery.txt
+
+# Claude Code / Superpowers
+.claude/
+.superpowers/
+
+# Python cache
+__pycache__/
+
+# Expo
+.expo/

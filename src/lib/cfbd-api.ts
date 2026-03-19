@@ -211,3 +211,50 @@ export async function getTeamRecords(year: number, team?: string): Promise<CfbdT
   if (team) params.team = team;
   return cfbdFetch<CfbdTeamRecord[]>('/records', params);
 }
+
+// --- Recruiting ---
+
+export interface CfbdRecruit {
+  id: number;
+  athleteId: number;
+  recruitType: string;
+  year: number;
+  ranking: number;
+  name: string;
+  school: string;
+  committedTo: string;
+  position: string;
+  height: number;
+  weight: number;
+  stars: number;
+  rating: number;
+  city: string;
+  stateProvince: string;
+}
+
+export async function getRecruits(year: number, team?: string): Promise<CfbdRecruit[]> {
+  const params: Record<string, string | number> = { year };
+  if (team) params.team = team;
+  return cfbdFetch<CfbdRecruit[]>('/recruiting/players', params);
+}
+
+// --- Roster ---
+
+export interface CfbdRosterPlayer {
+  id: number;
+  first_name: string;
+  last_name: string;
+  team: string;
+  position: string;
+  height: number;
+  weight: number;
+  jersey: number;
+  year: number;
+  home_state: string;
+}
+
+export async function getRoster(team: string, year?: number): Promise<CfbdRosterPlayer[]> {
+  const params: Record<string, string | number> = { team };
+  if (year) params.year = year;
+  return cfbdFetch<CfbdRosterPlayer[]>('/roster', params);
+}
